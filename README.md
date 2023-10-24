@@ -21,6 +21,7 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
+>  * - This project is important to us because time management is a crucial step in being productive. As computer science students, we all struggle with remembering due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  > * What will be the input/output of your project?
  > * The main features of this project are: It allows the user to organize their schedule by 
