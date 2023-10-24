@@ -26,7 +26,8 @@
  > * What will be the input/output of your project?
   > * - Input: Dates, times and durations, and activities
   > * - Output: A visible schedule, an error message if an multiple activiteis are scheduled for the same times 
- > * The main features of this project are: It allows the user to organize their schedule by 
+ > * What are the features of this project?
+>  * The main features of this project are: It allows the user to organize their schedule by adding different tasks and they will be notified at the time of the task. The user can decide exactly how much time before the task they want to be notified. The person will be notified if they schedule something with a time confict so that they can re-schedule it.
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
  > You also need to set up an empty project board using GitHub projects (board view). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added.
