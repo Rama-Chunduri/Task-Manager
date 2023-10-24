@@ -22,7 +22,7 @@
  > Your project description should summarize the project you are proposing. Be sure to include:
  > * Why is it important or interesting to you?
 >  * - This project is important to us because time management is a crucial step in being productive. As computer science students, we all struggle with remembering due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+ > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project) The languages that we will be using for this project would be c++, visual studio code, tkinter, and API's.
  > * What will be the input/output of your project?
  > * The main features of this project are: It allows the user to organize their schedule by 
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
