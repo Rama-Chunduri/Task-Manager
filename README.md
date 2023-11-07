@@ -57,8 +57,9 @@
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
 > This is the link to the Class Diagram and the description of the Class Diagram:
-> https://docs.google.com/drawings/d/1klo7c-gdU9e7fiJAyVl8gnY_Oc4xD2AHVF21hQjZU4I/edit?usp=sharing
- 
+> 
+ <img width="791" alt="Screenshot 2023-11-06 at 8 01 15 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/451af71e-a306-47cc-8b62-d6a25d98064d">
+
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
  
