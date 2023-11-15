@@ -47,13 +47,13 @@
  > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
-> Draw a diagram illustrating how the user can navigate from one screen to another. Here is an [example](https://creately.com/diagram/example/ikfqudv82/user-navigation-diagram-classic?r=v). It can be useful to label each symbol that represents a screen so that you can reference the screens in the next section or the rest of the document if necessary. Give a brief description of what the diagram represents.
+
 ><img width="728" alt="Screenshot 2023-11-06 at 9 00 29 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/56482299-3e3f-4d87-ba70-0d86df109c51">
 
 >
 
 ### Screen Layouts
-> Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
+
 
 <img width="541" alt="Screen_Layout_Diagram_1" src="https://github.com/cs100/final-project-snand021/assets/146979206/e5572a49-8a40-414d-b391-85aed3720e2b">
 
@@ -64,7 +64,7 @@
 
 
 ## Class Diagram
- > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
+
 > This is the link to the Class Diagram and the description of the Class Diagram:
 > 
  <img width="791" alt="Screenshot 2023-11-06 at 8 01 15 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/451af71e-a306-47cc-8b62-d6a25d98064d">
