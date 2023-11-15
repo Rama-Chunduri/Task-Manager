@@ -1,59 +1,24 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Schedule Organizer
- > Your author list below should include links to all members GitHub (remove existing author).
- 
+
  > Authors: \[Shivani Nandakumar](https://github.com/snand021)\
  > Authors: \[Varsha Kuppa](https://github.com/vkupp001)\
  > Authors: \[Sreeja Pagireddy](https://github.com/spagi002)\
  > Authors: \[Rama Chunduri](https://github.com/rchun043)\
 
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
-
- > ## Expectations
- > * The backend of your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * **Each member of the group must actively participate in the Github Project board, writing unit tests, and reviewing commited code.**
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
-
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
->  * - This project is important to us because time management is a crucial step in being productive. As computer science students, we all struggle with remembering due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
->    -The languages that we will be using for this project would be c++, visual studio code, tkinter, and API's.
- > * What will be the input/output of your project?
-  > * - Input: Dates, times and durations, and activities
-  > * - Output: A visible schedule, an error message if an multiple activiteis are scheduled for the same times 
- > * What are the features of this project?
->  * The main features of this project are: It allows the user to organize their schedule by adding different tasks and they will be notified at the time of the task. The user can decide exactly how much time before the task they want to be notified. The person will be notified if they schedule something with a time confict so that they can re-schedule it.
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
- > You also need to set up an empty project board using GitHub projects (board view). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added.
- > ## Phase II
- > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
- > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Break down the "Epics" into smaller actionable user stories (i.e. smaller development tasks). Convert them into issues and assign them to team members. Place these in the `TODO` (aka Sprint Backlog) column.
- >   * These cards should represent roughly 7 days worth of development time for your team. Then, once the sprint is over you should be repeating these steps to plan a new sprint, taking you until your second scrum meeting with the reader in phase III.
- > * Schedule two check-ins using Calendly. You need to pick both time slots on Tuesday of week 6. The check-ins will occur on Zoom. Your entire team must be present for both check-ins.
- >   * The first check-in needs to be scheduled with your lab TA. During that meeting, you will discuss your project design/class diagram from phase II.
- >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
- >     * The tasks you are planning for the first sprint
- >     * How work will be divided between the team members
+- This project is important to us because time management is a crucial step in being productive. As computer science students, we all struggle with remembering due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
+-The languages that we will be using for this project would be c++, visual studio code, tkinter, and API's.
+- Input: Dates, times and durations, and activities
+- Output: A visible schedule, an error message if an multiple activiteis are scheduled for the same times 
+The main features of this project are: It allows the user to organize their schedule by adding different tasks and they will be notified at the time of the task. The user can decide exactly how much time before the task they want to be notified. The person will be notified if they schedule something with a time confict so that they can re-schedule it.
+
 ## User Interface Specification
- > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
+(https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
-
 ><img width="728" alt="Screenshot 2023-11-06 at 9 00 29 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/56482299-3e3f-4d87-ba70-0d86df109c51">
 
->
-
 ### Screen Layouts
-
 
 <img width="541" alt="Screen_Layout_Diagram_1" src="https://github.com/cs100/final-project-snand021/assets/146979206/e5572a49-8a40-414d-b391-85aed3720e2b">
 
@@ -61,13 +26,9 @@
 
 <img width="541" alt="Screen_Layout_Diagram_3" src="https://github.com/cs100/final-project-snand021/assets/146979206/7ee9ffef-5537-43f8-bd56-9265787d1f8a">
 
-
-
 ## Class Diagram
 
-> This is the link to the Class Diagram and the description of the Class Diagram:
-> 
- <img width="791" alt="Screenshot 2023-11-06 at 8 01 15 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/451af71e-a306-47cc-8b62-d6a25d98064d">
+><img width="791" alt="Screenshot 2023-11-06 at 8 01 15 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/451af71e-a306-47cc-8b62-d6a25d98064d">
 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
