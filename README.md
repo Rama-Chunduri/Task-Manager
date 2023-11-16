@@ -21,11 +21,11 @@ The main features of this project are: It allows the user to organize their sche
 
 ### Screen Layouts
 
-<img width="541" alt="Screen_Layout_Diagram_1" src="https://github.com/cs100/final-project-snand021/assets/146979206/e5572a49-8a40-414d-b391-85aed3720e2b">
+<img width="408" alt="Screenshot 2023-11-15 at 10 43 02 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/3e22f49b-b33d-4c06-9362-7eaa4af8b3c3">
 
-<img width="540" alt="Screen_Layout_Diagram_2" src="https://github.com/cs100/final-project-snand021/assets/146979206/616bc479-d8ea-4b8b-b69b-710c4bbf2b6a">
+<img width="406" alt="Screenshot 2023-11-15 at 10 43 17 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/e33d70a0-97b0-42b8-994d-1d4e66e57e18">
 
-<img width="541" alt="Screen_Layout_Diagram_3" src="https://github.com/cs100/final-project-snand021/assets/146979206/7ee9ffef-5537-43f8-bd56-9265787d1f8a">
+<img width="407" alt="Screenshot 2023-11-15 at 10 43 36 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/f02b10c4-724a-4e5a-9daa-1329188db167">
 
 ## Class Diagram
 
