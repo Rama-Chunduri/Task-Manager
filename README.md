@@ -7,10 +7,10 @@
 
 ## Project Description
 - This project is important to us because time management is a crucial step in being productive. As computer science students, we all struggle with remembering due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
--The languages that we will be using for this project would be c++, visual studio code, tkinter, and API's.
-- Input: Dates, times and durations, and activities
-- Output: A visible schedule, an error message if an multiple activiteis are scheduled for the same times 
-The main features of this project are: It allows the user to organize their schedule by adding different tasks and they will be notified at the time of the task. The user can decide exactly how much time before the task they want to be notified. The person will be notified if they schedule something with a time confict so that they can re-schedule it.
+-The languages that we will be using for this project would be C++ and Visual Studio Code.
+- Input: Name of user, password, name of task, description, due dates, tags, and priority of tasks.
+- Output: A visible schedule which is printed in order of due dates which shows all the tasks , due dates, priorities, tags, descriptions and all information about their tasks. They will also get automatic remainders which are displayed on the screen 24 hours before each task is due.
+The main features of this project are: It allows the user to organize their schedule by adding different tasks and they will be notified 24 hours before the time of the task. They can add a description to their tasks, categorize them using tags, give them certain priorities and set due dates for the tasks as well.
 
 ## User Interface Specification
 (https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
