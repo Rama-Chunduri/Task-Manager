@@ -10,6 +10,7 @@ class taskListEdit : public Task {
    public:
    void addTask(string newTask);
    void removeTask(string toRemove);
+   void editTask(string taskName);
    private:
    vector<Task*> tasks;
 };

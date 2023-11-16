@@ -5,6 +5,8 @@ using namespace std;
 
 class Task{
    public:
+   Task();
+   Task(string name, string description, string dueDate, string tag, int priority);
    void SetName(string name);
    void SetDueDate(string dueDate);
    void SetTag(string tag);
@@ -16,10 +18,10 @@ class Task{
    string GetDescription();
    int GetPriority();
    private:
-   string name;
-   string dueDate;
-   int priority;
-   string tag;
-   string description;
+   string _name;
+   string _dueDate;
+   int _priority;
+   string _tag;
+   string _description;
 };
 
