@@ -2,36 +2,43 @@
 #include <string>
 #include <vector>
 
-
+Task::Task(){}
+Task::Task(string name, string description, string dueDate, string tag, int priority){
+   _name = name;
+   _description = description;
+   _dueDate = dueDate;
+   _tag = tag;
+   _priority = priority;
+}
 void Task::SetName(string name){
-this->name = name;
+this->_name = name;
 }
 void Task::SetDueDate(string dueDate){
-   this->dueDate = dueDate;
+   this->_dueDate = dueDate;
 }
 void Task::SetTag(string tag){
-   this->tag = tag;
+   this->_tag = tag;
 }
-void SetDescription(string description){
-   this->description = description;
+void Task::SetDescription(string description){
+   this->_description = description;
 }
-void SetPriority(int priority){
-   this->priority = priority;
+void Task::SetPriority(int priority){
+   this->_priority = priority;
 }
 string Task::GetName(){
-   return name;
+   return _name;
 }
 string Task::GetDueDate(){
-   return dueDate;
+   return _dueDate;
 }
 string Task::GetTag(){
-   return tag;
+   return _tag;
 }
 string Task::GetDescription(){
-   return description;
+   return _description;
 }
-string Task::GetPriority(){
-   return priority;
+int Task::GetPriority(){
+   return _priority;
 }
 
 
