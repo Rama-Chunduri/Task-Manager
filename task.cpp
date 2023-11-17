@@ -4,6 +4,7 @@
 
 Task::Task(){}
 Task::Task(string name, string description, string dueDate, string tag, int priority){
+   vector<Task>tasks;
    _name = name;
    _description = description;
    _dueDate = dueDate;
