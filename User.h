@@ -4,8 +4,8 @@ class User{
         string userName;
         string password;
     public:
-        User::User();
-        User::User(string _userName, string _password);
+        User();
+        User(string _userName, string _password);
         void SetUserName (string _userName);
         void SetPassword (string _password);
         string GetUserName();

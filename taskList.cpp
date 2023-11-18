@@ -7,7 +7,7 @@
 using namespace std;
 
 
-void taskListEdit::addTask(string newTask, string description, string dueDate, string tag, int priority){
+void taskList::addTask(string newTask, string description, string dueDate, string tag, int priority){
    int name="check"; //this variable is for the user who is entering this task so we can implement the task
    //to the file
    Task* toAdd = new Task;
@@ -32,7 +32,7 @@ void taskListEdit::addTask(string newTask, string description, string dueDate, s
    myFile.close();
    
 }
-void taskListEdit::removeTask(string toRemove){
+void taskList::removeTask(string toRemove){
    int i;
    for(i=0; i<tasks.size(); ++i){
        if((tasks.at(i))->GetName() == toRemove){
