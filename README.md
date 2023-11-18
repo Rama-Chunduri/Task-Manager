@@ -8,20 +8,35 @@
 ## Project Description
 Purpose of the project: 
 User can create their tasks and have a schedule of their task weekly. Their tasks would be organized and users would get notifications when the due date would come closer. They can view their schedules from highest priority to the least priority or they can view from the due date. User has the choice to edit, delete, or print their schedule. This helps keep the user's schedule and a list of to-do things organized.
+
 Importance of the project: 
 This project is important to us because time management is a crucial step in being productive. As computer science students, we all struggle with remembering the due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
-Features:
-Create Account: User are initially directed to create an account where they can sign up and enter their name and password. If they aldredy have an account, they are directed to the login page.
+
+
+- Features:
+
+Create Account: User are initially directed to create an account where they can sign up and enter their name and password. If they already have an account, they are directed to the login page.
+
 Login: Existing user can log in and view, create, edit, delete their tasks, and set their schedule.
+
 View: After a user logs in, they will be directed to the view feature where they can view all their tasks.
+
 Menu: After viewing their schedule, they are directed toward the menu page where they can choose to print their schedule, delete tasks, and edit tasks.
+
 Edit: If they choose to edit their task, they can make changes within a week.
+
 Delete: A user can delete their task from their weekly schedule.
+
 Print Their Schedule: User can choose to view and print their schedule. Their schedule can also be organized by their start date or priority or how important it is to them.
+
 Remind Feature: User would also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
+
+
 Languages and Development:
--The language that we will be using for this project will be C++. We will also be using Visual Studio Code, Valgrind, and the gdb debugger.
+-Description: The language that we will be using for this project will be C++. We will also be using Visual Studio Code, Valgrind, and the gdb debugger.
+
 - Input: Name of user, password, name of task, description, due date, start date, task duration, completion status of task, tag, and priority of tasks.
+  
 - Output:
 A visible schedule which is printed in order of due dates, first dates, end dates, duration, priority, or tag (the user may choose, although printing by due date is the default view) which shows all the tasks, descriptions, and all information about their tasks. They will also get automatic reminders which are displayed on the screen 24 hours before each task is due.
 The main features of this project are: It allows the user to organize their schedule by adding different tasks and they will be notified 24 hours before the time of the task. They can add a description to their tasks, categorize them using tags, give them certain priorities, and set due dates for the tasks as well.
