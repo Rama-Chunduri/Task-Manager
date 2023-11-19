@@ -11,4 +11,4 @@ class ViewSchedule {
     void printByCompletion(User* user);
     void printByTag(User* user);
     void printByPriority(User* user);
-}
+};
