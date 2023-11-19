@@ -1,3 +1,4 @@
+#pragma once
 #include "task.h"
 #include <string>
 #include <vector>

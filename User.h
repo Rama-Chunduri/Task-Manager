@@ -1,3 +1,6 @@
+#pragma once
+#include <vector>
+#include <string>
 using namespace std;
 class User{
     private:
@@ -10,5 +13,5 @@ class User{
         void SetPassword (string _password);
         string GetUserName();
         string GetPassword();
-        void loadtasks();
+        vector<Task> loadtasks();
 };
