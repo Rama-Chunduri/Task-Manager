@@ -7,7 +7,6 @@ class User{
     private:
         string userName;
         string password;
-        vector<TaskList> taskList;
     public:
         User();
         User(string _userName, string _password);

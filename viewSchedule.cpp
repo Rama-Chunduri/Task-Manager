@@ -5,7 +5,7 @@ using namespace std;
 // earliest to latest start date
 void viewSchedule :: printByStartDate(User* user)  
 {
-    
+    user.
 }
 
 // earliest to latest start date 
