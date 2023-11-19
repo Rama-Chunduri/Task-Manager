@@ -1,4 +1,5 @@
-#include "user.h"
+#pragma once
+#include "User.h"
 #include "task.h"
 #include <string>
 #include <vector>
@@ -35,7 +36,7 @@ void User::SetPassword (string _password){
 
 }
 
-void User::loadtasks(){
+vector<Task> User::loadtasks(){
     vector<Task>tasks;
     ofstream myFile(fileName);
     string Taskname;

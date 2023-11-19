@@ -1,3 +1,6 @@
+#pragma once
+#include <vector>
+#include <string>
 using namespace std;
 
 class User{
@@ -6,11 +9,11 @@ class User{
         string password;
         vector<TaskList> taskList;
     public:
-        User::User();
-        User::User(string _userName, string _password);
+        User();
+        User(string _userName, string _password);
         void SetUserName (string _userName);
         void SetPassword (string _password);
         string GetUserName();
         string GetPassword();
-        void loadtasks();
+        vector<Task> loadtasks();
 };
