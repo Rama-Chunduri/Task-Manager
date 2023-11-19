@@ -48,8 +48,7 @@ The main features of this project are: It allows the user to organize their sche
 (https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
-><img width="713" alt="Screenshot 2023-11-15 at 10 22 17 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/4fde7713-10c5-4951-b580-ef8a4266bed0">
-
+><img width="735" alt="Screenshot 2023-11-18 at 9 29 12 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/3edf6a36-2cc5-453b-8643-fad3cada66aa">
 
 ### Screen Layouts
 
