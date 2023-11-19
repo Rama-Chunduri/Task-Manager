@@ -4,10 +4,6 @@
 using namespace std;
 
 class ViewSchedule {
-    private: 
-        vector<Task> task;
-
-    public: 
         // earliest to latest start date
         void printByStartDate(User* user);
         
