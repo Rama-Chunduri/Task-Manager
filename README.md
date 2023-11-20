@@ -7,11 +7,11 @@ Authors: \[Rama Chunduri](https://github.com/rchun043)\
 ## Project Description
 ### Purpose of the project:
 
-User can create their tasks and have a schedule of their task weekly. Their tasks would be organized and users would get notifications when the due date would come closer. They can view their schedules from highest priority to the least priority or they can view from the due date. User has the choice to edit, delete, or print their schedule. This helps keep the user's schedule and a list of to-do things organized.
+The Weekly Task Organizer is designed to help users in efficiently managing their weekly tasks through a simple and user-friendly command-line interface. The primary goal is to provide a customizable and visually appealing platform for users to organize, prioritize, and track their tasks effectively.
 
 ### Importance of the project: 
 
-This project is important to us because time management is a crucial step in being productive. As computer science students, we all struggle with remembering the due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
+This task organizer is importance to us because it addresses a challenge faced by students and professionals alike — time management. As. Time management is crucial for productivity, this project provides a centralized platform for task organization. As computer science students, we all struggle with remembering the due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
 
 ### Features:
 
