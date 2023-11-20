@@ -5,7 +5,7 @@ Authors: \[Sreeja Pagireddy](https://github.com/spagi002)\
 Authors: \[Rama Chunduri](https://github.com/rchun043)\
 
 ## Project Description
-**Purpose of the project:**  
+### Purpose of the project:
 
 User can create their tasks and have a schedule of their task weekly. Their tasks would be organized and users would get notifications when the due date would come closer. They can view their schedules from highest priority to the least priority or they can view from the due date. User has the choice to edit, delete, or print their schedule. This helps keep the user's schedule and a list of to-do things organized.
 
