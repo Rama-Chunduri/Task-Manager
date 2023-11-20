@@ -15,23 +15,23 @@ This task organizer is importance to us because it addresses a challenge faced b
 
 ### Features:
 
-Create Account: User are initially directed to create an account where they can sign up and enter their name and password. If they already have an account, they are directed to the login page.
+**Create Account:** User are initially directed to create an account where they can sign up and enter their name and password. If they already have an account, they are directed to the login page.
 
-Login: Existing user can log in and view, create, edit, delete their tasks, and set their schedule.
+**Login:** Existing user can log in and view, create, edit, delete their tasks, and set their schedule.
 
-Features within a Task: Start Date, Due Date, Priority, Duration, Random Assigned Number, Name of Task, Description of Task. These are the items asked when a user creates a task. 
+**Features within a Task:** Start Date, Due Date, Priority, Duration, Random Assigned Number, Name of Task, Description of Task. These are the items asked when a user creates a task. 
 
-View: After a user logs in, they will be directed to the view feature where they can view all their tasks.
+**View:** After a user logs in, they will be directed to the view feature where they can view all their tasks.
 
-Menu: After viewing their schedule, they are directed toward the menu page where they can choose to print their schedule, delete tasks, and edit tasks.
+**Menu:** After viewing their schedule, they are directed toward the menu page where they can choose to print their schedule, delete tasks, and edit tasks.
 
-Edit: If they choose to edit their task, they can make changes within a week. They can change any of the features within a task.
+**Edit:** If they choose to edit their task, they can make changes within a week. They can change any of the features within a task.
 
-Delete: A user can delete their task from their weekly schedule. A number would be displayed next to the task and the user can enter the number to remove that certain task.
+**Delete:** A user can delete their task from their weekly schedule. A number would be displayed next to the task and the user can enter the number to remove that certain task.
 
-Print Their Schedule: User can choose to view and print their schedule. Their schedule can also be organized by their start date or priority or how important it is to them.
+**Print Their Schedule:** User can choose to view and print their schedule. Their schedule can also be organized by their start date or priority or how important it is to them.
 
-Remind Feature: User would also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
+**Remind Feature:** User would also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
 
 ### Languages and Development:
 
