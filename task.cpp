@@ -3,13 +3,17 @@
 #include <vector>
 
 Task::Task(){}
-Task::Task(string name, string description, string dueDate, string tag, int priority){
+Task::Task(string name, string description, string dueDate, string tag, int priority, string startDate, string endDate, double durationHours, bool check){
    vector<Task>tasks;
    _name = name;
    _description = description;
    _dueDate = dueDate;
    _tag = tag;
    _priority = priority;
+   _startDate = startDate;
+   _endDate = endDate;
+   _durationHours = durationHours;
+   _complete=check;
 }
 void Task::SetName(string name){
 this->_name = name;
@@ -26,6 +30,9 @@ void Task::SetDescription(string description){
 void Task::SetPriority(int priority){
    this->_priority = priority;
 }
+bool Task::Complete(bool check){
+   this->_complete=check;
+}
 string Task::GetName(){
    return _name;
 }
@@ -41,5 +48,21 @@ string Task::GetDescription(){
 int Task::GetPriority(){
    return _priority;
 }
-
-
+string Task::GetStartDate(){
+   return _startDate;
+}
+string Task::GetEndDate(){
+   return _endDate;
+}
+double Task::GetDurationHours(){
+   return _durationHours;
+}
+void Task::SetStartDate(string startDate){
+   _startDate = startDate;
+}
+void Task::SetEndDate(string endDate){
+   _endDate = endDate;
+}
+void Task::SetDurationHours(double durationHours){
+   _durationHours = durationHours;
+}
