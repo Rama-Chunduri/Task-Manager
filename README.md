@@ -63,7 +63,8 @@ The main features of this project are: It allows the user to organize their sche
 
 ## Class Diagram
 
-><img width="869" alt="Screenshot 2023-11-16 at 8 54 40 AM" src="https://github.com/cs100/final-project-snand021/assets/130624276/a794efc4-a3d3-49c2-806e-9412dcca38cc">
+><img width="843" alt="Screenshot 2023-11-20 at 7 33 43 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/7af7a76e-ddac-4051-ba79-ca4206e1adb3">
+
 
 
 
