@@ -39,7 +39,7 @@ This task organizer is importance to us because it addresses a challenge faced b
 
 ### Languages and Development:
 
--Description: The language that we will be using for this project will be C++. We will also be using Visual Studio Code, Valgrind, and the gdb debugger.
+- Description: The language that we will be using for this project will be C++. We will also be using Visual Studio Code, Valgrind, and the gdb debugger.
 
 - Input: Name of user, password, name of task, description, due date, start date, task duration, completion status of task, tag, and priority of tasks.
   
@@ -95,7 +95,7 @@ The Remind class has a function called remind that outputs a message to the user
 
 
 ### What changes we made from the first UML diagram and SOLID
-Markup : *Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
+- Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
 
   *SOLID Principle(s): The Single Responsibility Principle (SRP)
 
