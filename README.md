@@ -1,7 +1,7 @@
 # Schedule Organizer    
-Authors: [Shivani Nandakumar](https://github.com/snand021)    
-Authors: [Varsha Kuppa](https://github.com/vkupp001) 
-Authors: [Sreeja Pagireddy](https://github.com/spagi002) 
+Authors: [Shivani Nandakumar](https://github.com/snand021)  
+Authors: [Varsha Kuppa](https://github.com/vkupp001)  
+Authors: [Sreeja Pagireddy](https://github.com/spagi002)  
 Authors: [Rama Chunduri](https://github.com/rchun043)
 
 ## Project Description
