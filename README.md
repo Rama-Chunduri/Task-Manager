@@ -31,22 +31,46 @@ The main features of this project are: It allows the user to organize their sche
 
 ><img width="869" alt="Screenshot 2023-11-16 at 8 54 40 AM" src="https://github.com/cs100/final-project-snand021/assets/130624276/a794efc4-a3d3-49c2-806e-9412dcca38cc">
 
+UML Diagram Descriptions:
+
+This is the UML diagram for our project which is called “Schedule Organizer”. This project consists of six classes: Task, TaskList, User, Menu, Remind, and ViewSchedule.
+Task Class
+
+
+The Task class is responsible for getting and setting the following attributes for every task: name, due date, start date, priority, tag, description, status, and duration. This implementation is important as it creates the task itself and allows the user to customize it. 
+
+
+TaskList Class
+
+The TaskList class has an addTask function that adds tasks to a vector of the task object (a private variable of TaskList), a removeTask function that removes a task from the vector of tasks, and a getTasks function that gets the vector of tasks. 
+
+
+User Class
+
+The User task has setters and getters for username and password as well as additional functions that help the user create an account and login. These functions also allow an existing user to log in and view their saved schedule. 
+This class also has a loadTask function that reads input from the user’s file and puts their tasks into a vector, a getTaskList function that gets the taskList object, and a setTaskList function that sets the vector of tasks in the taskList object. 
+
+
+Menu Class
+
+The Menu class contains a single function that prints the menu containing multiple options such as adding a task, deleting a task, and editing a task. This class improves the user interface and accessibility while also making the creation of the schedule more flexible.
+
+
+ViewSchedule Class
+
+The ViewSchedule class consists of 6 functions. These functions allow the user to view their schedule sorted by due date, start date, duration, completion, tag, and priority. This implementation allows the user to view their schedule according to their personal preference. 
+
+
+Remind Class 
+
+The Remind class has a function called remind that outputs a message to the user on terminal, reminding the user of the tasks that are due in 24 hours. The Remind class also notifies the user when it is approaching the end of the week to complete the tasks.
+
+
+
 
 
  > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
- 
+
 > During the meeting with your reader you will discuss: 
  > * How effective your last sprint was (each member should talk about what they did)
  > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
