@@ -95,68 +95,68 @@ The Remind class has a function called remind that outputs a message to the user
 
 
 ### What changes we made from the first UML diagram and SOLID
-### Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
+*Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
 
-SOLID Principle(s): The Single Responsibility Principle (SRP)
+  *SOLID Principle(s): The Single Responsibility Principle (SRP)
 
-Application: Single responsibility would be the best principle as it is inputted in the Task class and follows one responsibility of setting each task. We applied this change to the Task class so the user can input more information regarding their task so the view class is organized strategically. 
+  *Application: Single responsibility would be the best principle as it is inputted in the Task class and follows one responsibility of setting each task. We applied this change to the Task class so the user can input more information regarding their task so the view class is organized strategically. 
 
-Benefits: This change helps us make our ideas more creative and help keep each task more organized with all the required information needed from the user.
+  *Benefits: This change helps us make our ideas more creative and help keep each task more organized with all the required information needed from the user.
 >
 > 
-### Removed the editing the task and viewing functions from the Menu class and decided that we would just call the setters in the Task class to edit the tasks 
+*Removed the editing the task and viewing functions from the Menu class and decided that we would just call the setters in the Task class to edit the tasks 
 
-SOLID Principle(s): Single Responsibility Principle (SRP)
+  *SOLID Principle(s): Single Responsibility Principle (SRP)
 
-Application: By removing editing and viewing functions, the Menu class adheres more closely to SRP, focusing solely on menu-related logic.
+  *Application: By removing editing and viewing functions, the Menu class adheres more closely to SRP, focusing solely on menu-related logic.
 
-Benefits: This change enhances maintainability. The Menu class is now dedicated to handling user interactions, while the task-related operations are delegated to the Task class. This separation ensures that each class has a well-defined responsibility.
+  *Benefits: This change enhances maintainability. The Menu class is now dedicated to handling user interactions, while the task-related operations are delegated to the Task class. This separation ensures that each class has a well-defined responsibility.
 
-Added the Remind class with the remind function in order to remind the user of their tasks’ due date 24 hours beforehand. 
+*Added the Remind class with the remind function in order to remind the user of their tasks’ due date 24 hours beforehand. 
 
-SOLID Principle(s): Single Responsibility Principle (SRP)
+  *SOLID Principle(s): Single Responsibility Principle (SRP)
 
-Application: By adding the remind function, the Remind class follows the Single responsibility principle. This is because it only has one function which has one responsibility of reminding the user regarding their tasks’ due date 24 hours beforehand. 
+  *Application: By adding the remind function, the Remind class follows the Single responsibility principle. This is because it only has one function which has one responsibility of reminding the user regarding their tasks’ due date 24 hours beforehand. 
 
-Benefits: This change enhances maintainability and also increases the users’ convenience. The Remind class allows us to carry out the program efficiently and makes testing easier. 
+  *Benefits: This change enhances maintainability and also increases the users’ convenience. The Remind class allows us to carry out the program efficiently and makes testing easier. 
 
-Added the Menu class to our class diagram
+*Added the Menu class to our class diagram
 
-SOLID Principle(s): Open Closed Principle
+  *SOLID Principle(s): Open Closed Principle
 
-The menu class is also open for extension but closed for modification. Even if we add another class, the Menu class is closed for modification.
+  *The menu class is also open for extension but closed for modification. Even if we add another class, the Menu class is closed for modification.
 
-Benefits: This change enhances the classes and makes sure it's well organized while running the program efficiently.
+  *Benefits: This change enhances the classes and makes sure it's well organized while running the program efficiently.
 
-Changed the relationship from the Menu class to the Task class from inheritance to not having a relationship (not aggregation, composition, control, or inheritance)
-SOLID Principle(s): Dependency Inversion Principle (DIP). 
-Application: The removal of the relationship between the Menu and Task classes aligns with DIP by reducing direct dependencies.
-Benefits: This change improves flexibility. The User class, acting as a central class, can interact with the Task class without being tightly coupled to the specifics of the Menu class, allowing for easier modifications and extensions.
+*Changed the relationship from the Menu class to the Task class from inheritance to not having a relationship (not aggregation, composition, control, or inheritance)
+  *SOLID Principle(s): Dependency Inversion Principle (DIP). 
+  *Application: The removal of the relationship between the Menu and Task classes aligns with DIP by reducing direct dependencies.
+  *Benefits: This change improves flexibility. The User class, acting as a central class, can interact with the Task class without being tightly coupled to the specifics of the Menu class, allowing for easier modifications and extensions.
 
-Made a ViewSchedule class (control class to User) so that we can output the schedule in different ways
-SOLID Principle(s): Single Responsibility Principle (SRP)
-Application: The introduction of the ViewSchedule class follows SRP by assigning the responsibility of displaying the user's schedule to a dedicated class.
-Benefits: This change enhances code organization and readability. The ViewSchedule class encapsulates the logic related to presenting the schedule, ensuring that this responsibility is isolated from other parts of the system.
+*Made a ViewSchedule class (control class to User) so that we can output the schedule in different ways
+  *SOLID Principle(s): Single Responsibility Principle (SRP)
+  *Application: The introduction of the ViewSchedule class follows SRP by assigning the responsibility of displaying the user's schedule to a dedicated class.
+  *Benefits: This change enhances code organization and readability. The ViewSchedule class encapsulates the logic related to presenting the schedule, ensuring that this responsibility is isolated from other parts of the system.
 
-Changed the TaskListEdit to TaskList and added a getTask function (outputs the vector of tasks) 
-SOLID Principle(s): Single Responsibility Principle (SRP)
-Application: Renaming and refactoring TaskListEdit to TaskList, and adding a getTask function, aligns with SRP by ensuring that the class has a single responsibility.
-Benefits: This change improves code clarity. The TaskList class now focuses on managing tasks, and the addition of getTask provides a clear interface for retrieving tasks, promoting a more cohesive and understandable design.
+*Changed the TaskListEdit to TaskList and added a getTask function (outputs the vector of tasks) 
+  *SOLID Principle(s): Single Responsibility Principle (SRP)
+  *Application: Renaming and refactoring TaskListEdit to TaskList, and adding a getTask function, aligns with SRP by ensuring that the class has a single responsibility.
+  *Benefits: This change improves code clarity. The TaskList class now focuses on managing tasks, and the addition of getTask provides a clear interface for retrieving tasks, promoting a more cohesive and understandable design.
 
-Added an int parameter to removeTask so that the task at that point in the list can be deleted
-SOLID Principle(s): Single Responsibility Principle (SRP)
-Application: Adding the int parameter to RemoveTask has the same responsibility as editing the task which follows the SRP rule. It's extending the responsibility.
-Benefits: This change makes sure that the class is following the SOLID principle and has a clear interface which makes the responsibility of each class clear.
+*Added an int parameter to removeTask so that the task at that point in the list can be deleted
+  *SOLID Principle(s): Single Responsibility Principle (SRP)
+  *Application: Adding the int parameter to RemoveTask has the same responsibility as editing the task which follows the SRP rule. It's extending the responsibility.
+  *Benefits: This change makes sure that the class is following the SOLID principle and has a clear interface which makes the responsibility of each class clear.
 
-Changed the relationship between TaskList class to Task class from inheritance to composition 
-SOLID Principle(s): Dependency Inversion Principle (DIP)
-Application: By changing the relationship from inheritance to composition, the code adheres to DIP. The TaskList class now relies on the abstraction of the Task class without being directly coupled to its concrete implementation.
-Benefits: This change fosters flexibility and maintainability. TaskList depends on the interface provided by Task (abstraction) rather than inheriting specific implementations. This reduces the dependency on concrete details, making it easier to extend and modify the system.
+*Changed the relationship between TaskList class to Task class from inheritance to composition 
+  *SOLID Principle(s): Dependency Inversion Principle (DIP)
+  *Application: By changing the relationship from inheritance to composition, the code adheres to DIP. The TaskList class now relies on the abstraction   of the Task class without being directly coupled to its concrete implementation.
+  *Benefits: This change fosters flexibility and maintainability. TaskList depends on the interface provided by Task (abstraction) rather than inheriting specific implementations. This reduces the dependency on concrete details, making it easier to extend and modify the system.
 
-Added a User class that is sort of the central class of the program. It enables the user to login, puts the user’s tasks into a vector from a file, and sets and gets the list of tasks 
-SOLID Principle(s): Single Responsibility Principle (SRP)
-Application: The introduction of the User class follows SRP by centralizing user-related functionalities.
-Benefits: This change enhances modularity and maintainability. The User class serves as a central hub for user-specific actions, such as login and task retrieval, providing a clear and coherent interface for managing user-related concerns.
+*Added a User class that is sort of the central class of the program. It enables the user to login, puts the user’s tasks into a vector from a file, and sets and gets the list of tasks 
+  *SOLID Principle(s): Single Responsibility Principle (SRP)
+  *Application: The introduction of the User class follows SRP by centralizing user-related functionalities.
+  *Benefits: This change enhances modularity and maintainability. The User class serves as a central hub for user-specific actions, such as login and task retrieval, providing a clear and coherent interface for managing user-related concerns.
 
 > During the meeting with your reader you will discuss: 
  > * How effective your last sprint was (each member should talk about what they did)
