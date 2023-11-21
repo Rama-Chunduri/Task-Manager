@@ -68,9 +68,9 @@ The main features of this project are: It allows the user to organize their sche
 
  > ## Phase III
 
-> What changes we made from the first UML diagram
+> ### What changes we made from the first UML diagram
 > 
-Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
+### Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
 
 SOLID Principle(s): The Single Responsibility Principle (SRP)
 
@@ -79,7 +79,7 @@ Application: Single responsibility would be the best principle as it is inputted
 Benefits: This change helps us make our ideas more creative and help keep each task more organized with all the required information needed from the user.
 >
 > 
-Removed the editing the task and viewing functions from the Menu class and decided that we would just call the setters in the Task class to edit the tasks 
+### Removed the editing the task and viewing functions from the Menu class and decided that we would just call the setters in the Task class to edit the tasks 
 
 SOLID Principle(s): Single Responsibility Principle (SRP)
 
