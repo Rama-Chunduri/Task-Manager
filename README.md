@@ -103,6 +103,20 @@ The menu class is also open for extension but closed for modification. Even if w
 
 Benefits: This change enhances the classes and makes sure it's well organized while running the program efficiently.
 
+Changed the relationship from the Menu class to the Task class from inheritance to not having a relationship (not aggregation, composition, control, or inheritance)
+SOLID Principle(s): Dependency Inversion Principle (DIP). 
+Application: The removal of the relationship between the Menu and Task classes aligns with DIP by reducing direct dependencies.
+Benefits: This change improves flexibility. The User class, acting as a central class, can interact with the Task class without being tightly coupled to the specifics of the Menu class, allowing for easier modifications and extensions.
+
+Made a ViewSchedule class (control class to User) so that we can output the schedule in different ways
+SOLID Principle(s): Single Responsibility Principle (SRP)
+Application: The introduction of the ViewSchedule class follows SRP by assigning the responsibility of displaying the user's schedule to a dedicated class.
+Benefits: This change enhances code organization and readability. The ViewSchedule class encapsulates the logic related to presenting the schedule, ensuring that this responsibility is isolated from other parts of the system.
+
+Changed the TaskListEdit to TaskList and added a getTask function (outputs the vector of tasks) 
+SOLID Principle(s): Single Responsibility Principle (SRP)
+Application: Renaming and refactoring TaskListEdit to TaskList, and adding a getTask function, aligns with SRP by ensuring that the class has a single responsibility.
+Benefits: This change improves code clarity. The TaskList class now focuses on managing tasks, and the addition of getTask provides a clear interface for retrieving tasks, promoting a more cohesive and understandable design.
 
 
 
