@@ -29,9 +29,6 @@ This task organizer is importance to us because it addresses a challenge faced b
 **Delete:** A user can delete their task from their weekly schedule. A number would be displayed next to the task and the user can enter the number to remove that certain task.
 
 **Add:** A user can add a task to their weekly schedule. 
-
-**Print Their Schedule:** User can choose to view and print their schedule. Their schedule can also be organized by their start date or priority or how important it is to them.
-
 **Remind Feature:** User would also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
 >
 >
