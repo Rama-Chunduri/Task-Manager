@@ -1,9 +1,10 @@
+#pragma once
 #include "task.h"
 #include <string>
 #include <vector>
 
 Task::Task(){}
-Task::Task(string name, string description, string dueDate, string tag, int priority, string startDate, string endDate, double durationHours, bool check){
+Task::Task(string name, string description, string dueDate, string tag, int priority, string startDate, string endDate, double durationHours){
    vector<Task>tasks;
    _name = name;
    _description = description;
@@ -13,7 +14,6 @@ Task::Task(string name, string description, string dueDate, string tag, int prio
    _startDate = startDate;
    _endDate = endDate;
    _durationHours = durationHours;
-   _complete=check;
 }
 void Task::SetName(string name){
 this->_name = name;
@@ -66,3 +66,4 @@ void Task::SetEndDate(string endDate){
 void Task::SetDurationHours(double durationHours){
    _durationHours = durationHours;
 }
+

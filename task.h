@@ -15,7 +15,6 @@ class Task{
    void SetStartDate(string startDate);
    void SetEndDate(string endDate);
    void SetDurationHours(double durationHours);
-   bool Complete(bool check);
    string GetStartDate();
    string GetEndDate();
    double GetDurationHours();
@@ -33,7 +32,5 @@ class Task{
    string _startDate;
    string _endDate;
    double _durationHours;
-   bool _complete;
-   
 
 };
