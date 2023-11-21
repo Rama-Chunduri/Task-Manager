@@ -89,7 +89,7 @@ The ViewSchedule class consists of 6 functions. These functions allow the user t
 The Remind class has a function called remind that outputs a message to the user on terminal, reminding the user of the tasks that are due in 24 hours. The Remind class also notifies the user when it is approaching the end of the week to complete the tasks.
 >
 >
-### What changes we made from the first UML diagram and SOLID
+## What changes we made from the first UML diagram and SOLID
 Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
 - SOLID Principle(s): The Single Responsibility Principle (SRP)
 - Application: Single responsibility would be the best principle as it is inputted in the Task class and follows one responsibility of setting each task. We applied this change to the Task class so the user can input more information regarding their task so the view class is organized strategically.
