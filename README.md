@@ -93,9 +93,8 @@ The Remind class has a function called remind that outputs a message to the user
 
 
 
-## Phase III
 
-### What changes we made from the first UML diagram 
+### What changes we made from the first UML diagram and SOLID
 ### Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
 
 SOLID Principle(s): The Single Responsibility Principle (SRP)
