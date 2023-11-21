@@ -103,8 +103,8 @@ Added the Remind class with the remind function in order to remind the user of t
 - Benefits: This change enhances maintainability and also increases the users’ convenience. The Remind class allows us to carry out the program efficiently and makes testing easier. 
 
 Added the Menu class to our class diagram
-- SOLID Principle(s): Open Closed Principle
-- The menu class is also open for extension but closed for modification. Even if we add another class, the Menu class is closed for modification.
+- SOLID Principle(s): Single Responsibility Principle (SRP)
+- The menu class has one responsibility which would be to print the schedule and the main focus of the menu class deals with one responsibility.
 - Benefits: This change enhances the classes and makes sure it's well organized while running the program efficiently.
 
 Changed the relationship from the Menu class to the Task class from inheritance to not having a relationship (not aggregation, composition, control, or inheritance)
