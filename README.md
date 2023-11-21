@@ -118,7 +118,20 @@ SOLID Principle(s): Single Responsibility Principle (SRP)
 Application: Renaming and refactoring TaskListEdit to TaskList, and adding a getTask function, aligns with SRP by ensuring that the class has a single responsibility.
 Benefits: This change improves code clarity. The TaskList class now focuses on managing tasks, and the addition of getTask provides a clear interface for retrieving tasks, promoting a more cohesive and understandable design.
 
+Added an int parameter to removeTask so that the task at that point in the list can be deleted
+SOLID Principle(s): Single Responsibility Principle (SRP)
+Application: Adding the int parameter to RemoveTask has the same responsibility as editing the task which follows the SRP rule. It's extending the responsibility.
+Benefits: This change makes sure that the class is following the SOLID principle and has a clear interface which makes the responsibility of each class clear.
 
+Changed the relationship between TaskList class to Task class from inheritance to composition 
+SOLID Principle(s): Dependency Inversion Principle (DIP)
+Application: By changing the relationship from inheritance to composition, the code adheres to DIP. The TaskList class now relies on the abstraction of the Task class without being directly coupled to its concrete implementation.
+Benefits: This change fosters flexibility and maintainability. TaskList depends on the interface provided by Task (abstraction) rather than inheriting specific implementations. This reduces the dependency on concrete details, making it easier to extend and modify the system.
+
+Added a User class that is sort of the central class of the program. It enables the user to login, puts the user’s tasks into a vector from a file, and sets and gets the list of tasks 
+SOLID Principle(s): Single Responsibility Principle (SRP)
+Application: The introduction of the User class follows SRP by centralizing user-related functionalities.
+Benefits: This change enhances modularity and maintainability. The User class serves as a central hub for user-specific actions, such as login and task retrieval, providing a clear and coherent interface for managing user-related concerns.
 
 > During the meeting with your reader you will discuss: 
  > * How effective your last sprint was (each member should talk about what they did)
