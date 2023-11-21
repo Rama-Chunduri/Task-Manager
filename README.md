@@ -87,6 +87,24 @@ Application: By removing editing and viewing functions, the Menu class adheres m
 
 Benefits: This change enhances maintainability. The Menu class is now dedicated to handling user interactions, while the task-related operations are delegated to the Task class. This separation ensures that each class has a well-defined responsibility.
 
+Added the Remind class with the remind function in order to remind the user of their tasks’ due date 24 hours beforehand. 
+
+SOLID Principle(s): Single Responsibility Principle (SRP)
+
+Application: By adding the remind function, the Remind class follows the Single responsibility principle. This is because it only has one function which has one responsibility of reminding the user regarding their tasks’ due date 24 hours beforehand. 
+
+Benefits: This change enhances maintainability and also increases the users’ convenience. The Remind class allows us to carry out the program efficiently and makes testing easier. 
+
+Added the Menu class to our class diagram
+
+SOLID Principle(s): Open Closed Principle
+
+The menu class is also open for extension but closed for modification. Even if we add another class, the Menu class is closed for modification.
+
+Benefits: This change enhances the classes and makes sure it's well organized while running the program efficiently.
+
+
+
 
 > During the meeting with your reader you will discuss: 
  > * How effective your last sprint was (each member should talk about what they did)
