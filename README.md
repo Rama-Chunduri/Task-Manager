@@ -55,7 +55,8 @@ The main features of this project are: It allows the user to organize their sche
 
 ### Screen Layouts
 
-<img width="408" alt="Screenshot 2023-11-15 at 10 43 02 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/3e22f49b-b33d-4c06-9362-7eaa4af8b3c3">
+<img width="504" alt="Screenshot 2023-11-20 at 7 35 40 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/eb984441-b5ac-4b80-98f7-09a1efc49263">
+
 
 <img width="406" alt="Screenshot 2023-11-15 at 10 43 17 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/e33d70a0-97b0-42b8-994d-1d4e66e57e18">
 
