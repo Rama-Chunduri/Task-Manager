@@ -64,10 +64,7 @@ The main features of this project are: It allows the user to organize their sche
 
 ## Class Diagram
 
-><img width="843" alt="Screenshot 2023-11-20 at 7 33 43 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/7af7a76e-ddac-4051-ba79-ca4206e1adb3">
-
-
-
+><img width="849" alt="Screenshot 2023-11-20 at 9 40 42 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/0444cadc-2ab1-4dfb-84f3-c33fb4cbfe7a">
 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
