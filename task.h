@@ -32,5 +32,5 @@ class Task{
    string _startDate;
    string _endDate;
    double _durationHours;
-
+   
 };
