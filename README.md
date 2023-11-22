@@ -57,24 +57,23 @@ The main features of this project are: It allows the user to organize their sche
 <br></br>
 
 ## User Interface Specification
-(https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
->
->
+<!--(https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))-->
+
 ### Navigation Diagram
 ><img width="676" alt="Screenshot 2023-11-20 at 10 01 23 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/cc910496-4659-4a1b-ac74-81058693d748">
->
->
-### Screen Layouts
+<br></br>
 
+### Screen Layouts
 <img width="504" alt="Screenshot 2023-11-20 at 7 35 40 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/eb984441-b5ac-4b80-98f7-09a1efc49263">
 
 <img width="406" alt="Screenshot 2023-11-15 at 10 43 17 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/e33d70a0-97b0-42b8-994d-1d4e66e57e18">
 
 <img width="407" alt="Screenshot 2023-11-15 at 10 43 36 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/f02b10c4-724a-4e5a-9daa-1329188db167">
-
+<br></br>
 
 ### Class Diagram
 ><img width="849" alt="Screenshot 2023-11-20 at 9 40 42 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/0444cadc-2ab1-4dfb-84f3-c33fb4cbfe7a">
+<br></br>
 
 ## UML Diagram Descriptions:
 This is the UML diagram for our project which is called “Schedule Organizer”. This project consists of six classes: Task, TaskList, User, Menu, Remind, and ViewSchedule.
@@ -97,8 +96,8 @@ The ViewSchedule class consists of 6 functions. These functions allow the user t
 
 **Remind Class**
 The Remind class has a function called remind that outputs a message to the user on terminal, reminding the user of the tasks that are due in 24 hours. The Remind class also notifies the user when it is approaching the end of the week to complete the tasks.
->
->
+<br></br>
+
 ## What changes we made from the first UML diagram and SOLID
 Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
 - SOLID Principle(s): The Single Responsibility Principle (SRP)
@@ -149,15 +148,15 @@ Added a User class that is sort of the central class of the program. It enables 
 - SOLID Principle(s): Single Responsibility Principle (SRP)
 - Application: The introduction of the User class follows SRP by centralizing user-related functionalities.
 - Benefits: This change enhances modularity and maintainability. The User class serves as a central hub for user-specific actions, such as login and task retrieval, providing a clear and coherent interface for managing user-related concerns.
- 
+<br></br>
+
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
->
-> 
+
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
