@@ -77,7 +77,7 @@ The main features of this project are: It allows the user to organize their sche
 <br></br>
 
 ### Class Diagram
->![Updated UML Diagram - Final Project](https://github.com/cs100/final-project-snand021/assets/146979206/a0c37692-4091-4c91-9860-3d2d09ca5943)
+![Updated UML Diagram - Final Project](https://github.com/cs100/final-project-snand021/assets/146979206/cb6b5f84-31fa-47fa-979d-b8769dbcf297)
 
 
 
