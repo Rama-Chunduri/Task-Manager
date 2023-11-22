@@ -2,12 +2,16 @@
 Authors: [Shivani Nandakumar](https://github.com/snand021), [Varsha Kuppa](https://github.com/vkupp001), [Sreeja Pagireddy](https://github.com/spagi002), [Rama Chunduri](https://github.com/rchun043)
 
 ## Project Description
+### General Description:
+This task organizer is a terminal-based scheduling and productivity tool designed for users seeking efficient time management in their daily lives. Users can create a weekly schedule of tasks and customize the organization based on their preferences. The tool offers various ways to view and organize tasks, such as sorting by start date, due date, priority, duration, and tags. Additionally, users receive on-screen notifications 24 hours before a task's due date. The program allows users to edit, delete, and print their schedules, providing a unique and versatile approach to task management. The generated schedules are displayed in ASCII text, offering a clear and accessible representation of tasks and their details. Users can easily navigate and interact with their schedules, making this task organizer a valuable asset for enhancing productivity and time awareness. 
+<br></br>
+
 ### Purpose:
 The Weekly Task Organizer is designed to help users in efficiently managing their weekly tasks through a simple and user-friendly command-line interface. The primary goal is to provide a customizable and visually appealing platform for users to organize, prioritize, and track their tasks effectively.  
 <br></br>
 
 ### Importance: 
-This task organizer is importance to us because it addresses a challenge faced by students and professionals alike — time management. As. Time management is crucial for productivity, this project provides a centralized platform for task organization. As computer science students, we all struggle with remembering the due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
+This task organizer is importance to us because it addresses a challenge faced by students and professionals alike — time management. Time management is crucial for productivity, and this project provides a centralized platform for task organization. As computer science students, we all struggle with remembering the due dates for assignments and meetings.Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
 <br></br>
 
 ### Languages/Tools/Technologies
