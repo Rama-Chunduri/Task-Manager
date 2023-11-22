@@ -77,7 +77,8 @@ The main features of this project are: It allows the user to organize their sche
 <br></br>
 
 ### Class Diagram
-><img width="849" alt="Screenshot 2023-11-20 at 9 40 42 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/0444cadc-2ab1-4dfb-84f3-c33fb4cbfe7a">
+><img width="841" alt="Screenshot 2023-11-22 at 5 10 18 AM" src="https://github.com/cs100/final-project-snand021/assets/130624276/35083899-c8ce-4d98-9f80-57a0525c2410">
+
 
 #### UML Diagram Descriptions:
 This is the UML diagram for our project which is called “Schedule Organizer”. This project consists of six classes: Task, TaskList, User, Menu, Remind, and ViewSchedule.
