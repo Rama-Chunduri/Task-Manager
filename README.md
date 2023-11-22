@@ -9,7 +9,23 @@ The Weekly Task Organizer is designed to help users in efficiently managing thei
 ### Importance: 
 This task organizer is importance to us because it addresses a challenge faced by students and professionals alike — time management. As. Time management is crucial for productivity, this project provides a centralized platform for task organization. As computer science students, we all struggle with remembering the due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
 
-  
+
+### Languages/Tools/Technologies
+[C++](https://cplusplus.com/) - This project is programmed mainly using C++.
+
+[Visual Studio Code](https://code.visualstudio.com/) - An integrated development environment (IDE) used for coding, debugging, and version control. 
+
+[Git](https://git-scm.com/) - A distributed version control system employed to track changes in the source code during the development process. Git facilitates collaboration and helps manage different versions of the code.
+
+[Valgrind](https://valgrind.org/) - A programming tool used for memory debugging, memory leak detection, and profiling. Valgrind ensures memory integrity and helps identify potential issues related to memory management.
+
+[GitHub](https://github.com/) - A web-based platform for hosting and collaborating on Git repositories. GitHub serves as a central hub for project code, issues, and documentation, enabling efficient teamwork.
+
+[CMake](https://cmake.org/) - A cross-platform build system that simplifies the build process for C++ projects. CMake generates platform-specific build files from a high-level configuration, promoting portability.
+
+[Google Test Framework](https://github.com/google/googletest) -  A testing framework for C++ projects that enables the creation and execution of unit tests. Google Test aids in verifying the correctness and robustness of the codebase through automated testing.
+
+
 ### Features:
 **Create Account:** User are initially directed to create an account where they can sign up and enter their name and password. If they already have an account, they are directed to the login page.
 
@@ -27,13 +43,11 @@ This task organizer is importance to us because it addresses a challenge faced b
 
 **Add:** A user can add a task to their weekly schedule. 
 **Print Their Schedule:** User can choose to view and print their schedule onto the terminal. Their schedule can also be organized by their start date, due date, duration, completion, tag, and priority.
-**Remind Feature:** User would also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
->
->
-### Languages and Development:
 
-- Description: The language that we will be using for this project will be C++. We will also be using Visual Studio Code, Valgrind, and the gdb debugger.
+**Remind Feature:** User will also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
 
+
+### Program Inputs/Outputs:
 - Input: Name of user, password, name of task, description, due date, start date, task duration, completion status of task, tag, and priority of tasks.
   
 - Output:
