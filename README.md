@@ -4,14 +4,14 @@ Authors: [Shivani Nandakumar](https://github.com/snand021), [Varsha Kuppa](https
 ## Project Description
 ### Purpose:
 The Weekly Task Organizer is designed to help users in efficiently managing their weekly tasks through a simple and user-friendly command-line interface. The primary goal is to provide a customizable and visually appealing platform for users to organize, prioritize, and track their tasks effectively.  
-<pre>
-  
-</pre>
+\
+\
+\
+
 ### Importance: 
 This task organizer is importance to us because it addresses a challenge faced by students and professionals alike — time management. As. Time management is crucial for productivity, this project provides a centralized platform for task organization. As computer science students, we all struggle with remembering the due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
-<pre>
-  
-</pre>
+
+
 ### Languages/Tools/Technologies
 [C++](https://cplusplus.com/) - This project is programmed mainly using C++.
 
@@ -26,9 +26,9 @@ This task organizer is importance to us because it addresses a challenge faced b
 [CMake](https://cmake.org/) - A cross-platform build system that simplifies the build process for C++ projects. CMake generates platform-specific build files from a high-level configuration, promoting portability.
 
 [Google Test Framework](https://github.com/google/googletest) -  A testing framework for C++ projects that enables the creation and execution of unit tests. Google Test aids in verifying the correctness and robustness of the codebase through automated testing.
-<pre>
+
   
-</pre>
+
 ### Features:
 **Create Account:** User are initially directed to create an account where they can sign up and enter their name and password. If they already have an account, they are directed to the login page.
 
@@ -48,18 +48,18 @@ This task organizer is importance to us because it addresses a challenge faced b
 **Print Their Schedule:** User can choose to view and print their schedule onto the terminal. Their schedule can also be organized by their start date, due date, duration, completion, tag, and priority.
 
 **Remind Feature:** User will also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
-<pre>
-  
-</pre>
+
+
+
 ### Program Inputs/Outputs:
 - Input: Name of user, password, name of task, description, due date, start date, task duration, completion status of task, tag, and priority of tasks.
   
 - Output:
 A visible schedule which is printed in order of due dates, first dates, end dates, duration, priority, or tag (the user may choose, although printing by due date is the default view) which shows all the tasks, descriptions, and all information about their tasks. They will also get automatic reminders which are displayed on the screen 24 hours before each task is due.
 The main features of this project are: It allows the user to organize their schedule by adding different tasks and they will be notified 24 hours before the time of the task. They can add a description to their tasks, categorize them using tags, give them certain priorities, and set due dates for the tasks as well.
-<pre>
-  
-</pre>
+
+
+
 ## User Interface Specification
 (https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 >
