@@ -7,7 +7,6 @@ The Weekly Task Organizer is designed to help users in efficiently managing thei
 \
 \
 \
-
 ### Importance: 
 This task organizer is importance to us because it addresses a challenge faced by students and professionals alike — time management. As. Time management is crucial for productivity, this project provides a centralized platform for task organization. As computer science students, we all struggle with remembering the due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
 
