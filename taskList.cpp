@@ -51,6 +51,6 @@ void taskListEdit::removeTask(int  toRemove){
     inFile.close(); // lets close both files
     temporaryFile.close();
     remove(fileName.c_str()); // Remove the original file, dont need it
-    rename(fileName, fileName.c_str()); // rename the temp file to the user name
+    rename("temp.txt", fileName.c_str()); // rename the temp file to the user name
 }
 
