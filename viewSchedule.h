@@ -4,6 +4,8 @@
 using namespace std;
 
 class ViewSchedule {
+        void viewSchedule(User * user);
+        
         // // earliest to latest start date
         // void printByStartDate(User* user);
         

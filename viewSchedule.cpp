@@ -2,6 +2,20 @@
 
 using namespace std;
 
+
+void viewSchedule :: viewSchedule(User * user) {
+
+    
+}
+
+
+
+
+
+
+
+
+
 // // earliest to latest start date
 // void viewSchedule :: printByStartDate(User* user)  
 // {
