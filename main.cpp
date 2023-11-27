@@ -9,11 +9,23 @@ using namespace std;
 
 
 int main(){
+
+
+   //opening userLogin.txt
+
+   ofstream userFile;
+   userFile.open("userLogin.txt");
+
+   if(!(userFile.is_open()))
+   {
+      cout << "Error accessing userLogin data base." << endl;
+   }
+
+   //asking user if they are new or old user
    string userName;
    string password;
    string fileName;
    cout << "Are you an existing user (Press E) or new user (Press N)?" << endl;
-
 
    string userInput;
    cin >> userInput;
@@ -25,13 +37,56 @@ int main(){
       cin >> userInput;
    }
 
+   //if user is creating an account
+   if(userInput == "N")
+   {
+      
+      cout << "Enter your username: " << endl;
+      getline(cin,userName);
 
+      bool validUserName = false;
+      
+      do{
+
+         bool userNameExists;
+   
+         string firstWord;
+         string secondWord;
+         //checks if userName exists
+         while( userFile >> firstWord >> secondWord || userNameExists == true;)
+         {
+
+            if(firstWord == userName)
+            {
+               userNameExists = true;
+            }
+
+            userNameExists = false;
+            
+         }
+
+         if(userNameExists == false)
+         {
+            validUserName == true;
+         }
+         else
+         {
+            cout << "That username is taken, please enter a valid username." << endl;
+            getline(cin, username);
+         }
+         }
+         while(validUserName == false;)
+
+      }
+     
+      
+   //if user is trying to login
    if(userInput ==  "E")
    {
 
 
       cout << "Please enter your Username:" << endl;
-      getline(cin, name);
+      getline(cin, userName);
       cout << "Please enter a password: " << endl;
       getline(cin, password);
 
@@ -41,6 +96,7 @@ int main(){
       fileName = name + ".txt";
 
 
+//creates file for user's schedule
       ifstream inFS;
       ofstream outFS(fileName);
       outFS << name << endl;
@@ -49,6 +105,7 @@ int main(){
 
 
    
+   userFile.close();
    
    return 0;
 }
