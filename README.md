@@ -1,91 +1,104 @@
 # Schedule Organizer    
-Authors: \[Shivani Nandakumar](https://github.com/snand021)\    
-Authors: \[Varsha Kuppa](https://github.com/vkupp001)\  
-Authors: \[Sreeja Pagireddy](https://github.com/spagi002)\  
-Authors: \[Rama Chunduri](https://github.com/rchun043)\
+Authors: [Shivani Nandakumar](https://github.com/snand021), [Varsha Kuppa](https://github.com/vkupp001), [Sreeja Pagireddy](https://github.com/spagi002), [Rama Chunduri](https://github.com/rchun043)
 
 ## Project Description
-### Purpose of the project:
+### General Description:
+This task organizer is a terminal-based scheduling and productivity tool designed for users seeking efficient time management in their daily lives. Users can create a weekly schedule of tasks and customize the organization based on their preferences. The tool offers various ways to view and organize tasks, such as sorting by start date, due date, priority, duration, and tags. Additionally, users receive on-screen notifications 24 hours before a task's due date. The program allows users to edit, delete, and print their schedules, providing a unique and versatile approach to task management. The generated schedules are displayed in ASCII text, offering a clear and accessible representation of tasks and their details. Users can easily navigate and interact with their schedules, making this task organizer a valuable asset for enhancing productivity and time awareness. 
+<br></br>
+
+### Purpose:
 The Weekly Task Organizer is designed to help users in efficiently managing their weekly tasks through a simple and user-friendly command-line interface. The primary goal is to provide a customizable and visually appealing platform for users to organize, prioritize, and track their tasks effectively.  
+<br></br>
 
-  
-### Importance of the project: 
-This task organizer is importance to us because it addresses a challenge faced by students and professionals alike — time management. As. Time management is crucial for productivity, this project provides a centralized platform for task organization. As computer science students, we all struggle with remembering the due dates for assignments and meetings. Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
+### Importance: 
+This task organizer is importance to us because it addresses a challenge faced by students and professionals alike — time management. Time management is crucial for productivity, and this project provides a centralized platform for task organization. As computer science students, we all struggle with remembering the due dates for assignments and meetings.Designing this project would not only help us keep track of our priorities but can also be helpful to others. 
+<br></br>
 
-  
+### Languages/Tools/Technologies
+[C++](https://cplusplus.com/) - This project is programmed mainly using C++.
+
+[Visual Studio Code](https://code.visualstudio.com/) - An integrated development environment (IDE) used for coding, debugging, and version control. 
+
+[Git](https://git-scm.com/) - A distributed version control system employed to track changes in the source code during the development process. Git facilitates collaboration and helps manage different versions of the code.
+
+[Valgrind](https://valgrind.org/) - A programming tool used for memory debugging, memory leak detection, and profiling. Valgrind ensures memory integrity and helps identify potential issues related to memory management.
+
+[GitHub](https://github.com/) - A web-based platform for hosting and collaborating on Git repositories. GitHub serves as a central hub for project code, issues, and documentation, enabling efficient teamwork.
+
+[CMake](https://cmake.org/) - A cross-platform build system that simplifies the build process for C++ projects. CMake generates platform-specific build files from a high-level configuration, promoting portability.
+
+[Google Test Framework](https://github.com/google/googletest) -  A testing framework for C++ projects that enables the creation and execution of unit tests. Google Test aids in verifying the correctness and robustness of the codebase through automated testing.
+<br></br>
+
 ### Features:
-**Create Account:** User are initially directed to create an account where they can sign up and enter their name and password. If they already have an account, they are directed to the login page.
+- **Create Account:** User are initially directed to create an account where they can sign up and enter their name and password. If they already have an account, they are directed to the login page.
 
-**Login:** Existing user can log in and view, create, edit, delete their tasks, and set their schedule.
+- **Login:** Existing user can log in and view, create, edit, delete their tasks, and set their schedule.
 
-**Features within a Task:** Start Date, Due Date, Priority, Duration, Random Assigned Number, Name of Task, Description of Task. These are the items asked when a user creates a task. 
+- **Features within a Task:** Start Date, Due Date, Priority, Duration, Random Assigned Number, Name of Task, Description of Task. These are the items asked when a user creates a task. 
 
-**View:** After a user logs in, they will be directed to the view feature where they can view all their tasks.
+- **View:** After a user logs in, they will be directed to the view feature where they can view all their tasks.
 
-**Menu:** After viewing their schedule, they are directed toward the menu page where they can choose to print their schedule, delete tasks, and edit tasks.
+- **Menu:** After viewing their schedule, they are directed toward the menu page where they can choose to print their schedule, delete tasks, and edit tasks.
 
-**Edit:** If they choose to edit their task, they can make changes within a week. They can change any of the features within a task.
+- **Edit:** If they choose to edit their task, they can make changes within a week. They can change any of the features within a task.
 
-**Delete:** A user can delete their task from their weekly schedule. A number would be displayed next to the task and the user can enter the number to remove that certain task.
+- **Delete:** A user can delete their task from their weekly schedule. A number would be displayed next to the task and the user can enter the number to remove that certain task.
 
-**Add:** A user can add a task to their weekly schedule. 
-**Print Their Schedule:** User can choose to view and print their schedule onto the terminal. Their schedule can also be organized by their start date, due date, duration, completion, tag, and priority.
-**Remind Feature:** User would also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
->
->
-### Languages and Development:
+- **Add:** A user can add a task to their weekly schedule. 
 
-- Description: The language that we will be using for this project will be C++. We will also be using Visual Studio Code, Valgrind, and the gdb debugger.
+- **Print Their Schedule:** User can choose to view and print their schedule onto the terminal. Their schedule can also be organized by their start date, due date, duration, completion, tag, and priority.
 
+- **Remind Feature:** User will also be reminded if their task is 24 hours before the due date or if the end of the week is approaching.
+<br></br>
+
+### Program Inputs/Outputs:
 - Input: Name of user, password, name of task, description, due date, start date, task duration, completion status of task, tag, and priority of tasks.
   
 - Output:
 A visible schedule which is printed in order of due dates, first dates, end dates, duration, priority, or tag (the user may choose, although printing by due date is the default view) which shows all the tasks, descriptions, and all information about their tasks. They will also get automatic reminders which are displayed on the screen 24 hours before each task is due.
 The main features of this project are: It allows the user to organize their schedule by adding different tasks and they will be notified 24 hours before the time of the task. They can add a description to their tasks, categorize them using tags, give them certain priorities, and set due dates for the tasks as well.
+<br></br>
+<br></br>
 
 ## User Interface Specification
-(https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
->
->
+<!--(https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))-->
+
 ### Navigation Diagram
 ><img width="676" alt="Screenshot 2023-11-20 at 10 01 23 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/cc910496-4659-4a1b-ac74-81058693d748">
->
->
-### Screen Layouts
+<br></br>
 
+### Screen Layouts
 <img width="504" alt="Screenshot 2023-11-20 at 7 35 40 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/eb984441-b5ac-4b80-98f7-09a1efc49263">
 
 <img width="406" alt="Screenshot 2023-11-15 at 10 43 17 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/e33d70a0-97b0-42b8-994d-1d4e66e57e18">
 
 <img width="407" alt="Screenshot 2023-11-15 at 10 43 36 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/f02b10c4-724a-4e5a-9daa-1329188db167">
-
+<br></br>
 
 ### Class Diagram
-><img width="849" alt="Screenshot 2023-11-20 at 9 40 42 PM" src="https://github.com/cs100/final-project-snand021/assets/130624276/0444cadc-2ab1-4dfb-84f3-c33fb4cbfe7a">
+<img width="664" alt="Screenshot 2023-11-22 at 12 08 21 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/07090208-be0a-4675-a8c1-231b1f18ada2">
 
-## UML Diagram Descriptions:
+
+
+
+#### UML Diagram Descriptions:
 This is the UML diagram for our project which is called “Schedule Organizer”. This project consists of six classes: Task, TaskList, User, Menu, Remind, and ViewSchedule.
 
-**Task Class**
-The Task class is responsible for getting and setting the following attributes for every task: name, due date, start date, priority, tag, description, status, and duration. This implementation is important as it creates the task itself and allows the user to customize it. 
+**Task Class** - The Task class is responsible for getting and setting the following attributes for every task: name, due date, start date, priority, tag, description, status, and duration. This implementation is important as it creates the task itself and allows the user to customize it. 
 
-**TaskList Class**
-The TaskList class has an addTask function that adds tasks to a vector of the task object (a private variable of TaskList), a removeTask function that removes a task from the vector of tasks, and a getTasks function that gets the vector of tasks. 
+**TaskList Class** - The TaskList class has an addTask function that adds tasks to a vector of the task object (a private variable of TaskList), a removeTask function that removes a task from the vector of tasks, and a getTasks function that gets the vector of tasks. 
 
-**User Class**
-The User task has setters and getters for username and password as well as additional functions that help the user create an account and login. These functions also allow an existing user to log in and view their saved schedule. 
+**User Class** - The User task has setters and getters for username and password as well as additional functions that help the user create an account and login. These functions also allow an existing user to log in and view their saved schedule. 
 This class also has a loadTask function that reads input from the user’s file and puts their tasks into a vector, a getTaskList function that gets the taskList object, and a setTaskList function that sets the vector of tasks in the taskList object. 
 
-**Menu Class**
-The Menu class contains a single function that prints the menu containing multiple options such as adding a task, deleting a task, and editing a task. This class improves the user interface and accessibility while also making the creation of the schedule more flexible.
+**Menu Class** - The Menu class contains a single function that prints the menu containing multiple options such as adding a task, deleting a task, and editing a task. This class improves the user interface and accessibility while also making the creation of the schedule more flexible.
 
-**ViewSchedule Class**
-The ViewSchedule class consists of 6 functions. These functions allow the user to view their schedule sorted by due date, start date, duration, completion, tag, and priority. This implementation allows the user to view their schedule according to their personal preference. 
+**ViewSchedule Class** - The ViewSchedule class consists of 6 functions. These functions allow the user to view their schedule sorted by due date, start date, duration, completion, tag, and priority. This implementation allows the user to view their schedule according to their personal preference. 
 
-**Remind Class**
-The Remind class has a function called remind that outputs a message to the user on terminal, reminding the user of the tasks that are due in 24 hours. The Remind class also notifies the user when it is approaching the end of the week to complete the tasks.
->
->
+**Remind Class** - The Remind class has a function called remind that outputs a message to the user on terminal, reminding the user of the tasks that are due in 24 hours. The Remind class also notifies the user when it is approaching the end of the week to complete the tasks.
+<br></br>
+
 ## What changes we made from the first UML diagram and SOLID
 Added the data types “bool complete,”  “string startDate,” and “int duration” to the Task class, and their respective setters and getters 
 - SOLID Principle(s): The Single Responsibility Principle (SRP)
@@ -136,15 +149,15 @@ Added a User class that is sort of the central class of the program. It enables 
 - SOLID Principle(s): Single Responsibility Principle (SRP)
 - Application: The introduction of the User class follows SRP by centralizing user-related functionalities.
 - Benefits: This change enhances modularity and maintainability. The User class serves as a central hub for user-specific actions, such as login and task retrieval, providing a clear and coherent interface for managing user-related concerns.
- 
+<br></br>
+
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
->
-> 
+
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage

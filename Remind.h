@@ -7,4 +7,4 @@
 
 class Remind{
     void remind(User user);
-}
+};

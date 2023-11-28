@@ -17,9 +17,9 @@ void Remind::remind(User user){
     cout << "Tasks Due in 24 hrs: " << endl;
     for(i=0; i<tasks.size(); ++i){
         string currDate = tasks.at(i).GetDueDate();
-        int currYr = atoi(currDate.substr(0, 4));
-        int currMn = atoi(currDate.substr(4, 2));
-        int currDt = atoi(currDate.substr(7, 2));
+        int currYr = atoi((currDate.substr(0, 4)).c_str());
+        int currMn = atoi((currDate.substr(4, 2)).c_str());
+        int currDt = atoi((currDate.substr(7, 2)).c_str());
         chrono::system_clock::time_point now = chrono::system_clock::now();
         time_t currTime = chrono::system_clock::to_time_t(now);
         tm* localTime = localtime(&currTime);
