@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class ViewSchedule {
+class ViewPages {
         void viewCreateAccount(User * user);
         void viewLogin(User * user);
         
