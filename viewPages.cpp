@@ -1,13 +1,36 @@
 #include "viewPages.h"
+#include <iomanip> 
 
 using namespace std;
 
 
-void viewSchedule :: viewSchedule(User * user) {
-    
+void viewPages :: viewCreateAccount(User * user) {
 
 }
 
+void viewPages :: viewLogin(User * user) {
+
+}
+        
+void viewPages:: viewHome(User * user) {
+
+}
+
+void viewPages ::viewToDo(User * user) {
+
+}
+
+void viewPages :: viewAddTask(User * user) {
+
+}
+        
+void viewPages :: viewRemoveTask(User * user) {
+
+}
+        
+void viewPages :: viewEditTask(User * user) {
+
+}
 
 
 
