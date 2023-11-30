@@ -5,8 +5,43 @@ using namespace std;
 void ViewSchedule :: viewDefault(User * user) {
    vector<Task> tasks = user->getTaskList().getTasks();
 
+    // sort tasks by due date and then by priority 
+    sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
+        
+        // Compare by due date (earliest to latest)
+        if (a.GetDueDate() != b.GetDueDate()) {
+            return a.getPriority() < b.getPriority();
+        }
 
+        // If dues dates (earliest to latest) are equal, compare by priority
+        return a.getPriority() < b.getPriority();
+    });
 
+    cout << " Priority | Task                                           | Tag         | Status    " << endl;
+    cout << "+------------------------------------------------------------------------------------+" << endl;
+
+    string currDueDate = "";
+
+    for (int i = 0; i < tasks.size(); ++i) {
+        const Task& task = tasks[i];
+
+        if (task.GetDueDate() != currDueDate) {
+            // start a new due date section 
+            currentDueDate = task.getDueDate();
+            cout << " Due Date " << currentDueDate << endl;
+            cout << "+------------------------------------------------------------------------------------+" << endl;
+        }
+
+        cout << "    " << task.GetPriority() << "     | ";
+        cout << task.GetName() << "     | ";
+        cout << task.GetTag() << "     | ";
+        cout << task.GetStatus();
+        if (task.GetStatus == true) { // completed 
+            cout << "Complete" << endl;
+        } else // incomplete 
+        {
+            cout << "Inomplete" << endl;
+        } 
 }
 
 
