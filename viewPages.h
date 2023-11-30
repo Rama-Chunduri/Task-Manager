@@ -1,19 +1,26 @@
 #pragma once
 #include "User.h"
+#include <iostream>
+#include <iomanip.h> 
+#include <string.h>
+#include <ncurses.h>
 
 using namespace std;
 
 class ViewPages {
-        void viewCreateAccount(User * user);
-        void viewLogin(User * user);
-        
-        void viewHome(User * user);
+        public: 
+                void viewCreateAccount(User * user);
+                void viewLogin(User * user);
+                
+                void viewHome(User * user);
 
-        void viewToDo(User * user);
+                void viewToDo(User * user);
 
-        void viewAddTask(User * user);
-        void viewRemoveTask(User * user);
-        void viewEditTask(User * user);
+                void viewAddTask(User * user);
+                void viewRemoveTask(User * user);
+                void viewEditTask(User * user);
+
+        private: 
 
         
         // // earliest to latest start date

@@ -5,7 +5,8 @@ using namespace std;
 
 
 void viewPages :: viewCreateAccount(User * user) {
-
+    cout << setw(80) << "Welcome to Schedule Organizer!" << endl;
+    cout << setw()
 }
 
 void viewPages :: viewLogin(User * user) {
