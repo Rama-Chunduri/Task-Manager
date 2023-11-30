@@ -43,8 +43,8 @@ void User::loadtasks(){
     string Tag;
     string Duedate;
     string Priority;
-    ifstream MyReadFile("filename.txt");
-    while (getline (MyReadFile, myText)) {
+    ofstream myFile("filename.txt");
+    while (getline (myFile, myText)) {
         tasks.push_back(myText);
    }
    MyReadFile.close();

@@ -1,10 +1,12 @@
 #include <iostream>
 #include <fstream>
-#include "User.h"
-#include "task.h"
-#include "viewSchedule.h"
-#include "editTask.h"
-#include "taskListEdit.h"
+#include <string>
+
+//#include "User.h"
+//#include "task.h"
+//#include "viewSchedule.h"
+//#include "editTask.h"
+//#include "taskListEdit.h"
 using namespace std;
 
 
@@ -13,7 +15,7 @@ int main(){
 
    //opening userLogin.txt
 
-   ofstream userFile;
+   fstream userFile;
    userFile.open("userLogin.txt");
 
    if(!(userFile.is_open()))
@@ -23,7 +25,6 @@ int main(){
 
    //asking user if they are new or old user
    string userName;
-   string password;
    string fileName;
    cout << "Are you an existing user (Press E) or new user (Press N)?" << endl;
 
@@ -53,7 +54,7 @@ int main(){
          string firstWord;
          string secondWord;
          //checks if userName exists
-         while( userFile >> firstWord >> secondWord || userNameExists == true;)
+         while( userFile >> firstWord >> secondWord || userNameExists == true)
          {
 
             if(firstWord == userName)
@@ -72,10 +73,39 @@ int main(){
          else
          {
             cout << "That username is taken, please enter a valid username." << endl;
-            getline(cin, username);
+            getline(cin, userName);
          }
          }
-         while(validUserName == false;)
+         while(validUserName == false);
+
+         //valid password
+
+         string password;
+
+         cout << "Please enter a password: " << endl;
+         getline (cin, password);
+         bool validPassword = false;
+         bool capitalLetter;
+         bool number;
+
+   //do checks for password
+         do{
+               if(validPassword == false)
+               {
+                  cout << "Please enter a valid password: " << endl;
+                  getline(cin, password);
+               }
+            
+            validPassword = true;
+               
+         }
+         while(validPassword == false)
+
+         
+
+
+         //write username and password to file
+      
 
       }
      
@@ -92,15 +122,15 @@ int main(){
 
 
       //User user = User(name, password);
-      cout << "Welcome " << name << "!" << endl;
-      fileName = name + ".txt";
+      cout << "Welcome " << userName << "!" << endl;
+      fileName = userName + ".txt";
 
 
 //creates file for user's schedule
       ifstream inFS;
       ofstream outFS(fileName);
-      outFS << name << endl;
-      outFS << name <<"'s password: " << password << endl;
+      outFS << userName << endl;
+      outFS << userName <<"'s password: " << password << endl;
    }
 
 
