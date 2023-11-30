@@ -27,8 +27,4 @@ class viewSchedule {
 
         private: 
                 void printCentered(const string * text); // helper function to print centered text 
-
-                bool compareByDueDate(const Task&, const Task&);
-                bool sortByDueDate(vector<Task>&);
-
 }

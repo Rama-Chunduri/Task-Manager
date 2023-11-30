@@ -190,18 +190,6 @@ void ViewSchedule :: viewByTag(User* user)
 
 
 
-// Helper function to compare tasks by due date
-bool ViewSchedule :: compareByDueDate(const Task& a, const Task& b) {
-    return a.getDueDate() < b.getDueDate();
-}
-
-void ViewSchedule :: sortByDueDate(vector<Task>& tasks) {
-    std::sort(tasks.begin(), tasks.end(), compareByDueDate);
-}
-
-
-
-
 void viewPages :: printCentered(const string text) {
     int x;
     int y; 
