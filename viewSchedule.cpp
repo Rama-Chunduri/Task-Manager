@@ -40,8 +40,52 @@ void ViewSchedule :: viewDefault(User * user) {
             cout << "Complete" << endl;
         } else // incomplete 
         {
-            cout << "Inomplete" << endl;
+            cout << "Incomplete" << endl;
         } 
+    }
+}
+
+
+
+
+
+
+// groups tasks of the same tag together
+void ViewSchedule :: viewByTag(User* user)  
+{
+    vector<Task> tasks = user->getTaskList().getTasks();
+
+    //get unique tags 
+    vector<string>uniqueTags;
+    Task taskIterator = tasks.at(0);
+
+    for (int i = 0; i < tasks.size(); ++i) {
+    
+        // if tag is not found in uniqueTags
+        if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.getTag()) == uniqueTags.end()) {
+            uniqueTags.push_back(taskIterator.getTag());
+        }
+    }
+
+    cout << " Due Date    | Task " << endl;
+    cout << "+----------------------------------------------------+" << endl;
+
+    //iterate over unique tags and print tasks for each tag 
+    string tagIterator = uniqueTags.at(0);
+    taskIterator = tasks.at(0);
+
+    for (int i = 0; i < uniqueTag.size(); ++i) {
+        cout << tagIterator << endl;
+        cout << "+----------------------------------------------------+" << endl;
+
+        //iterate over tasks and print details for tasks with the current tag
+        for (int i = 0; i < uniqueTasks.size(); ++i) {
+            if (task.getTag() == tagIterator)
+                //print task details as needed 
+                cout << " " << task.getDueDate() << " | " << task.getName() << endl;
+        }
+        cout << endl << endl;
+    }
 }
 
 
@@ -108,7 +152,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
                 if (currentCompletionStatus == true) { // task complete 
                     cout << "Complete" << endl;
 
-                } else { // tasl incomplete 
+                } else { // task incomplete 
                     cout << "Incomplete" << endl;
 
                 }
@@ -179,48 +223,6 @@ void ViewSchedule :: viewByPriority(User* user) {
     }
 }
 
-
-
-
-
-
-// groups tasks of the same tag together
-void ViewSchedule :: viewByTag(User* user)  
-{
-    vector<Task> tasks = user->getTaskList().getTasks();
-
-    //get unique tags 
-    vector<string>uniqueTags;
-    Task taskIterator = tasks.at(0);
-
-    for (int i = 0; i < tasks.size(); ++i) {
-    
-        // if tag is not found in uniqueTags
-        if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.getTag()) == uniqueTags.end()) {
-            uniqueTags.push_back(taskIterator.getTag());
-        }
-    }
-
-    cout << " Due Date    | Task " << endl;
-    cout << "+----------------------------------------------------+" << endl;
-
-    //iterate over unique tags and print tasks for each tag 
-    string tagIterator = uniqueTags.at(0);
-    taskIterator = tasks.at(0);
-
-    for (int i = 0; i < uniqueTag.size(); ++i) {
-        cout << tagIterator << endl;
-        cout << "+----------------------------------------------------+" << endl;
-
-        //iterate over tasks and print details for tasks with the current tag
-        for (int i = 0; i < uniqueTasks.size(); ++i) {
-            if (task.getTag() == tagIterator)
-                //print task details as needed 
-                cout << " " << task.getDueDate() << " | " << task.getName() << endl;
-        }
-        cout << endl << endl;
-    }
-}
 
 
 
