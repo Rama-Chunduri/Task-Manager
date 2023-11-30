@@ -3,6 +3,7 @@
 using namespace std;
 
 void ViewSchedule :: viewDefault(User * user) {
+   vector<Task> tasks = user->getTaskList().getTasks();
 
 }
 
@@ -185,6 +186,18 @@ void ViewSchedule :: viewByTag(User* user)
 }
 
 
+
+
+
+
+// Helper function to compare tasks by due date
+bool ViewSchedule :: compareByDueDate(const Task& a, const Task& b) {
+    return a.getDueDate() < b.getDueDate();
+}
+
+void ViewSchedule :: sortByDueDate(vector<Task>& tasks) {
+    std::sort(tasks.begin(), tasks.end(), compareByDueDate);
+}
 
 
 

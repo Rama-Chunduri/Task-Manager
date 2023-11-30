@@ -17,7 +17,7 @@ class viewSchedule {
                 void viewByTag(User * user);
 
                 // longest to shortest duration
-                 oid viewByDuration(User* user);
+                void viewByDuration(User* user);
 
                 // complete vs incomplete
                 void viewByCompletion(User* user);
@@ -27,4 +27,8 @@ class viewSchedule {
 
         private: 
                 void printCentered(const string * text); // helper function to print centered text 
+
+                bool compareByDueDate(const Task&, const Task&);
+                bool sortByDueDate(vector<Task>&);
+
 }
