@@ -5,6 +5,8 @@ using namespace std;
 void ViewSchedule :: viewDefault(User * user) {
    vector<Task> tasks = user->getTaskList().getTasks();
 
+
+
 }
 
 
@@ -28,7 +30,7 @@ void ViewSchedule :: viewByDuration(User* user) {
    cout << "+----------------------------------------------------+" << endl;
 
 
-   for (const Task& task : tasks) {
+   for (int i = 0; o < tasks.size(); ++i) {
        // Print task details
        cout << " " << task.getDuration() << " | " << task.getName() << endl;
    }
@@ -188,18 +190,3 @@ void ViewSchedule :: viewByTag(User* user)
 
 
 
-
-
-void viewPages :: printCentered(const string text) {
-    int x;
-    int y; 
-
-    getmaxyx(stdscr, y, x); // gets dimensions of the terminal window 
-    
-    int len = strlen(text);
-    int centeredX = (x - len) / 2;
-    int centeredY = y / 2;
-
-    mvprintw(centeredY, centeredX, "%s", text);
-    refresh();
-}
