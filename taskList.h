@@ -8,9 +8,10 @@ using namespace std;
 
 class taskList : public Task {
    public:
-   void addTask(const string newTask);
-   void removeTask(const string toRemove);
-   void editTask(const string taskName);
+   void addTask(Task*task);
+   void removeTask(int toRemove);
+   void editTask(string taskName);
+   vector<Task> * getTask();
    private:
    vector<Task*> tasks;
 };

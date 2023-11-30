@@ -1,6 +1,14 @@
-#pragma once
-#include <vector>
+
+#include "User.h"
+#include "task.h"
 #include <string>
+#include <vector>
+#include <iostream>
+#include <fstream>
+
+#pragmaonce
+
+
 using namespace std;
 
 class User{

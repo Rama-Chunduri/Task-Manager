@@ -30,6 +30,9 @@ void Task::SetDescription(string description){
 void Task::SetPriority(int priority){
    this->_priority = priority;
 }
+bool Task::Complete(bool check){
+   this->_complete=check;
+}
 string Task::GetName(){
    return _name;
 }
