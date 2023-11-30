@@ -2,8 +2,7 @@
 
 using namespace std;
 
-// longest to shortest duration
-void viewByDuration(User* user) {
+void ViewSchedule :: viewDefault(User * user) {
 
 }
 
@@ -12,8 +11,37 @@ void viewByDuration(User* user) {
 
 
 
+// shortest to longest duration
+// Might change the way this is viewed later - get the duration in intervals
+void ViewSchedule :: viewByDuration(User* user) {
+   vector<Task> tasks = user->getTaskList().getTasks();
+
+
+   // sort tasks by duration from shortest to longest
+   sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
+       return a.GetDurationHours() < b.GetDurationHours();
+   });
+
+
+   cout << " Duration    | Task " << endl;
+   cout << "+----------------------------------------------------+" << endl;
+
+
+   for (const Task& task : tasks) {
+       // Print task details
+       cout << " " << task.getDuration() << " | " << task.getName() << endl;
+   }
+
+   cout << endl << endl;
+}
+
+
+
+
+
+
 // complete vs incomplete
-void viewByCompletion(User* user) {
+void ViewSchedule :: viewByCompletion(User* user) {
     vector<Task> tasks = user->getTaskList().getTasks();
 
     // Sort tasks by completion status and then by due date within each status
@@ -64,7 +92,7 @@ void viewByCompletion(User* user) {
 
             cout << " "<< task.getDueDate() << " | " << task.getName() << endl;
         }
-        
+
     cout << endl << endl;
 }
 
@@ -74,7 +102,7 @@ void viewByCompletion(User* user) {
 
 
 // highest(1) to lowest priority(3)
-void viewByPriority(User* user) {
+void ViewSchedule :: viewByPriority(User* user) {
      vector<Task> tasks = user->getTaskList().getTasks();
 
     // Sort tasks by priority and then by due date within each priority
