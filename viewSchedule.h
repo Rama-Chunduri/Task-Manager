@@ -1,27 +1,26 @@
 #pragma once
 #include "User.h"
+#include <iostream>
+#include <vector.h>
+#include <algorithm.h>
+#include <iomanip.h> 
+#include <string.h>
 
 using namespace std;
 
-class ViewSchedule {
-        void viewSchedule(User * user);
-        
-        // // earliest to latest start date
-        // void printByStartDate(User* user);
-        
-        // // earliest to latest start date 
-        // // also the default view 
-        // void printByDueDate(User* user);
-        
-        // // longest to shortest duration
-        // void printByDuration(User* user);
-        
-        // // complete vs incomplete
-        // void printByCompletion(User* user);
-        
-        // groups tasks of the same tag together
-        void printByTag(User* user);
+class viewSchedule {
+        public: 
+                void viewDefault(User * user);
 
-        // // highest(1) to lowest priority(3)
-        // void printByPriority(User* user);
+                // groups tasks of the same tag together
+                void viewByTag(User * user);
+
+                // longest to shortest duration
+                void viewByDuration(User* user);
+
+                // complete vs incomplete
+                void viewByCompletion(User* user);
+
+                // highest(1) to lowest priority(3)
+                void viewByPriority(User* user);
 }
