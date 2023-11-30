@@ -14,7 +14,58 @@ void viewByDuration(User* user) {
 
 // complete vs incomplete
 void viewByCompletion(User* user) {
+    vector<Task> tasks = user->getTaskList().getTasks();
 
+    // Sort tasks by completion status and then by due date within each status
+    sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
+        // Compare by completion status
+        if (a.isCompleted() != b.isCompleted()) {
+            return a.isCompleted() > b.isCompleted();
+        }
+
+        // If completion status is equal, compare by due date (earliest to latest)
+        return a.getDueDate() < b.getDueDate();
+    });
+
+    cout << " Due Date    | Task " << endl;
+    cout << "+----------------------------------------------------+" << endl;
+
+    bool currentCompletionStatus = true; // assuming true means completed
+
+        for (int i = 0; i < tasks.size(); ++i) {
+            const Task& task = tasks[i];
+
+            if (task.isCompleted() != currentCompletionStatus) {
+
+            // Start a new completion status group
+            if (i != 0) {
+                if (currentCompletionStatus == true) { // task complete 
+                    cout << "Complete" << endl;
+
+                } else { // tasl incomplete 
+                    cout << "Incomplete" << endl;
+
+                }
+
+                cout << "+----------------------------------------------------+" << endl;
+            }
+
+            currentCompletionStatus = task.isCompleted();
+        }
+
+            // print task details 
+            if (currentCompletionStatus == true) { // task complete 
+                    cout << [√] << " ";
+
+                } else { // task incomplete 
+
+                    cout << [X] << " ";
+                }
+
+            cout << " "<< task.getDueDate() << " | " << task.getName() << endl;
+        }
+        
+    cout << endl << endl;
 }
 
 
