@@ -24,7 +24,42 @@ void viewByCompletion(User* user) {
 
 // highest(1) to lowest priority(3)
 void viewByPriority(User* user) {
+     vector<Task> tasks = user->getTaskList().getTasks();
 
+    // Sort tasks by priority and then by due date within each priority
+    sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
+        
+        // Compare by priority
+        if (a.getPriority() != b.getPriority()) {
+            return a.getPriority() > b.getPriority();
+        }
+
+        // If priorities are equal, compare by due date (earliest to latest)
+        return a.getDueDate() < b.getDueDate();
+    });
+
+    cout << " Due Date    | Task " << endl;
+    cout << "+----------------------------------------------------+" << endl;
+
+    int currentPriority = -1;
+
+    for (int i = 0; i < tasks.size(); ++i) {
+        const Task& task = tasks[i];
+
+        if (task.getPriority() != currentPriority) {
+            
+            // Start a new priority group
+            if (currentPriority != -1) {
+                cout << "Priority " << currentPriority << endl;
+                cout << "+----------------------------------------------------+" << endl;
+            }
+
+            currentPriority = task.getPriority();
+        }
+
+            // Print task details
+            cout << " " << task.getDueDate() << " | " << task.getName() << endl;
+    }
 }
 
 
@@ -44,14 +79,13 @@ void ViewSchedule :: viewByTag(User* user)
     for (int i = 0; i < tasks.size(); ++i) {
     
         // if tag is not found in uniqueTags
-        if (find(uniqueTags.begin(), uniqueTags.end(), iterator.getTag()) == uniqueTags.end()) {
-            uniqueTags.push_back(task.getTag());
+        if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.getTag()) == uniqueTags.end()) {
+            uniqueTags.push_back(taskIterator.getTag());
         }
     }
 
     cout << " Due Date    | Task " << endl;
     cout << "+----------------------------------------------------+" << endl;
-
 
     //iterate over unique tags and print tasks for each tag 
     string tagIterator = uniqueTags.at(0);
@@ -67,7 +101,7 @@ void ViewSchedule :: viewByTag(User* user)
                 //print task details as needed 
                 cout << " " << task.getDueDate() << " | " << task.getName() << endl;
         }
-        cout << endl;
+        cout << endl << endl;
     }
 }
 
