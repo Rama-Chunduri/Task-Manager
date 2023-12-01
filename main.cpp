@@ -45,6 +45,7 @@ int main(){
       ofstream outFS(fileName);
       outFS << name << endl;
       outFS << name <<"'s password: " << password << endl;
+
    }
 
 
