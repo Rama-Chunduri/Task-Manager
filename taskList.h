@@ -15,4 +15,3 @@ class taskList : public Task {
    private:
    vector<Task> tasks;
 };
-

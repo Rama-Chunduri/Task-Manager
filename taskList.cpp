@@ -1,31 +1,31 @@
 #include "task.h"
 #include "taskList.h"
-#include "user.h"
+#include "User.h"
 #include <vector>
 #include <string>
 #include <iostream>
 #include <fstream>
 using namespace std;
 
-vector<Task> taskListEdit :: getTask(){
-   return tasks;
+vector<Task*> taskList :: getTask(){
+   return *tasks;
 }
 
-void taskListEdit::addTask(Task*task){
-   int name=user.GetName(); //this variable is for the user who is entering this task so we can implement the task
+void taskListEdit::addTask(ostream & out, Task*task){// pass ofstream into function
+   //string name=user->GetUserName(); //this variable is for the user who is entering this task so we can implement the task
    //to the file
    //also create a vector and push back task
-   tasks.push_back(task);
    //Open file
-   string fileName;
-   fileName = name + ".txt";//name of the file
-   ofstream myFile(fileName);
-   outFS<<tasks.size()<<", "<<task->GetName()<<", "<<task>GetStartDate()<<", "<<task->GetStartDate()<<", "<<task->GetDueDate()<<", "<<toAdd->GetDescription()
-   <<", "<< task->GetTag()<<", "<<task->GetPriority()<<endl;
-   myFile.close();
+   //string fileName;
+   //fileName = name + ".txt";//name of the file
+   //ofstream myFile(fileName);--- write in main
+   tasks.push_back(task);
+   out<<tasks.size()<<", "<<task->GetName()<<", "<<task>GetStartDate()<<", "<<task->GetEndDate()<<", "<<task->GetDueDate()<<", "<<toAdd->GetDescription()
+   <<", "<< task->GetTag()<<", "<<task->GetPriority()<<task->GetDurationHours()<<endl;
+   out.close();
 }
-void taskListEdit::removeTask(int  toRemove){
-  fileName = name + ".txt";//name of the file
+void taskListEdit::removeTask(int toRemove){
+  fileName = user->GetUserName() + ".txt";//name of the file
   ifstream inFile(fileName); // reading the file with the user name
   ofstream temporaryFile("temp.txt");
   // Create a text string, which is used to output the text file
@@ -40,7 +40,7 @@ void taskListEdit::removeTask(int  toRemove){
         }
         currentLineNum++; // keeps track of the numbers when moving the file over, numbers all change after removing that line
     }
-   //we also need to remove the element from the vector
+   //we also need to remove the element from the vector, edge case
       if(toRemove<tasks.size()){
          tasks.erase(tasks.begin()+toRemove);
       }
