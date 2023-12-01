@@ -1,4 +1,3 @@
-#pragma once
 #include "task.h"
 #include <string>
 #include <vector>
@@ -30,8 +29,11 @@ void Task::SetDescription(string description){
 void Task::SetPriority(int priority){
    this->_priority = priority;
 }
-bool Task::isCompleted(bool check){
-   this->_complete=check;
+bool Task::GetComplete(){
+   return _complete;
+}
+void Task::SetComplete(bool check){
+   this->_complete = check;
 }
 string Task::GetName(){
    return _name;
@@ -51,7 +53,7 @@ int Task::GetPriority(){
 string Task::GetStartDate(){
    return _startDate;
 }
-string Task::GetDueDate(){
+string Task::GetEndDate(){
    return _endDate;
 }
 double Task::GetDurationHours(){
@@ -65,7 +67,4 @@ void Task::SetEndDate(string endDate){
 }
 void Task::SetDurationHours(double durationHours){
    _durationHours = durationHours;
-}
-bool Task::isCompleted(bool check){
-    return _complete;
 }
