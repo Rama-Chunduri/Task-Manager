@@ -3,18 +3,18 @@
 using namespace std;
 
 void ViewSchedule :: viewDefault(User * user) {
-   vector<Task> tasks = user->getTaskList().getTasks();
+   vector<Task> tasks = user->GetTaskList().GetTasks();
 
     // sort tasks by due date and then by priority 
     sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
         
         // Compare by due date (earliest to latest)
         if (a.GetDueDate() != b.GetDueDate()) {
-            return a.getPriority() < b.getPriority();
+            return a.GetPriority() < b.GetPriority();
         }
 
         // If dues dates (earliest to latest) are equal, compare by priority
-        return a.getPriority() < b.getPriority();
+        return a.GetPriority() < b.GetPriority();
     });
 
     cout << " Priority | Task                                           | Tag         | Status    " << endl;
@@ -27,7 +27,7 @@ void ViewSchedule :: viewDefault(User * user) {
 
         if (task.GetDueDate() != currDueDate) {
             // start a new due date section 
-            currentDueDate = task.getDueDate();
+            currentDueDate = task.GetDueDate();
             cout << " Due Date " << currentDueDate << endl;
             cout << "+------------------------------------------------------------------------------------+" << endl;
         }
@@ -42,6 +42,7 @@ void ViewSchedule :: viewDefault(User * user) {
         {
             cout << "Inomplete" << endl;
         } 
+    }
 }
 
 
@@ -52,7 +53,7 @@ void ViewSchedule :: viewDefault(User * user) {
 // shortest to longest duration
 // Might change the way this is viewed later - get the duration in intervals
 void ViewSchedule :: viewByDuration(User* user) {
-   vector<Task> tasks = user->getTaskList().getTasks();
+   vector<Task> tasks = user->GetTaskList().GetTasks();
 
 
    // sort tasks by duration from shortest to longest
@@ -67,7 +68,7 @@ void ViewSchedule :: viewByDuration(User* user) {
 
    for (int i = 0; o < tasks.size(); ++i) {
        // Print task details
-       cout << " " << task.getDuration() << " | " << task.getName() << endl;
+       cout << " " << task.GetDuration() << " | " << task.GetName() << endl;
    }
 
    cout << endl << endl;
@@ -80,7 +81,7 @@ void ViewSchedule :: viewByDuration(User* user) {
 
 // complete vs incomplete
 void ViewSchedule :: viewByCompletion(User* user) {
-    vector<Task> tasks = user->getTaskList().getTasks();
+    vector<Task> tasks = user->GetTaskList().GetTasks();
 
     // Sort tasks by completion status and then by due date within each status
     sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
@@ -90,7 +91,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
         }
 
         // If completion status is equal, compare by due date (earliest to latest)
-        return a.getDueDate() < b.getDueDate();
+        return a.GetDueDate() < b.GetDueDate();
     });
 
     cout << " Due Date    | Task " << endl;
@@ -128,7 +129,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
                     cout << [X] << " ";
                 }
 
-            cout << " "<< task.getDueDate() << " | " << task.getName() << endl;
+            cout << " "<< task.GetDueDate() << " | " << task.GetName() << endl;
         }
 
     cout << endl << endl;
@@ -141,18 +142,18 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
 // highest(1) to lowest priority(3)
 void ViewSchedule :: viewByPriority(User* user) {
-     vector<Task> tasks = user->getTaskList().getTasks();
+     vector<Task> tasks = user->GetTaskList().GetTasks();
 
     // Sort tasks by priority and then by due date within each priority
     sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
         
         // Compare by priority
-        if (a.getPriority() != b.getPriority()) {
-            return a.getPriority() > b.getPriority();
+        if (a.GetPriority() != b.GetPriority()) {
+            return a.GetPriority() > b.GetPriority();
         }
 
         // If priorities are equal, compare by due date (earliest to latest)
-        return a.getDueDate() < b.getDueDate();
+        return a.GetDueDate() < b.GetDueDate();
     });
 
     cout << " Due Date    | Task " << endl;
@@ -163,7 +164,7 @@ void ViewSchedule :: viewByPriority(User* user) {
     for (int i = 0; i < tasks.size(); ++i) {
         const Task& task = tasks[i];
 
-        if (task.getPriority() != currentPriority) {
+        if (task.GetPriority() != currentPriority) {
             
             // Start a new priority group
             if (currentPriority != -1) {
@@ -171,11 +172,11 @@ void ViewSchedule :: viewByPriority(User* user) {
                 cout << "+----------------------------------------------------+" << endl;
             }
 
-            currentPriority = task.getPriority();
+            currentPriority = task.GetPriority();
         }
 
             // Print task details
-            cout << " " << task.getDueDate() << " | " << task.getName() << endl;
+            cout << " " << task.GetDueDate() << " | " << task.GetName() << endl;
     }
 }
 
@@ -187,7 +188,7 @@ void ViewSchedule :: viewByPriority(User* user) {
 // groups tasks of the same tag together
 void ViewSchedule :: viewByTag(User* user)  
 {
-    vector<Task> tasks = user->getTaskList().getTasks();
+    vector<Task> tasks = user->GetTaskList().getTask();
 
     //get unique tags 
     vector<string>uniqueTags;
@@ -196,8 +197,8 @@ void ViewSchedule :: viewByTag(User* user)
     for (int i = 0; i < tasks.size(); ++i) {
     
         // if tag is not found in uniqueTags
-        if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.getTag()) == uniqueTags.end()) {
-            uniqueTags.push_back(taskIterator.getTag());
+        if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.GetTag()) == uniqueTags.end()) {
+            uniqueTags.push_back(taskIterator.GetTag());
         }
     }
 
@@ -208,15 +209,15 @@ void ViewSchedule :: viewByTag(User* user)
     string tagIterator = uniqueTags.at(0);
     taskIterator = tasks.at(0);
 
-    for (int i = 0; i < uniqueTag.size(); ++i) {
+    for (int i = 0; i < uniqueTags.size(); ++i) {
         cout << tagIterator << endl;
         cout << "+----------------------------------------------------+" << endl;
 
         //iterate over tasks and print details for tasks with the current tag
-        for (int i = 0; i < uniqueTasks.size(); ++i) {
-            if (task.getTag() == tagIterator)
+        for (int i = 0; i < uniqueTags.size(); ++i) {
+            if (taskIterator.GetTag() == tagIterator)
                 //print task details as needed 
-                cout << " " << task.getDueDate() << " | " << task.getName() << endl;
+                cout << " " << taskIterator.GetDueDate() << " | " << taskIterator.GetName() << endl;
         }
         cout << endl << endl;
     }

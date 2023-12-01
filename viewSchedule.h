@@ -1,10 +1,14 @@
 #pragma once
-#include "User.h"
+
 #include <iostream>
-#include <vector.h>
-#include <algorithm.h>
-#include <iomanip.h> 
-#include <string.h>
+#include <vector>
+#include <algorithm>
+#include <iomanip> 
+#include <string>
+
+#include "User.h"
+#include "task.h"
+#include "taskList.h"
 
 using namespace std;
 

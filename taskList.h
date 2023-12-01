@@ -11,8 +11,8 @@ class taskList : public Task {
    void addTask(Task*task);
    void removeTask(int toRemove);
    void editTask(string taskName);
-   vector<Task> * getTask();
+   vector<Task> getTask();
    private:
-   vector<Task*> tasks;
+   vector<Task> tasks;
 };
 
