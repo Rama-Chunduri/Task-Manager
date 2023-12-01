@@ -1,16 +1,18 @@
-#include "Remind.h"
-#include "task.h"
-#include "taskList.h"
-#include "User.h"
 #include <iostream>
+#include <string>
+#include <stdlib.h>
 #include <vector>
 #include <chrono>
 #include <ctime>
+#include "Remind.h"
+#include "task.h"
+#include "taskList.h"
+
 
 
 void Remind::remind(User user){
     taskList taskList = user.getTaskList();
-    vector<Task> tasks = taskList.getTasks();
+    vector<Task> tasks = taskList.getTask();
     int tm_mday;
     int tm_mon;
     int tm_year;

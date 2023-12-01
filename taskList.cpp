@@ -7,8 +7,8 @@
 #include <fstream>
 using namespace std;
 
-vector<Task> taskListEdit :: getTask(){
-   return tasks;
+vector<Task*> taskList :: getTask(){
+   return *tasks;
 }
 
 void taskListEdit::addTask(ostream & out, Task*task){// pass ofstream into function
@@ -22,7 +22,7 @@ void taskListEdit::addTask(ostream & out, Task*task){// pass ofstream into funct
    tasks.push_back(task);
    out<<tasks.size()<<", "<<task->GetName()<<", "<<task>GetStartDate()<<", "<<task->GetEndDate()<<", "<<task->GetDueDate()<<", "<<toAdd->GetDescription()
    <<", "<< task->GetTag()<<", "<<task->GetPriority()<<task->GetDurationHours()<<endl;
-   myFile.close();
+   out.close();
 }
 void taskListEdit::removeTask(int toRemove){
   fileName = user->GetUserName() + ".txt";//name of the file
