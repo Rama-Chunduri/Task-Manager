@@ -1,4 +1,4 @@
-
+#pragma once
 #include "User.h"
 #include "task.h"
 #include <string>
@@ -6,7 +6,6 @@
 #include <iostream>
 #include <fstream>
 
-#pragmaonce
 
 
 using namespace std;
