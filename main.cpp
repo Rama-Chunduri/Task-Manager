@@ -16,7 +16,9 @@ int main(){
    //opening userLogin.txt
 
    fstream userFile;
-   userFile.open("userLogin.txt");
+   //need to open input and output modes to write and read data
+   //need to open append mode to avoid overwriting data
+   userFile.open("userLogin.txt", ios::in | ios::out | ios::app);
 
    if(!(userFile.is_open()))
    {
@@ -25,6 +27,7 @@ int main(){
 
    //asking user if they are new or old user
    string userName;
+   string password;
    string fileName;
    cout << "Are you an existing user (Press E) or new user (Press N)?" << endl;
 
@@ -32,63 +35,67 @@ int main(){
    cin >> userInput;
 
 
-   while(userInput != "E" || userInput != "N")
+   while(userInput != "E" && userInput != "N")
    {
-      cout << "Input is not valid. Please enter a valid input." << endl;
+      cout << "Input is not valid. Please enter a valid input:" << endl;
       cin >> userInput;
    }
+
+   
+   cin.ignore();//allows me to get username without reading in the endl from previous
 
    //if user is creating an account
    if(userInput == "N")
    {
-      
-      cout << "Enter your username: " << endl;
-      getline(cin,userName);
+   
 
       bool validUserName = false;
       
       do{
 
-         bool userNameExists;
-   
-         string firstWord;
-         string secondWord;
-         //checks if userName exists
-         while( userFile >> firstWord >> secondWord || userNameExists == true)
-         {
+            bool userNameExists = false;
 
-            if(firstWord == userName)
+            cout << "Enter your username: " << endl;
+            getline(cin,userName);
+      
+            string firstWord;
+            string secondWord;
+            //checks if userName exists
+            while( userFile >> firstWord >> secondWord)
             {
-               userNameExists = true;
+
+               if(firstWord == userName)
+               {
+                  userNameExists = true;
+                  break;
+               }
+               
             }
 
-            userNameExists = false;
-            
-         }
-
-         if(userNameExists == false)
-         {
-            validUserName == true;
-         }
-         else
-         {
-            cout << "That username is taken, please enter a valid username." << endl;
-            getline(cin, userName);
-         }
+            if(userNameExists == false)
+            {
+               validUserName = true;
+            }
+            else
+            {
+               cout << "That username is taken, please enter a unique username." << endl;
+              
+            }
          }
          while(validUserName == false);
 
-         //valid password
+      
+      //valid password
 
-         string password;
+        
 
          cout << "Please enter a password: " << endl;
          getline (cin, password);
-         bool validPassword = false;
-         bool capitalLetter;
-         bool number;
+         bool validPassword = true;
+        // bool capitalLetter;
+        // bool number;
 
-   //do checks for password
+      //do checks for password
          do{
                if(validPassword == false)
                {
@@ -99,17 +106,28 @@ int main(){
             validPassword = true;
                
          }
-         while(validPassword == false)
+         while(validPassword == false);
 
          
+      
+      userFile.clear(); //clear end of file flag
+      userFile.seekg(0, ios::beg); // set position to beginning of the file
 
-
-         //write username and password to file
+      //write username and password to file
+         userFile << userName << endl;
+         userFile << password << endl;
       
 
+         cout << "Would you like to go to the Login page? Press E. If not, press Q to quit." << endl;
+         cin >> userInput;
+         if(userInput == "Q")
+            {
+               return 0;
+            }
       }
-     
-      
+
+      //logging in after creating account
+           
    //if user is trying to login
    if(userInput ==  "E")
    {
@@ -129,8 +147,8 @@ int main(){
 //creates file for user's schedule
       ifstream inFS;
       ofstream outFS(fileName);
-      outFS << userName << endl;
-      outFS << userName <<"'s password: " << password << endl;
+      outFS << userName << "'s schedule: " << endl;
+      //outFS << userName <<"'s password: " << password << endl;
    }
 
 
