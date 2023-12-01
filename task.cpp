@@ -30,7 +30,7 @@ void Task::SetDescription(string description){
 void Task::SetPriority(int priority){
    this->_priority = priority;
 }
-bool Task::Complete(bool check){
+bool Task::isCompleted(bool check){
    this->_complete=check;
 }
 string Task::GetName(){
@@ -51,7 +51,7 @@ int Task::GetPriority(){
 string Task::GetStartDate(){
    return _startDate;
 }
-string Task::GetEndDate(){
+string Task::GetDueDate(){
    return _endDate;
 }
 double Task::GetDurationHours(){
@@ -66,4 +66,6 @@ void Task::SetEndDate(string endDate){
 void Task::SetDurationHours(double durationHours){
    _durationHours = durationHours;
 }
-
+bool Task::isCompleted(bool check){
+    return _complete;
+}
