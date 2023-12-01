@@ -23,6 +23,8 @@ class Task{
    string GetTag();
    string GetDescription();
    int GetPriority();
+   void SetComplete(bool check);
+   bool GetComplete();
    private:
    string _name;
    string _dueDate;
@@ -32,5 +34,5 @@ class Task{
    string _startDate;
    string _endDate;
    double _durationHours;
-   
+   bool _complete;
 };
