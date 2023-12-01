@@ -184,8 +184,8 @@ int main(){
 //creates file for user's schedule
       ifstream inFS;
       ofstream outFS(fileName);
-      outFS << userName << "'s schedule: " << endl;
-      //outFS << userName <<"'s password: " << password << endl;
+      outFS << name << endl;
+      outFS << name <<"'s password: " << password << endl;
    }
 
 
