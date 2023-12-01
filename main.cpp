@@ -17,7 +17,7 @@ int main(){
 
    fstream userFile;
    //need to open input and output modes to write and read data
-   //need to open append mode to avoid overwriting data
+   //need to open append mode to avoid overwriting data since we want to store all usernames and passwords
    userFile.open("userLogin.txt", ios::in | ios::out | ios::app);
 
    if(!(userFile.is_open()))
@@ -132,11 +132,48 @@ int main(){
    if(userInput ==  "E")
    {
 
+       bool loginWorks = false;
 
-      cout << "Please enter your Username:" << endl;
-      getline(cin, userName);
-      cout << "Please enter a password: " << endl;
-      getline(cin, password);
+      do{
+
+            bool loginUserNameExists = false;
+            bool loginPasswordWorks = false;
+
+            cout << "Please enter your Username:" << endl;
+            getline(cin, userName);
+            cout << "Please enter a Password: " << endl;
+            getline(cin, password);
+            
+      
+            string readUserName;
+            string readPassword;
+            //checks if userName exists
+            while( userFile >> readUserName >> readPassword)
+            {
+
+               if(readUserName == userName && readPassword == password)
+               {
+                  loginUserNameExists = true;
+                  loginPasswordWorks = true;
+                  break;
+               }
+               
+            }
+
+            if(loginPasswordWorks == true && loginUserNameExists == true)
+            {
+               loginWorks = true;
+               cout << "Login Successful!" << endl;
+            }
+            else{
+               cout << "Username or Passoword is incorrect. Please try again." << endl;
+            }
+
+            
+         }
+         while(loginWorks == false);
+
+
 
 
       //User user = User(name, password);
