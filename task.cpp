@@ -29,36 +29,37 @@ void Task::SetDescription(string description){
 void Task::SetPriority(int priority){
    this->_priority = priority;
 }
-bool Task::GetComplete(){
+bool Task::GetComplete() const{
    return _complete;
 }
 void Task::SetComplete(bool check){
    this->_complete = check;
 }
-string Task::GetName(){
+string Task::GetName() const{
    return _name;
 }
-string Task::GetDueDate(){
+string Task::GetDueDate() const{
    return _dueDate;
 }
-string Task::GetTag(){
+string Task::GetTag() const{
    return _tag;
 }
-string Task::GetDescription(){
+string Task::GetDescription() const{
    return _description;
 }
-int Task::GetPriority(){
+int Task::GetPriority() const{
    return _priority;
 }
-string Task::GetStartDate(){
+string Task::GetStartDate() const{
    return _startDate;
 }
-string Task::GetEndDate(){
+string Task::GetEndDate() const {
    return _endDate;
 }
-double Task::GetDurationHours(){
+double Task::GetDurationHours() const{
    return _durationHours;
 }
+
 void Task::SetStartDate(string startDate){
    _startDate = startDate;
 }

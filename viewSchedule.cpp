@@ -6,7 +6,7 @@ void ViewSchedule :: viewDefault(User * user) {
    vector<Task> tasks = user->GetTaskList().getTask();
 
     // sort tasks by due date and then by priority 
-    sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
+    sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
         
         // Compare by due date (earliest to latest)
         if (a.GetDueDate() != b.GetDueDate()) {
@@ -23,20 +23,20 @@ void ViewSchedule :: viewDefault(User * user) {
     string currDueDate = "";
 
     for (int i = 0; i < tasks.size(); ++i) {
-        Task& task = tasks[i];
+        const Task& task = tasks[i];
 
-        if (task.GetDueDate() != currDueDate) {
+        if (tasks.at(i).GetDueDate() != currDueDate) {
             // start a new due date section 
-            currDueDate = task.GetDueDate();
-            cout << " Due Date " << currentDueDate << endl;
+            currDueDate = tasks.at(i).GetDueDate();
+            cout << " Due Date " << currDueDate << endl;
             cout << "+------------------------------------------------------------------------------------+" << endl;
         }
 
         cout << "    " << task.GetPriority() << "     | ";
-        cout << task.GetName() << "     | ";
-        cout << task.GetTag() << "     | ";
-        cout << task.GetStatus();
-        if (task.GetStatus == true) { // completed 
+        cout << tasks.at(i).GetName() << "     | ";
+        cout << tasks.at(i).GetTag() << "     | ";
+        cout << tasks.at(i).GetComplete();
+        if (tasks.at(i).GetComplete() == true) { // completed 
             cout << "Complete" << endl;
         } else // incomplete 
         {
@@ -66,9 +66,9 @@ void ViewSchedule :: viewByDuration(User* user) {
    cout << "+----------------------------------------------------+" << endl;
 
 
-   for (int i = 0; o < tasks.size(); ++i) {
+   for (int i = 0; i < tasks.size(); ++i) {
        // Print task details
-       cout << " " << task.GetDuration() << " | " << task.GetName() << endl;
+       cout << " " << tasks.at(i).GetDurationHours() << " | " << tasks.at(i).GetName() << endl;
    }
 
    cout << endl << endl;
@@ -86,8 +86,8 @@ void ViewSchedule :: viewByCompletion(User* user) {
     // Sort tasks by completion status and then by due date within each status
     sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
         // Compare by completion status
-        if (a.isCompleted() != b.isCompleted()) {
-            return a.isCompleted() > b.isCompleted();
+        if (a.GetComplete() != b.GetComplete()) {
+            return a.GetComplete() > b.GetComplete();
         }
 
         // If completion status is equal, compare by due date (earliest to latest)
@@ -102,7 +102,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
         for (int i = 0; i < tasks.size(); ++i) {
             Task& task = tasks[i];
 
-            if (task.isCompleted() != currentCompletionStatus) {
+            if (task.GetComplete() != currentCompletionStatus) {
 
             // Start a new completion status group
             if (i != 0) {
@@ -117,7 +117,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
                 cout << "+----------------------------------------------------+" << endl;
             }
 
-            currentCompletionStatus = task.isCompleted();
+            currentCompletionStatus = task.GetComplete();
         }
 
             // print task details 

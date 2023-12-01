@@ -27,4 +27,4 @@ class ViewSchedule {
 
                 // highest(1) to lowest priority(3)
                 void viewByPriority(User* user);
-}
+};
