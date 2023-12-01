@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class viewSchedule {
+class ViewSchedule {
         public: 
                 void viewDefault(User * user);
 

@@ -3,10 +3,10 @@
 using namespace std;
 
 void ViewSchedule :: viewDefault(User * user) {
-   vector<Task> tasks = user->GetTaskList().GetTasks();
+   vector<Task> tasks = user->GetTaskList().getTask();
 
     // sort tasks by due date and then by priority 
-    sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
+    sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
         
         // Compare by due date (earliest to latest)
         if (a.GetDueDate() != b.GetDueDate()) {
@@ -23,11 +23,11 @@ void ViewSchedule :: viewDefault(User * user) {
     string currDueDate = "";
 
     for (int i = 0; i < tasks.size(); ++i) {
-        const Task& task = tasks[i];
+        Task& task = tasks[i];
 
         if (task.GetDueDate() != currDueDate) {
             // start a new due date section 
-            currentDueDate = task.GetDueDate();
+            currDueDate = task.GetDueDate();
             cout << " Due Date " << currentDueDate << endl;
             cout << "+------------------------------------------------------------------------------------+" << endl;
         }
@@ -53,11 +53,11 @@ void ViewSchedule :: viewDefault(User * user) {
 // shortest to longest duration
 // Might change the way this is viewed later - get the duration in intervals
 void ViewSchedule :: viewByDuration(User* user) {
-   vector<Task> tasks = user->GetTaskList().GetTasks();
+   vector<Task> tasks = user->GetTaskList().getTask();
 
 
    // sort tasks by duration from shortest to longest
-   sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
+   sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
        return a.GetDurationHours() < b.GetDurationHours();
    });
 
@@ -81,10 +81,10 @@ void ViewSchedule :: viewByDuration(User* user) {
 
 // complete vs incomplete
 void ViewSchedule :: viewByCompletion(User* user) {
-    vector<Task> tasks = user->GetTaskList().GetTasks();
+    vector<Task> tasks = user->GetTaskList().getTask();
 
     // Sort tasks by completion status and then by due date within each status
-    sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
+    sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
         // Compare by completion status
         if (a.isCompleted() != b.isCompleted()) {
             return a.isCompleted() > b.isCompleted();
@@ -100,7 +100,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
     bool currentCompletionStatus = true; // assuming true means completed
 
         for (int i = 0; i < tasks.size(); ++i) {
-            const Task& task = tasks[i];
+            Task& task = tasks[i];
 
             if (task.isCompleted() != currentCompletionStatus) {
 
@@ -122,11 +122,11 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
             // print task details 
             if (currentCompletionStatus == true) { // task complete 
-                    cout << [√] << " ";
+                    cout << "[√]" << " ";
 
                 } else { // task incomplete 
 
-                    cout << [X] << " ";
+                    cout << "[X]" << " ";
                 }
 
             cout << " "<< task.GetDueDate() << " | " << task.GetName() << endl;
@@ -142,10 +142,10 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
 // highest(1) to lowest priority(3)
 void ViewSchedule :: viewByPriority(User* user) {
-     vector<Task> tasks = user->GetTaskList().GetTasks();
+     vector<Task> tasks = user->GetTaskList().getTask();
 
     // Sort tasks by priority and then by due date within each priority
-    sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
+    sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
         
         // Compare by priority
         if (a.GetPriority() != b.GetPriority()) {
@@ -162,7 +162,7 @@ void ViewSchedule :: viewByPriority(User* user) {
     int currentPriority = -1;
 
     for (int i = 0; i < tasks.size(); ++i) {
-        const Task& task = tasks[i];
+        Task& task = tasks[i];
 
         if (task.GetPriority() != currentPriority) {
             
