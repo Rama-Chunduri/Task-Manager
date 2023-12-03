@@ -5,12 +5,12 @@
 using namespace std;
 
 
-class taskList : public Task {
+class taskList {
    public:
    void addTask(ostream & out,  Task& task, const string& name);
    void removeTask(int toRemove, string name);
    //void editTask(string taskName);
-   vector<Task>getTask();
+   vector<Task>GetTaskList();
    private:
    vector<Task> tasks;
 };

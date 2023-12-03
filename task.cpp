@@ -87,5 +87,3 @@ void Task::SetComplete(bool check){
 bool Task::GetComplete() const{
    return _complete;
 }
-
-

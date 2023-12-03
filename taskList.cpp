@@ -7,7 +7,7 @@
 #include <fstream>
 using namespace std;
 
-vector<Task> taskList :: getTask(){
+vector<Task> taskList :: GetTaskList(){
    return tasks;
 }
 
