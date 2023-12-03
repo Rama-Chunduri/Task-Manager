@@ -1,4 +1,7 @@
 #include "viewSchedule.h"
+#include "User.h"
+#include "task.h"
+#include "taskList.h"
 
 using namespace std;
 
