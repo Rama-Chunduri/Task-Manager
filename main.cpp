@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-//#include "User.h"
+#include "User.h"
 //#include "task.h"
 //#include "viewSchedule.h"
 //#include "editTask.h"
@@ -191,6 +191,12 @@ int main(){
 
    
    userFile.close();
+
+   //setting the user name and password
+
+   User person;
+   person.SetUserName(userName);
+   person.SetPassword(password);
    
    return 0;
 }
