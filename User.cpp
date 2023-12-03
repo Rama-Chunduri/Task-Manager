@@ -50,3 +50,13 @@ vector<Task> User::loadtasks(){
    }
    MyReadFile.close();
 }
+
+ void User::SetTaskList(vector<Task> tasks)
+ {
+    this->list = tasks;
+ }
+ 
+ taskList User::GetTaskList()
+ {
+    return this->list;
+ }

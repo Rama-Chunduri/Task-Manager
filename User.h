@@ -1,12 +1,16 @@
 
+
+#pragma once
+
 #include "User.h"
 #include "task.h"
+#include "taskList.h"
+
 #include <string>
 #include <vector>
 #include <iostream>
 #include <fstream>
 
-#pragmaonce
 
 
 using namespace std;
@@ -14,6 +18,7 @@ class User{
     private:
         string userName;
         string password;
+        taskList list;
     public:
         User();
         User(string _userName, string _password);
@@ -22,4 +27,7 @@ class User{
         string GetUserName();
         string GetPassword();
         vector<Task> loadtasks();
+
+        taskList GetTaskList();
+        void SetTaskList(vector<Task> tasks);
 };
