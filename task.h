@@ -24,7 +24,7 @@ class Task{
       string GetTag() const;
       int GetPriority() const;
       double GetDurationHours() const;
-      bool GetComplete(bool check) const 
+      bool GetComplete() const;
 
    private:
       string _name;
