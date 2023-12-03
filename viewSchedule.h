@@ -1,14 +1,18 @@
 #pragma once
-#include "User.h"
+
 #include <iostream>
-#include <vector.h>
-#include <algorithm.h>
-#include <iomanip.h> 
-#include <string.h>
+#include <vector>
+#include <algorithm>
+#include <iomanip> 
+#include <string>
+
+#include "User.h"
+#include "task.h"
+#include "taskList.h"
 
 using namespace std;
 
-class viewSchedule {
+class ViewSchedule {
         public: 
                 void viewDefault(User * user);
 
@@ -23,4 +27,4 @@ class viewSchedule {
 
                 // highest(1) to lowest priority(3)
                 void viewByPriority(User* user);
-}
+};
