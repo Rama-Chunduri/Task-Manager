@@ -2,17 +2,16 @@
 #include <string>
 #include <vector>
 #include "task.h"
-#include "taskList.h"
 using namespace std;
 
 
 class taskList : public Task {
    public:
-   void addTask(Task*task);
-   void removeTask(int toRemove);
-   void editTask(string taskName);
-   vector<Task*>getTask();
+   void addTask(ostream & out,  Task& task, const string& name);
+   void removeTask(int toRemove, string name);
+   //void editTask(string taskName);
+   vector<Task>getTask();
    private:
-   vector<Task*> tasks;
+   vector<Task> tasks;
 };
 
