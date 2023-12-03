@@ -1,4 +1,3 @@
-#pragma once
 #include "editTask.h"
 using namespace std;
 
