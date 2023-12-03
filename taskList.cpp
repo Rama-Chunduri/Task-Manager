@@ -1,5 +1,5 @@
-#include "task.h"
 #include "taskList.h"
+#include "task.h"
 #include "User.h"
 #include <vector>
 #include <string>
@@ -7,25 +7,20 @@
 #include <fstream>
 using namespace std;
 
-vector<Task*> taskList :: getTask(){
-   return *tasks;
+vector<Task> taskList :: getTask(){
+   return tasks;
 }
 
-void taskListEdit::addTask(ostream & out, Task*task){// pass ofstream into function
+void taskList::addTask(ostream & out,  Task& task, const string& name){// pass ofstream into function
    //string name=user->GetUserName(); //this variable is for the user who is entering this task so we can implement the task
    //to the file
-   //also create a vector and push back task
-   //Open file
-   //string fileName;
-   //fileName = name + ".txt";//name of the file
-   //ofstream myFile(fileName);--- write in main
    tasks.push_back(task);
-   out<<tasks.size()<<", "<<task->GetName()<<", "<<task>GetStartDate()<<", "<<task->GetEndDate()<<", "<<task->GetDueDate()<<", "<<toAdd->GetDescription()
-   <<", "<< task->GetTag()<<", "<<task->GetPriority()<<task->GetDurationHours()<<endl;
-   out.close();
+   out<<tasks.size()<<", "<<task.GetName()<<", "<<task.GetStartDate()<<", "<<task.GetEndDate()<<", "<<task.GetDueDate()<<", "<<task.GetDescription()
+   <<", "<< task.GetTag()<<", "<<task.GetPriority()<<", "<<task.GetDurationHours()<<endl;
+   //out.close();
 }
-void taskListEdit::removeTask(int toRemove){
-  fileName = user->GetUserName() + ".txt";//name of the file
+void taskList::removeTask(int toRemove, string name){
+  string fileName = name + ".txt";//name of the file
   ifstream inFile(fileName); // reading the file with the user name
   ofstream temporaryFile("temp.txt");
   // Create a text string, which is used to output the text file
@@ -35,7 +30,7 @@ void taskListEdit::removeTask(int toRemove){
   int currentLineNum = 1; // Counter for current line number, tracking the number
 
     while (getline(inFile, line)) { // looking through each line
-        if (currentLine != lineToRemove) {// if the line doesnt equal the line we want to remove
+        if (currentLineNum != toRemove) {// if the line doesnt equal the line we want to remove
             temporaryFile << line << endl; // Write all other lines to temporary file if it's not the line to be removed with the same name
         }
         currentLineNum++; // keeps track of the numbers when moving the file over, numbers all change after removing that line
