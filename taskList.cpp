@@ -7,7 +7,7 @@
 #include <fstream>
 using namespace std;
 
-vector<Task> taskList :: GetTaskList(){
+vector<Task> taskList :: GetTasks(){
    return tasks;
 }
 
@@ -15,7 +15,7 @@ void taskList::addTask(ostream & out,  Task& task, const string& name){// pass o
    //string name=user->GetUserName(); //this variable is for the user who is entering this task so we can implement the task
    //to the file
    tasks.push_back(task);
-   out<<tasks.size()<<", "<<task.GetName()<<", "<<task.GetStartDate()<<", "<<task.GetEndDate()<<", "<<task.GetDueDate()<<", "<<task.GetDescription()
+   out<<tasks.size()<<", "<<task.GetName()<<", "<<task.GetStartDate()<<", "<<task.GetDueDate()<<", "<<task.GetDescription()
    <<", "<< task.GetTag()<<", "<<task.GetPriority()<<", "<<task.GetDurationHours()<<endl;
    //out.close();
 }
