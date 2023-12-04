@@ -26,5 +26,5 @@ class ViewSchedule {
                 void viewByCompletion(User* user);
 
                 // highest(1) to lowest priority(3)
-                void viewByPriority(User* user);
+                void viewByPriority(User* user); 
 };
