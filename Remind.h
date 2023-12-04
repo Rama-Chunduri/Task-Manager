@@ -6,6 +6,7 @@
 #include <chrono>
 using namespace std;
 
+
 class Remind{
-    void remind(ostream& os, User user);
+   void remind(ostream& os, User user);
 };
