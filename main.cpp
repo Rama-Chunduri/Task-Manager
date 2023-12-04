@@ -3,6 +3,7 @@
 #include <string>
 
 #include "User.h"
+#include "Menu.h"
 //#include "task.h"
 //#include "viewSchedule.h"
 //#include "editTask.h"
