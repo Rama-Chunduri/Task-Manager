@@ -1,1 +1,14 @@
-a.out
+
+
+# Ignore build and output directories
+build/
+bin/
+lib/
+
+# Ignore CMake files
+CMakeFiles/
+cmake_install.cmake/
+CMakeCache.txt/
+
+# Compilation files
+*.h.gch/
