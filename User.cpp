@@ -11,7 +11,7 @@ using namespace std;
 User::User(){
 	this->userName = "";
 	this->password = "";
-    this->name = "";
+    this-> name = "";
 
 }
 
@@ -31,7 +31,7 @@ string User::GetPassword(){
 
 string User::GetName()
 {
-    return this->name;
+    return this-> name;
 }
 
 void User::SetUserName (string _userName){
