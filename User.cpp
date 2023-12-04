@@ -11,12 +11,14 @@ using namespace std;
 User::User(){
 	this->userName = "";
 	this->password = "";
+    this->name = "";
 
 }
 
-User::User(string _userName, string _password){
+User::User(string _userName, string _password, string _name), {
     this->userName = _userName;
     this->password = _password;
+    this->name = _name;
 }
 
 string User::GetUserName(){
@@ -26,7 +28,12 @@ string User::GetUserName(){
 string User::GetPassword(){
 	return this->password;
 }
-	
+
+string User::GetName()
+{
+    return this->name;
+}
+
 void User::SetUserName (string _userName){
 	this->userName = _userName;
 
@@ -35,6 +42,11 @@ void User::SetPassword (string _password){
     this->password = _password;
 
 }
+void User::SetName(string _name)
+{
+    this->name = _name;
+}
+
 
 vector<Task> User::loadtasks(){
     vector<Task>tasks;
