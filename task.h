@@ -3,7 +3,7 @@
 using namespace std;
 
 
-class Task{
+class Task {
    public:
       Task();
       Task(string name, string description, string startDate, string dueDate, string tag, int priority, double durationHours, bool completeStatus);

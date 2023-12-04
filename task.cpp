@@ -1,4 +1,3 @@
-# pragma once 
 #include "task.h"
 #include <string>
 #include <vector>
@@ -16,6 +15,8 @@ Task::Task(string name, string description, string startDate, string dueDate, st
    _durationHours = durationHours;
    _complete = completeStatus;
 }
+
+
 
 void Task::SetName(string name){
    this->_name = name;

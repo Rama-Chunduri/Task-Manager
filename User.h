@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class User{
+class User {
     private:
         string userName;
         string password;
