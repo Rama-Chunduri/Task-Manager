@@ -186,7 +186,7 @@ int main(){
       outFS << userName <<"'s password: " << password << endl;
    }
 
-
+   //setting the user name and password
    User person;
    person.SetUserName(userName);
    person.SetPassword(password);
@@ -198,14 +198,8 @@ int main(){
    
    userFile.close();
 
-   //setting the user name and password
 
-   User person;
-   person.SetUserName(userName);
-   person.SetPassword(password);
 
-   Menu menuPerson;
-   menuPerson.printMenu(person);
    
    return 0;
 }

@@ -19,7 +19,7 @@ class User{
 
     public:
         User();
-        User(string _userName, string _password);
+        User(string _userName, string _password, string _name);
 
         void SetUserName (string _userName);
         void SetPassword (string _password);
