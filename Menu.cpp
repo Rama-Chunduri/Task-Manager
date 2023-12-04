@@ -14,8 +14,7 @@ void Menu::printMenu(User user)
    // cout << "Enter a valid input." << endl;
 
 
-<<<<<<< HEAD
-=======
+<<<<<<<<< Temporary merge branch 1
     
     //while(menuOption != "a" || menuOption != "b" || menuOption != "c" || menuOption != "q")
     //{
@@ -165,7 +164,8 @@ void Menu::printMenu(User user)
         }
 
 }
->>>>>>> master
+=========
+>>>>>>>>> Temporary merge branch 2
 
 
   
