@@ -30,6 +30,7 @@ int main(){
    string userName;
    string password;
    string fileName;
+   string yourName;
    cout << "Are you an existing user (Press E) or new user (Press N)?" << endl;
 
    char userInput;
@@ -48,6 +49,13 @@ int main(){
    //if user is creating an account
    if(userInput == 'N')
    {
+      //asks new user for their name
+      cout << "Enter your first name: " << endl;
+      cin >> yourName;
+
+      cin.ignore();
+
+      
       bool validUserName = false;
       
       do{
@@ -56,10 +64,11 @@ int main(){
             cout << "Enter your username: " << endl;
             getline(cin,userName);
       
-            string firstWord;
-            string secondWord;
+            string firstWord; //username
+            string secondWord; //password
+            string thirdWord; //their anme
             //checks if userName exists
-            while( userFile >> firstWord >> secondWord)
+            while( userFile >> firstWord >> secondWord >> thirdWord)
             {
 
                if(firstWord == userName)
@@ -114,6 +123,7 @@ int main(){
       //write username and password to file
          userFile << userName << endl;
          userFile << password << endl;
+         userFile << yourName << endl;
       
 
          cout << "Would you like to go to the Login page? Press E. If not, press Q to quit." << endl;
@@ -190,6 +200,7 @@ int main(){
    User person;
    person.SetUserName(userName);
    person.SetPassword(password);
+   person.SetName(yourName);
    
    Menu menuPerson;
    menuPerson.printMenu(person);
