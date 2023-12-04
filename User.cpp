@@ -11,6 +11,7 @@ using namespace std;
 User::User(){
 	this->userName = "";
 	this->password = "";
+    this->name = "";
 
 }
 
