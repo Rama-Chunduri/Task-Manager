@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class viewSchedule {
+class ViewSchedule {
         public: 
                 void viewDefault(User * user);
 
@@ -24,4 +24,4 @@ class viewSchedule {
 
                 // highest(1) to lowest priority(3)
                 void viewByPriority(User* user);
-}
+};
