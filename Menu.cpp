@@ -56,16 +56,17 @@ void Menu::printMenu(User user)
             cout << "Please enter the priority of the task" << endl;
             cin >> durationHours;
 
-            Task* mytask= new Task(name_task, description, due_date, tag, priority, start_date, /*end_date*/, durationHours, 0);
+            Task* mytask= new Task(name_task, description, due_date, tag, priority, start_date, durationHours, 0);
 
-            fileName = user_name + ".txt";//name of the file
+            string fileName = user.GetUserName() + ".txt";//name of the file
+            string name= user.GetUserName();
             ofstream myFile(fileName);
-            tasks.addTask(myFile, mytask, user_name);// need to properly get username
+            tasks.addTask(myFile, mytask, name);// need to properly get username
         }
         else if (menuOption == "b")
         {
             Task* currTask;
-            cout << "Please enter the name of the task you want to edit" << endl
+            cout << "Please enter the name of the task you want to edit" << endl;
             string taskName;
             getline(cin, taskName);
             int i;
@@ -162,8 +163,9 @@ void Menu::printMenu(User user)
         {
             cout << "Enter the number of the task you want to delete:" << endl;
             int taskNumber;
-            cin >> taskNUmber;
-            tasks.removeTask(taskNumber);
+            cin >> taskNumber;
+            string name= user.GetUserName();
+            tasks.removeTask(taskNumber,name);
         }
 
 }
