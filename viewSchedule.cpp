@@ -20,8 +20,8 @@ void ViewSchedule :: viewDefault(User * user) {
         return a.GetPriority() < b.GetPriority();
     });
 
-    cout << " Priority | Task                                           | Tag         | Status    " << endl;
-    cout << "+------------------------------------------------------------------------------------+" << endl;
+    cout << " Priority | Task                                           | Tag         | Status     " << endl;
+    cout << "+-------------------------------------------------------------------------------------+" << endl;
 
     string currDueDate = "";
 
@@ -32,7 +32,7 @@ void ViewSchedule :: viewDefault(User * user) {
             // start a new due date section 
             currDueDate = tasks.at(i).GetDueDate();
             cout << " Due Date " << currDueDate << endl;
-            cout << "+------------------------------------------------------------------------------------+" << endl;
+            cout << "+-------------------------------------------------------------------------------------+" << endl;
         }
 
         cout << "    " << task.GetPriority() << "     | ";
