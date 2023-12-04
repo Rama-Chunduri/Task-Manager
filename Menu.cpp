@@ -2,7 +2,7 @@
 #include "User.h"
 #include "taskList.h"
 
-void Menu::printMenu()
+void Menu::printMenu(string user_name)
 {
     taskList tasks;
     cout << "MENU:" << endl;
@@ -63,6 +63,7 @@ void Menu::printMenu()
     }
       else if (menuOption == "b")
     {
+        //rama
         cout << "Enter the number of the task you want to edit: " << endl;
         int taskNum;
         cin>>taskNum;

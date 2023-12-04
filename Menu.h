@@ -3,12 +3,12 @@
 #include <string>
 
 
-#include "taskListEdit.h"
+#include "taskList.h"
 
 
 class Menu()
 {
-    void printMenu();
+    void printMenu(string user_name);
 
 
 };

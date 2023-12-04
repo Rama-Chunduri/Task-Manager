@@ -197,6 +197,8 @@ int main(){
    User person;
    person.SetUserName(userName);
    person.SetPassword(password);
+
+   printMenu(userName);
    
    return 0;
 }
