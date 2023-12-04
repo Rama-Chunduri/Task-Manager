@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
-#include "User.h"
 #include "Menu.h"
+#include "User.h"
+
 //#include "task.h"
 //#include "viewSchedule.h"
 //#include "editTask.h"
@@ -32,11 +32,11 @@ int main(){
    string fileName;
    cout << "Are you an existing user (Press E) or new user (Press N)?" << endl;
 
-   string userInput;
+   char userInput;
    cin >> userInput;
 
 
-   while(userInput != "E" && userInput != "N")
+   while(userInput != 'E' && userInput != 'N')
    {
       cout << "Input is not valid. Please enter a valid input:" << endl;
       cin >> userInput;
@@ -46,14 +46,11 @@ int main(){
    cin.ignore();//allows me to get username without reading in the endl from previous
 
    //if user is creating an account
-   if(userInput == "N")
+   if(userInput == 'N')
    {
-   
-
       bool validUserName = false;
       
       do{
-
             bool userNameExists = false;
 
             cout << "Enter your username: " << endl;
@@ -121,16 +118,16 @@ int main(){
 
          cout << "Would you like to go to the Login page? Press E. If not, press Q to quit." << endl;
          cin >> userInput;
-         if(userInput == "Q")
+         if(userInput == 'Q')
             {
                return 0;
             }
       }
 
-      //logging in after creating account
+   //logging in after creating account
            
    //if user is trying to login
-   if(userInput ==  "E")
+   if(userInput ==  'E')
    {
 
        bool loginWorks = false;
@@ -185,9 +182,17 @@ int main(){
 //creates file for user's schedule
       ifstream inFS;
       ofstream outFS(fileName);
-      outFS << userName << "'s schedule: " << endl;
-      //outFS << userName <<"'s password: " << password << endl;
+      outFS << userName << endl;
+      outFS << userName <<"'s password: " << password << endl;
    }
+
+
+   User person;
+   person.SetUserName(userName);
+   person.SetPassword(password);
+   
+   Menu menuPerson;
+   menuPerson.printMenu(person);
 
 
    
@@ -195,9 +200,6 @@ int main(){
 
    //setting the user name and password
 
-   User person;
-   person.SetUserName(userName);
-   person.SetPassword(password);
    
    return 0;
 }
