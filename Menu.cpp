@@ -70,9 +70,9 @@ void Menu::printMenu(User user)
             string taskName;
             getline(cin, taskName);
             int i;
-            for(i=0; i<user.GetTaskList().getTask().size(); ++i){
-                if(user.GetTaskList().getTask().at(i).GetName() == taskName){
-                    currTask = user.GetTaskList().getTask().at(i);
+            for(i=0; i<user.GetTaskList().GetTasks().size(); ++i){
+                if(user.GetTaskList().GetTasks().at(i)->GetName() == taskName){
+                    currTask = user.GetTaskList().GetTasks().at(i);
                 }
             }
             cout << "Choose an option: " << endl;
@@ -90,65 +90,58 @@ void Menu::printMenu(User user)
                 cout << "Please enter the new name of the task" << endl;
                 string new_name;
                 getline(cin, new_name);
-                currTask.SetName(new_name);
+                currTask->SetName(new_name);
                 cout << "The name of your task has been changed to " << new_name << endl; 
             }
             else if(choice == 2){
                 cout << "Please enter the new description of the task" << endl;
                 string new_desc;
                 getline(cin, new_desc);
-                currTask.SetDescription(new_desc);
+                currTask->SetDescription(new_desc);
                 cout << "The description of your task has been changed to " << new_desc << endl; 
             }
             else if(choice == 3){
                 cout << "Please enter the new due date of the task in MM/DD/YYYY format" << endl;
                 string new_due_date;
                 cin >> new_due_date ;
-                currTask.SetDueDate(new_due_date);
+                currTask->SetDueDate(new_due_date);
                 cout << "The due date of your task has been changed to " << new_due_date << endl; 
             }
             else if(choice == 4){
                 cout << "Please enter the new tag of the task " << endl;
                 string new_tag;
                 cin >> new_tag;
-                currTask.SetTag(new_tag);
+                currTask->SetTag(new_tag);
                 cout << "The tag of your task has been changed to " << new_tag << endl; 
             }
             else if(choice == 5){
                 cout << "Please enter the new priority of the task " << endl;
                 int new_priority;
                 cin >> new_priority;
-                currTask.SetTag(new_priority);
+                currTask->SetPriority(new_priority);
                 cout << "The priority of your task has been changed to " << new_priority << endl; 
             }
             else if(choice == 6){
                 cout << "Please enter the new start date of the task in MM/DD/YYYY format" << endl;
                 string new_start_date;
                 cin >> new_start_date ;
-                currTask.SetStartDate(new_start_date);
+                currTask->SetStartDate(new_start_date);
                 cout << "The start date of your task has been changed to " << new_start_date << endl; 
             }
             else if(choice == 7){
                 cout << "Please enter the new duration of the task in hours " << endl;
                 double new_duration;
                 cin >> new_duration;
-                currTask.SetDurationHours(new_priority);
-                cout << "The duration of your task has been changed to " << new_duration << endl; 
-            }
-            else if(choice == 7){
-                cout << "Please enter the new duration of the task in hours " << endl;
-                double new_duration;
-                cin >> new_duration;
-                currTask.SetDurationHours(new_priority);
+                currTask->SetDurationHours(new_duration);
                 cout << "The duration of your task has been changed to " << new_duration << endl; 
             }
             else if(choice == 8){
                 cout << "Please enter '1' to mark your task as complete" << endl;
-                cout << "If the task is not yet complete, please enter 0"
+                cout << "If the task is not yet complete, please enter 0" << endl;
                 int comp;
                 cin >> comp;
-                currTask.SetComplete(comp);
-                cout << "The completion status of your task has been changed to " << currTask.GetComplete() << endl; 
+                currTask->SetComplete(comp);
+                cout << "The completion status of your task has been changed to " << currTask->GetComplete() << endl; 
             }
             else{
                 cout << "Invalid input" << endl;

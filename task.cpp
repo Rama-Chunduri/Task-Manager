@@ -5,7 +5,7 @@
 Task::Task(){}
 
 Task::Task(string name, string description, string startDate, string dueDate, string tag, int priority, double durationHours, bool completeStatus){
-   vector<Task>tasks;
+   //vector<Task>tasks;
    _name = name;
    _description = description;
    _startDate = startDate;
