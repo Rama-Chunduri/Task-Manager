@@ -13,53 +13,48 @@ void Menu::printMenu(User user)
    // cout << "q - Exit to Homepage" << endl;
    // cout << "Enter a valid input." << endl;
 
-
-
-
-  
-   //while(menuOption != "a" || menuOption != "b" || menuOption != "c" || menuOption != "q")
-   //{
-       //cout << "Enter a valid input." << endl;
-       //cin >> menuOption;
-   //}
-   string menuOption = "x";
-   //cin >> menuOption;
-   while(menuOption != "q")
-       cout << "MENU:" << endl;
-       cout << "a - Create a Task" << endl;
-       cout << "b - Edit a Task" << endl;
-       cout << "c - Delete a Task" << endl;
-       cout << "q - Exit to Homepage" << endl;
-       cout << "Enter a valid input." << endl;
-       cin >> menuOption;
-       if(menuOption == "a")
-       {
-           string name_task;
-           cout << "Please enter the name of the task" << endl;
-           cin >> name_task;
-           string start_date;
-           cout << "Please enter the start date of the task"<<endl;
-           cin >> start_date;
-           //string end_date;
-           //cout<<"Please enter the end date of the task"<<endl;
-           //cin>>end_date;
-           string due_date;
-           cout << "Please enter the due date of the task" << endl;
-           cin >> due_date;
-           string description;
-           cout<< "Please enter a description of the task" <<endl;
-           cin >> description;
-           string tag;
-           cout << "Please enter a tag for the task" << endl;
-           cin >> tag;
-           string priority;
-           cout << "Please enter the priority of the task" << endl;
-           cin >> priority;
-           int durationHours;
-           cout << "Please enter the priority of the task" << endl;
-           cin >> durationHours;
-
-
+    
+    //while(menuOption != "a" || menuOption != "b" || menuOption != "c" || menuOption != "q")
+    //{
+        //cout << "Enter a valid input." << endl;
+        //cin >> menuOption;
+    //}
+    string menuOption = "x";
+    //cin >> menuOption;
+    while(menuOption != "q")
+        cout << "MENU:" << endl;
+        cout << "a - Create a Task" << endl;
+        cout << "b - Edit a Task" << endl;
+        cout << "c - Delete a Task" << endl;
+        cout << "q - Exit to Homepage" << endl;
+        cout << "Enter a valid input." << endl;
+        cin >> menuOption;
+        if(menuOption == "a")
+        {
+            string name_task;
+            cout << "Please enter the name of the task" << endl;
+            cin >> name_task;
+            string start_date;
+            cout << "Please enter the start date of the task"<<endl;
+            cin >> start_date;
+            //string end_date;
+            //cout<<"Please enter the end date of the task"<<endl;
+            //cin>>end_date;
+            string due_date;
+            cout << "Please enter the due date of the task" << endl;
+            cin >> due_date;
+            string description;
+            cout<< "Please enter a description of the task" <<endl;
+            cin >> description;
+            string tag;
+            cout << "Please enter a tag for the task" << endl;
+            cin >> tag;
+            string priority;
+            cout << "Please enter the priority of the task" << endl;
+            cin >> priority;
+            int durationHours;
+            cout << "Please enter the priority of the task" << endl;
+            cin >> durationHours;
 
             Task* mytask= new Task(name_task, description, due_date, tag, priority, start_date, durationHours, 0);
 
@@ -165,6 +160,58 @@ void Menu::printMenu(User user)
             string name= user.GetUserName();
             tasks.removeTask(taskNumber,name);
         }
+
+}
+=========
+>>>>>>>>> Temporary merge branch 2
+
+
+  
+   //while(menuOption != "a" || menuOption != "b" || menuOption != "c" || menuOption != "q")
+   //{
+       //cout << "Enter a valid input." << endl;
+       //cin >> menuOption;
+   //}
+   string menuOption = "x";
+   //cin >> menuOption;
+   while(menuOption != "q")
+       cout << "MENU:" << endl;
+       cout << "a - Create a Task" << endl;
+       cout << "b - Edit a Task" << endl;
+       cout << "c - Delete a Task" << endl;
+       cout << "q - Exit to Homepage" << endl;
+       cout << "Enter a valid input." << endl;
+       cin >> menuOption;
+       if(menuOption == "a")
+       {
+           string name_task;
+           cout << "Please enter the name of the task" << endl;
+           cin >> name_task;
+           string start_date;
+           cout << "Please enter the start date of the task"<<endl;
+           cin >> start_date;
+           //string end_date;
+           //cout<<"Please enter the end date of the task"<<endl;
+           //cin>>end_date;
+           string due_date;
+           cout << "Please enter the due date of the task" << endl;
+           cin >> due_date;
+           string description;
+           cout<< "Please enter a description of the task" <<endl;
+           cin >> description;
+           string tag;
+           cout << "Please enter a tag for the task" << endl;
+           cin >> tag;
+           string priority;
+           cout << "Please enter the priority of the task" << endl;
+           cin >> priority;
+           int durationHours;
+           cout << "Please enter the priority of the task" << endl;
+           cin >> durationHours;
+
+
+           Task* mytask= new Task(name_task, description, due_date, tag, priority, start_date, durationHours, 0);
+
 
            string fileName = user.GetUserName() + ".txt";//name of the file
            string name= user.GetUserName();

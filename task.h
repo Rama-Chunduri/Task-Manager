@@ -2,9 +2,6 @@
 #include <string>
 using namespace std;
 
-
-
-
 class Task{
   public:
      Task();
@@ -19,7 +16,6 @@ class Task{
      void SetDurationHours(double durationHours);
      void SetComplete(bool check);
 
-
      string GetName() const;
      string GetDescription() const;
      string GetStartDate() const;
@@ -28,7 +24,6 @@ class Task{
      int GetPriority() const;
      double GetDurationHours() const;
      bool GetComplete() const;
-
 
   private:
      string _name;
