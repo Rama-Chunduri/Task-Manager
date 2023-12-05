@@ -4,10 +4,10 @@
 #include "Menu.h"
 #include "User.h"
 
-//#include "task.h"
-//#include "viewSchedule.h"
-//#include "editTask.h"
-//#include "taskListEdit.h"
+#include "task.h"
+#include "viewSchedule.h"
+#include "editTask.h"
+#include "taskList.h"
 using namespace std;
 
 

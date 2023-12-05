@@ -8,5 +8,6 @@ using namespace std;
 
 
 class Remind{
+   public:
    void remind(ostream& os, User user);
 };
