@@ -13,8 +13,8 @@ using namespace std::chrono;
 
 
 void Remind::remind(ostream& os, User user){
-   taskList taskList = user.GetTaskList();
-   vector<Task*> tasks = taskList.GetTasks();
+   taskList* tasksList = user.GetTaskList();
+   vector<Task*> tasks = tasksList->GetTasks();
    int tm_mday;
    int tm_mon;
    int tm_year;
