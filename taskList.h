@@ -13,6 +13,7 @@ class taskList {
   void removeTask(int toRemove, string name);
   //void editTask(string taskName);
   vector<Task*>GetTasks();
+  void SetTasks(vector<Task*>Tasks);
   private:
   vector<Task*> tasks;
 };
