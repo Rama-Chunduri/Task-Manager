@@ -7,8 +7,9 @@
 #include <fstream>
 using namespace std;
 
+
 vector<Task*> taskList :: GetTasks(){
-  return tasks;
+   return tasks;
 }
 
 void taskList::addTask(ostream & out,  Task& task, const string& name){// pass ofstream into function
