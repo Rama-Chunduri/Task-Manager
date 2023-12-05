@@ -7,14 +7,9 @@
 #include <fstream>
 using namespace std;
 
-<<<<<<< HEAD
 
 vector<Task*> taskList :: GetTasks(){
   return tasks;
-=======
-vector<Task*> taskList :: GetTasks(){
-   return tasks;
->>>>>>> master
 }
 
 

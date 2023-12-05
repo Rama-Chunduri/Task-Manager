@@ -13,8 +13,6 @@ void Menu::printMenu(User user)
    // cout << "q - Exit to Homepage" << endl;
    // cout << "Enter a valid input." << endl;
 
-
-<<<<<<<<< Temporary merge branch 1
     
     //while(menuOption != "a" || menuOption != "b" || menuOption != "c" || menuOption != "q")
     //{
@@ -164,8 +162,7 @@ void Menu::printMenu(User user)
         }
 
 }
-=========
->>>>>>>>> Temporary merge branch 2
+
 
 
   
@@ -176,7 +173,7 @@ void Menu::printMenu(User user)
    //}
    string menuOption = "x";
    //cin >> menuOption;
-   while(menuOption != "q")
+   while(menuOption != "q") {
        cout << "MENU:" << endl;
        cout << "a - Create a Task" << endl;
        cout << "b - Edit a Task" << endl;
