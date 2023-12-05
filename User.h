@@ -15,7 +15,7 @@ class User{
         string name;
         string userName;
         string password;
-        taskList list;
+        taskList* list;
 
     public:
         User();
@@ -31,7 +31,7 @@ class User{
         
         vector<Task> loadtasks();
         taskList* GetTaskList();
-        void SetTaskList(vector<Task> tasks);
+        void SetTaskList(vector<Task*> tasks);
 
      
 
