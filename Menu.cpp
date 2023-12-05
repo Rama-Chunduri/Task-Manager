@@ -61,7 +61,7 @@ void Menu::printMenu(User user)
             string fileName = user.GetUserName() + ".txt";//name of the file
             string name= user.GetUserName();
             ofstream myFile(fileName);
-            tasks.addTask(myFile, mytask, name);// need to properly get username
+            tasks.addTask(myFile, *mytask, name);// need to properly get username
         }
         else if (menuOption == "b")
         {
