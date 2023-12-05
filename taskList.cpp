@@ -7,11 +7,9 @@
 #include <fstream>
 using namespace std;
 
-
 vector<Task*> taskList :: GetTasks(){
   return tasks;
 }
-
 
 void taskList::addTask(ostream & out,  Task& task, const string& name){// pass ofstream into function
   //string name=user->GetUserName(); //this variable is for the user who is entering this task so we can implement the task
