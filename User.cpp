@@ -15,7 +15,7 @@ User::User(){
 
 }
 
-User::User(string _userName, string _password, string _name), {
+User::User(string _userName, string _password, string _name) {
     this->userName = _userName;
     this->password = _password;
     this->name = _name;
@@ -49,18 +49,52 @@ void User::SetName(string _name)
 
 
 vector<Task> User::loadtasks(){
-    vector<Task>tasks;
-    ofstream myFile(fileName);
-    string Taskname;
-    string Description;
-    string Tag;
-    string Duedate;
-    string Priority;
-    ifstream MyReadFile("filename.txt");
-    while (getline (MyReadFile, myText)) {
+
+    //attributes to read in
+    vector<Task>tasks; //vector which stores all tasks
+
+   // ofstream myFile(userName + ".txt");
+   ifstream myFile;
+    string comma;
+
+    int TaskNumber; //purpose: to read in the number of a task
+    int TaskSize = 0; //number reassigned (same thing as TaskNumber)
+    string TaskName;
+    string TaskDescri   ption;
+    string TaskTag;
+    string TaskDueDate;
+    string TaskStartDate;
+    int TaskPriority;
+    bool TaskComplete;
+    double TaskDuration;
+
+    myFile.open(userName + ".txt");
+
+    //seeing if file opens properly
+    if(!(myFile.is_open()))
+    {
+        cout << "File failed to open." << endl;
+        return tasks;
+    }
+
+   while(myFile >> TaskNumber >> comma >> TaskName >> comma >> TaskStartDate >> comma >> TaskDueDate >> comma >> TaskDescription >> comma >> TaskTag >> comma >> TaskPriority >> comma >> TaskDuration){
+        Task someTask(TaskName, TaskDescription, TaskStartDate, TaskDueDate, TaskTag, TaskPriority, TaskDuration, TaskComplete);
+        ++TaskSize;
+        tasks.push_back(someTask);
+   }
+    
+   
+   
+    /*string myText;
+    ifstream MyReadFile(userName + ".txt");
+    while (getline(MyReadFile, myText)) {
         tasks.push_back(myText);
    }
-   MyReadFile.close();
+   */
+
+   myFile.close();
+
+   return tasks;
 }
 
  void User::SetTaskList(vector<Task> tasks)
@@ -68,7 +102,7 @@ vector<Task> User::loadtasks(){
     this->list = tasks;
  }
  
- taskList User::GetTaskList()
+ taskList* User::GetTaskList()
  {
     return this->list;
  }

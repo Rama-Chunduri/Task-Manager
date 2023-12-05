@@ -30,7 +30,7 @@ class User{
         string GetName();
         
         vector<Task> loadtasks();
-        taskList GetTaskList();
+        taskList* GetTaskList();
         void SetTaskList(vector<Task> tasks);
 
      
