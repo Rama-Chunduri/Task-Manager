@@ -61,7 +61,7 @@ void Menu::printMenu(User user)
             string fileName = user.GetUserName() + ".txt";//name of the file
             string name= user.GetUserName();
             ofstream myFile(fileName);
-            tasks.addTask(myFile, mytask, name);// need to properly get username
+            tasks.addTask(myFile, *mytask, name);// need to properly get username
         }
         else if (menuOption == "b")
         {
@@ -162,8 +162,7 @@ void Menu::printMenu(User user)
         }
 
 }
-=========
->>>>>>>>> Temporary merge branch 2
+
 
 
   
@@ -174,7 +173,7 @@ void Menu::printMenu(User user)
    //}
    string menuOption = "x";
    //cin >> menuOption;
-   while(menuOption != "q")
+   while(menuOption != "q") {
        cout << "MENU:" << endl;
        cout << "a - Create a Task" << endl;
        cout << "b - Edit a Task" << endl;
@@ -315,3 +314,6 @@ void Menu::printMenu(User user)
            string name= user.GetUserName();
            tasks.removeTask(taskNumber,name);
        }
+
+
+}

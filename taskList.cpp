@@ -15,7 +15,8 @@ vector<Task*> taskList :: GetTasks(){
 void taskList::addTask(ostream & out,  Task& task, const string& name){// pass ofstream into function
   //string name=user->GetUserName(); //this variable is for the user who is entering this task so we can implement the task
   //to the file
-  tasks.push_back(task);
+  Task* taskPtr = &task;
+  tasks.push_back(taskPtr);
   out<<tasks.size()<<", "<<task.GetName()<<", "<<task.GetStartDate()<<", "<<task.GetDueDate()<<", "<<task.GetDescription()
   <<", "<< task.GetTag()<<", "<<task.GetPriority()<<", "<<task.GetDurationHours()<<endl;
   //out.close();
