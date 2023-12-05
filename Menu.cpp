@@ -2,11 +2,15 @@
 #include "User.h"
 #include "taskList.h"
 #include "viewSchedule.h"
+#include "Remind.h"
 
 
 void Menu::printMenu(User user)
 {
    taskList tasks;
+   Remind rem;
+   //cout << "apple" << endl;
+   rem.remind(cout, user);
    // cout << "MENU:" << endl;
    // cout << "a - Create a Task" << endl;
    // cout << "b - Edit a Task" << endl;
@@ -20,7 +24,7 @@ void Menu::printMenu(User user)
         //cout << "Enter a valid input." << endl;
         //cin >> menuOption;
     //}
-    string menuOption = "x";
+    string menuOption = "q";
     //cin >> menuOption;
     while(menuOption != "q")
         cout << "MENU:" << endl;
@@ -56,15 +60,14 @@ void Menu::printMenu(User user)
             string tag;
             cout << "Please enter a tag for the task" << endl;
             cin >> tag;
-            string priority;
+            int priority;
             cout << "Please enter the priority of the task" << endl;
             cin >> priority;
-            int durationHours;
+            double durationHours;
             cout << "Please enter the priority of the task" << endl;
             cin >> durationHours;
 
-            Task* mytask= new Task(name_task, description, due_date, tag, priority, start_date, durationHours, 0);
-
+            Task* mytask= new Task(name_task, description, start_date, due_date, tag, priority,  durationHours, false);
             string fileName = user.GetUserName() + ".txt";//name of the file
             string name= user.GetUserName();
             ofstream myFile(fileName);

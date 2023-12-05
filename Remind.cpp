@@ -13,8 +13,11 @@ using namespace std::chrono;
 
 
 void Remind::remind(ostream& os, User user){
+    //cout << "Entered remind" << endl;
    taskList* tasksList = user.GetTaskList();
-   vector<Task*> tasks = tasksList->GetTasks();
+   //cout << "Created tasklist object" << endl;
+   vector<Task*> tasks = tasksList->GetTasks(); //causing error - probably 
+   //cout << "Got the vector of tasklist" << endl;
    int tm_mday;
    int tm_mon;
    int tm_year;
