@@ -70,9 +70,9 @@ void Menu::printMenu(User user)
             string taskName;
             getline(cin, taskName);
             int i;
-            for(i=0; i<user.GetTaskList().GetTasks().size(); ++i){
-                if(user.GetTaskList().GetTasks().at(i)->GetName() == taskName){
-                    currTask = user.GetTaskList().GetTasks().at(i);
+            for(i=0; i<user.GetTaskList()->GetTasks().size(); ++i){
+                if(user.GetTaskList()->GetTasks().at(i)->GetName() == taskName){
+                    currTask = user.GetTaskList()->GetTasks().at(i);
                 }
             }
             cout << "Choose an option: " << endl;
