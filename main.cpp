@@ -35,27 +35,28 @@ int main(){
 
    char userInput;
    cin >> userInput;
+   cin.ignore();
 
 
    while(userInput != 'E' && userInput != 'N')
    {
       cout << "Input is not valid. Please enter a valid input:" << endl;
       cin >> userInput;
+      cin.ignore();
    }
 
    
-   cin.ignore();//allows me to get username without reading in the endl from previous
+  // cin.ignore() allows me to get username without reading in the endl from previous
 
    //if user is creating an account
    if(userInput == 'N')
    {
       //asks new user for their name
       cout << "Enter your first name: " << endl;
-      cin >> yourName;
-
-      cin.ignore();
-
+      getline(cin, yourName);
       
+
+   
       bool validUserName = false;
       
       do{
@@ -63,6 +64,7 @@ int main(){
 
             cout << "Enter your username: " << endl;
             getline(cin,userName);
+
       
             string firstWord; //username
             string secondWord; //password
@@ -124,14 +126,18 @@ int main(){
          userFile << userName << endl;
          userFile << password << endl;
          userFile << yourName << endl;
-      
+
+         userFile.close(); //close the file
 
          cout << "Would you like to go to the Login page? Press E. If not, press Q to quit." << endl;
          cin >> userInput;
+         cin.ignore();
          if(userInput == 'Q')
             {
                return 0;
             }
+         
+         userFile.open("userLogin.txt", ios::in | ios::out | ios::app); //reopen file so file cursor is reset and file can be read properly for login process
       }
 
    //logging in after creating account
@@ -155,8 +161,9 @@ int main(){
       
             string readUserName;
             string readPassword;
+            string readName;
             //checks if userName exists
-            while( userFile >> readUserName >> readPassword)
+            while( userFile >> readUserName >> readPassword >> readName)
             {
 
                if(readUserName == userName && readPassword == password)
@@ -195,6 +202,7 @@ int main(){
       outFS << userName << endl;
       outFS << userName <<"'s password: " << password << endl;
    }
+
 
    //setting the user name and password
    User person;
