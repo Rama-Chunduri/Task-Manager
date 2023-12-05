@@ -68,7 +68,7 @@ vector<Task> User::loadtasks(){
     this->list = tasks;
  }
  
- taskList User::GetTaskList()
+ taskList* User::GetTaskList()
  {
     return this->list;
  }
