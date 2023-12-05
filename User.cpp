@@ -60,7 +60,7 @@ vector<Task> User::loadtasks(){
     int TaskNumber; //purpose: to read in the number of a task
     int TaskSize = 0; //number reassigned (same thing as TaskNumber)
     string TaskName;
-    string TaskDescri   ption;
+    string TaskDescription;
     string TaskTag;
     string TaskDueDate;
     string TaskStartDate;
@@ -97,7 +97,7 @@ vector<Task> User::loadtasks(){
    return tasks;
 }
 
- void User::SetTaskList(vector<Task> tasks)
+ void User::SetTaskList(vector<Task*> tasks)
  {
     this->list = tasks;
  }

@@ -6,9 +6,17 @@
 using namespace std;
 
 void ViewSchedule :: viewDefault(User * user) {
-   vector<Task> tasks = user->GetTaskList().GetTasks();
+    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
 
-    // sort tasks by due date and then by priority 
+    vector<Task> tasks;
+    // Make a copy of the vector 
+    for (int i = 0; i < listOfTasks.size(); ++i) {
+        if (listOfTasks[i] != nullptr) {
+            tasks.push_back(*listOfTasks[i]);
+        }
+    }
+
+    // sort tasks by due date and then by priorities
     sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
         
         // Compare by due date (earliest to latest)
@@ -56,7 +64,15 @@ void ViewSchedule :: viewDefault(User * user) {
 // shortest to longest duration
 // Might change the way this is viewed later - get the duration in intervals
 void ViewSchedule :: viewByDuration(User* user) {
-   vector<Task> tasks = user->GetTaskList().GetTasks();
+    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+
+    vector<Task> tasks;
+    // Make a copy of the vector 
+    for (int i = 0; i < listOfTasks.size(); ++i) {
+        if (listOfTasks[i] != nullptr) {
+            tasks.push_back(*listOfTasks[i]);
+        }
+    }
 
 
    // sort tasks by duration from shortest to longest
@@ -84,7 +100,15 @@ void ViewSchedule :: viewByDuration(User* user) {
 
 // complete vs incomplete
 void ViewSchedule :: viewByCompletion(User* user) {
-    vector<Task> tasks = user->GetTaskList().GetTasks();
+    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+
+    vector<Task> tasks;
+    // Make a copy of the vector 
+    for (int i = 0; i < listOfTasks.size(); ++i) {
+        if (listOfTasks[i] != nullptr) {
+            tasks.push_back(*listOfTasks[i]);
+        }
+    }
 
     // Sort tasks by completion status and then by due date within each status
     sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
@@ -145,7 +169,15 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
 // highest(1) to lowest priority(3)
 void ViewSchedule :: viewByPriority(User* user) {
-     vector<Task> tasks = user->GetTaskList().GetTasks();
+    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+
+    vector<Task> tasks;
+    // Make a copy of the vector 
+    for (int i = 0; i < listOfTasks.size(); ++i) {
+        if (listOfTasks[i] != nullptr) {
+            tasks.push_back(*listOfTasks[i]);
+        }
+    }
 
     // Sort tasks by priority and then by due date within each priority
     sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
@@ -191,7 +223,15 @@ void ViewSchedule :: viewByPriority(User* user) {
 // groups tasks of the same tag together
 void ViewSchedule :: viewByTag(User* user)  
 {
-    vector<Task> tasks = user->GetTaskList().GetTasks();
+    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+
+    vector<Task> tasks;
+    // Make a copy of the vector 
+    for (int i = 0; i < listOfTasks.size(); ++i) {
+        if (listOfTasks[i] != nullptr) {
+            tasks.push_back(*listOfTasks[i]);
+        }
+    }
 
     //get unique tags 
     vector<string>uniqueTags;
