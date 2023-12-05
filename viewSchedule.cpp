@@ -16,7 +16,7 @@ void ViewSchedule :: viewDefault(User * user) {
         }
     }
 
-    // sort tasks by due date and then by priority 
+    // sort tasks by due date and then by priorities
     sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
         
         // Compare by due date (earliest to latest)
