@@ -4,7 +4,7 @@
 
 #include "User.h"
 #include "taskList.h"
-
+#include "viewSchedule.h"
 
 
 class Menu
