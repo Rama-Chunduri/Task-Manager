@@ -40,6 +40,7 @@ void Menu::printMenu(User user)
             cout << "x - Logout" << endl;
             cout << "Enter a valid input." << endl;
             cin >> menuOption;
+            cin.ignore();
            
 
             while(menuOption != "a" && menuOption != "b" && menuOption != "c" && menuOption != "d" && menuOption != "e" && menuOption != "f" && menuOption != "g" && menuOption != "x")
@@ -60,18 +61,19 @@ void Menu::printMenu(User user)
                 {
                     cout << "Please enter a task name that is less than 46 characters or less: " << endl;
                     getline(cin, name_task);
+                   // cin.ignore();
                 }
-                cin.ignore();
+            
                 
 
                 //start_date
-                string start_date;
+                int start_date;
                 cout << "Please enter the start date of the task in MMDDYYYY format. "<< endl;
                 cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
                 cin >> start_date;
                 cin.ignore();
 
-                while(start_date.size() != 8)
+                while(start_date > 99999999 || start_date < 10000000)
                 {
                     cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
                     cin >> start_date;
@@ -80,16 +82,17 @@ void Menu::printMenu(User user)
                 
 
                 //due_date
-                string due_date;
+                int due_date;
                 cout << "Please enter the due date of the task in MMDDYYYY format: " << endl;
                 cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
                 cin >> due_date;
                 cin.ignore();
 
-                while(due_date.size() != 8)
+                while((due_date > 99999999 || due_date < 10000000) && start_date > due_date)
                 {
                     cout << "Please enter a valid due date in the form of MMDDYYYY: " << endl;
                     cin >> due_date;
+                    cin.ignore();
                 }
 
                 //description
@@ -136,10 +139,10 @@ void Menu::printMenu(User user)
                 //creating task
                 Task* mytask= new Task(name_task, description, start_date, due_date, tag, priority,  durationHours, false);
                 string fileName = user.GetUserName() + ".txt";//name of the file
-                string name= user.GetUserName();
+                string nameOfUser= user.GetUserName();
                 mytask->SetName(name_task);
                 ofstream myFile(fileName);
-                tasks.addTask(myFile, *mytask, name);// need to properly get username
+                tasks.addTask(myFile, *mytask, nameOfUser);// need to properly get username
             
             }
             else if (menuOption == "b")
