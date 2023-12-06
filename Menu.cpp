@@ -42,7 +42,7 @@ void Menu::printMenu(User user)
         cin >> menuOption;
         if(menuOption == "a")
         {
-            //task
+            //task name
             string name_task;
             cout << "Please enter the name of the task: " << endl;
             getline(cin, name_task);
