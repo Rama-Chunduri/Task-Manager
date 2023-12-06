@@ -155,7 +155,7 @@ int main(){
 
             cout << "Please enter your Username:" << endl;
             getline(cin, userName);
-            cout << "Please enter a Password: " << endl;
+            cout << "Please enter your Password: " << endl;
             getline(cin, password);
             
       
