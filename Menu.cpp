@@ -10,7 +10,7 @@ void Menu::printMenu(User user)
    taskList tasks;
    Remind rem;
    //cout << "apple" << endl;
-   rem.remind(cout, user);
+//    rem.remind(cout, user);
    // cout << "MENU:" << endl;
    // cout << "a - Create a Task" << endl;
    // cout << "b - Edit a Task" << endl;
@@ -46,29 +46,36 @@ void Menu::printMenu(User user)
             string name_task;
             cout << "Please enter the name of the task: " << endl;
             getline(cin, name_task);
+            //cin.ignore();
             while(name_task.size() > 46)
             {
                 cout << "Please enter a task name that is less than 46 characters or less: " << endl;
                 getline(cin, name_task);
             }
+            cin.ignore();
+            
 
             //start_date
             string start_date;
             cout << "Please enter the start date of the task in MMDDYYYY format. "<< endl;
             cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
             cin >> start_date;
-            while(start_date.size() != 6)
+            cin.ignore();
+            while(start_date.size() != 8)
             {
                 cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
                 cin >> start_date;
             }
-            
+            cin.ignore();
+
             //due_date
             string due_date;
             cout << "Please enter the due date of the task in MMDDYYYY format: " << endl;
             cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
             cin >> due_date;
-            while(due_date.size() != 6)
+            cin.ignore();
+
+            while(due_date.size() != 8)
             {
                 cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
                 cin >> due_date;
@@ -82,27 +89,35 @@ void Menu::printMenu(User user)
             //tag
             string tag;
             cout << "Please enter a tag for the task: " << endl;
-            cin >> tag;
+            getline(cin,tag);
+        
+
             while(tag.size() > 11)
             {
-                cout << "Please enter a tag for the task that is 11 characters or less: " << endl;
-                cin >> tag;
+                cout << "Please enter a tag for the task that is less than 10 characters: " << endl;
+                getline(cin, tag);
+                cin.ignore();
             }
+            
 
             //priority
             int priority;
             cout << "Please enter the priority of the task: (1 - Very Important, 2 - Neutral, 3 - Low Priority) " << endl;
             cin >> priority;
+            cin.ignore();
+
             while(priority != 1 && priority != 2 && priority != 3)
             {
                 cout << "Please enter a valid priority that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
                 cin >> priority;
+                cin.ignore();
             }
 
             //duration
             double durationHours;
             cout << "Please enter the duration of the task in hours: " << endl;
             cin >> durationHours;
+            cin.ignore();
 
             //status for complete/incomplete
             cout << "Status for this task is set to incomplete by default." << endl;
@@ -111,8 +126,10 @@ void Menu::printMenu(User user)
             Task* mytask= new Task(name_task, description, start_date, due_date, tag, priority,  durationHours, false);
             string fileName = user.GetUserName() + ".txt";//name of the file
             string name= user.GetUserName();
+            mytask->SetName(name_task);
             ofstream myFile(fileName);
             tasks.addTask(myFile, *mytask, name);// need to properly get username
+        
         }
         else if (menuOption == "b")
         {
@@ -137,6 +154,8 @@ void Menu::printMenu(User user)
             cout << "8 - Edit the completion status of the task" << endl;
             int choice;
             cin >> choice;
+            cin.ignore();
+
             if(choice == 1){
                 cout << "Please enter the new name of the task" << endl;
                 string new_name;
@@ -161,7 +180,7 @@ void Menu::printMenu(User user)
                 cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
                 string new_due_date;
                 cin >> new_due_date;
-                while(new_due_date.size() != 6)
+                while(new_due_date.size() != 8)
                 {
                     cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
                     cin >> new_due_date;
@@ -200,7 +219,7 @@ void Menu::printMenu(User user)
                 cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
                 string new_start_date;
                 cin >> new_start_date ;
-                while(new_start_date.size() != 6)
+                while(new_start_date.size() != 8)
                 {
                     cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
                     cin >> new_start_date;
