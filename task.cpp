@@ -44,7 +44,7 @@ string Task::GetDescription() const{
 
 
 void Task::SetStartDate(string startDate){
-  _startDate = startDate;
+  this->_startDate = startDate;
 }
 string Task::GetStartDate() const{
   return _startDate;

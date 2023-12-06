@@ -182,6 +182,9 @@ int main(){
             }
             else{
                cout << "Username or Passoword is incorrect. Please try again." << endl;
+                userFile.clear(); //clear end of file flag
+               userFile.seekg(0, ios::beg); // set position to beginning of the file
+
             }
 
             
