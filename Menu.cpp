@@ -101,7 +101,7 @@ void Menu::printMenu(User user)
 
             //duration
             double durationHours;
-            cout << "Please enter the priority of the task: " << endl;
+            cout << "Please enter the duration of the task in hours: " << endl;
             cin >> durationHours;
 
             //status for complete/incomplete
@@ -141,20 +141,31 @@ void Menu::printMenu(User user)
                 cout << "Please enter the new name of the task" << endl;
                 string new_name;
                 getline(cin, new_name);
+                while(new_name.size() > 46)
+                {
+                    cout << "Please enter a task name that is less than 46 characters or less: " << endl;
+                    getline(cin, new_name);
+                }
                 currTask->SetName(new_name);
                 cout << "The name of your task has been changed to " << new_name << endl; 
             }
             else if(choice == 2){
-                cout << "Please enter the new description of the task" << endl;
+                cout << "Please enter the new description of the task: " << endl;
                 string new_desc;
                 getline(cin, new_desc);
                 currTask->SetDescription(new_desc);
                 cout << "The description of your task has been changed to " << new_desc << endl; 
             }
             else if(choice == 3){
-                cout << "Please enter the new due date of the task in MM/DD/YYYY format" << endl;
+                cout << "Please enter the new due date of the task in MMDDYYYY format." << endl;
+                cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
                 string new_due_date;
-                cin >> new_due_date ;
+                cin >> new_due_date;
+                while(new_due_date.size() != 6)
+                {
+                    cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
+                    cin >> new_due_date;
+                }   
                 currTask->SetDueDate(new_due_date);
                 cout << "The due date of your task has been changed to " << new_due_date << endl; 
             }
@@ -162,20 +173,38 @@ void Menu::printMenu(User user)
                 cout << "Please enter the new tag of the task " << endl;
                 string new_tag;
                 cin >> new_tag;
+                while(new_tag.size() > 11)
+                {
+                    cout << "Please enter a tag for the task that is 11 characters or less: " << endl;
+                    cin >> new_tag;
+                }
+
                 currTask->SetTag(new_tag);
                 cout << "The tag of your task has been changed to " << new_tag << endl; 
             }
             else if(choice == 5){
-                cout << "Please enter the new priority of the task " << endl;
+                cout << "Please enter the new priority of the task that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
                 int new_priority;
                 cin >> new_priority;
+                while(new_priority != 1 && new_priority != 2 && new_priority != 3)
+                {
+                    cout << "Please enter a valid priority that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
+                    cin >> new_priority;
+                }
+
                 currTask->SetPriority(new_priority);
                 cout << "The priority of your task has been changed to " << new_priority << endl; 
             }
             else if(choice == 6){
-                cout << "Please enter the new start date of the task in MM/DD/YYYY format" << endl;
+                cout << "Please enter the new start date of the task in MMDDYYYY format. " << endl;
+                cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
                 string new_start_date;
                 cin >> new_start_date ;
+                while(new_start_date.size() != 6)
+                {
+                    cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
+                    cin >> new_start_date;
+                } 
                 currTask->SetStartDate(new_start_date);
                 cout << "The start date of your task has been changed to " << new_start_date << endl; 
             }
@@ -191,6 +220,11 @@ void Menu::printMenu(User user)
                 cout << "If the task is not yet complete, please enter 0" << endl;
                 int comp;
                 cin >> comp;
+                while(comp!= 1 && comp != 0)
+                {
+                    cout << "Please enter a valid input. Enter '1' to mark your task complete and '0' to mark your task incomplete." << endl;
+                    cin >> comp;
+                }
                 currTask->SetComplete(comp);
                 cout << "The completion status of your task has been changed to " << currTask->GetComplete() << endl; 
             }
