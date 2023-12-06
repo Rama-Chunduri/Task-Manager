@@ -42,31 +42,72 @@ void Menu::printMenu(User user)
         cin >> menuOption;
         if(menuOption == "a")
         {
+            //task
             string name_task;
-            cout << "Please enter the name of the task" << endl;
-            cin >> name_task;
+            cout << "Please enter the name of the task: " << endl;
+            getline(cin, name_task);
+            while(name_task.size() > 46)
+            {
+                cout << "Please enter a task name that is less than 46 characters or less: " << endl;
+                getline(cin, name_task);
+            }
+
+            //start_date
             string start_date;
-            cout << "Please enter the start date of the task"<<endl;
+            cout << "Please enter the start date of the task in MMDDYYYY format. "<< endl;
+            cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
             cin >> start_date;
-            //string end_date;
-            //cout<<"Please enter the end date of the task"<<endl;
-            //cin>>end_date;
+            while(start_date.size() != 6)
+            {
+                cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
+                cin >> start_date;
+            }
+            
+            //due_date
             string due_date;
-            cout << "Please enter the due date of the task" << endl;
+            cout << "Please enter the due date of the task in MMDDYYYY format: " << endl;
+            cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
             cin >> due_date;
+            while(due_date.size() != 6)
+            {
+                cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
+                cin >> due_date;
+            }
+
+            //description
             string description;
-            cout<< "Please enter a description of the task" <<endl;
-            cin >> description;
+            cout<< "Please enter a short description of the task: " <<endl;
+            getline(cin, description);
+
+            //tag
             string tag;
-            cout << "Please enter a tag for the task" << endl;
+            cout << "Please enter a tag for the task: " << endl;
             cin >> tag;
+            while(tag.size() > 11)
+            {
+                cout << "Please enter a tag for the task that is 11 characters or less: " << endl;
+                cin >> tag;
+            }
+
+            //priority
             int priority;
-            cout << "Please enter the priority of the task" << endl;
+            cout << "Please enter the priority of the task: (1 - Very Important, 2 - Neutral, 3 - Low Priority) " << endl;
             cin >> priority;
+            while(priority != 1 && priority != 2 && priority != 3)
+            {
+                cout << "Please enter a valid priority that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
+                cin >> priority;
+            }
+
+            //duration
             double durationHours;
-            cout << "Please enter the priority of the task" << endl;
+            cout << "Please enter the priority of the task: " << endl;
             cin >> durationHours;
 
+            //status for complete/incomplete
+            cout << "Status for this task is set to incomplete by default." << endl;
+
+            //creating task
             Task* mytask= new Task(name_task, description, start_date, due_date, tag, priority,  durationHours, false);
             string fileName = user.GetUserName() + ".txt";//name of the file
             string name= user.GetUserName();
