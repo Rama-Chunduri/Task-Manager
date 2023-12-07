@@ -67,7 +67,6 @@ void Menu::printMenu(User user)
                 }
             
                 
-
                 //start_date
                 cout << "Start Date:"<< endl;
                 //month
@@ -159,11 +158,6 @@ void Menu::printMenu(User user)
             }
             while(startSum > dueSum );
             
-
-                
-
-
-            
                 cin.ignore();
                 //description
                 string description;
@@ -202,6 +196,13 @@ void Menu::printMenu(User user)
                 cout << "Please enter the duration of the task in hours: " << endl;
                 cin >> durationHours;
                 cin.ignore();
+
+                while(durationHours < 0)
+                {
+                    cout << "Please enter a valid duration: " << endl;
+                    cin >> durationHours;
+                    cin.ignore();
+                }
 
                 //status for complete/incomplete
                 cout << "Status for this task is set to incomplete by default." << endl;
@@ -299,15 +300,42 @@ void Menu::printMenu(User user)
                     cout << "The priority of your task has been changed to " << new_priority << endl; 
                 }
                 else if(choice == 6){
-                    cout << "Please enter the new start date of the task in MMDDYYYY format. " << endl;
-                    cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
                     string new_start_date;
-                    cin >> new_start_date ;
-                    while(new_start_date.size() != 8)
+                    cout << "Start Date:"<< endl;
+                    //month
+                    int new_startMonth;
+                    cout << "Enter the month (from 1 to 12): " << endl;
+                    cin >> new_startMonth;
+                    while(new_startMonth > 12 || new_startMonth < 1)
                     {
-                        cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
-                        cin >> new_start_date;
-                    } 
+                        cout << "Please enter a valid month: " << endl;
+                        cin >> new_startMonth;
+                    }
+
+                    //day
+                    int new_startDay;
+                    cout << "Enter the day (from 1 to 31): " << endl;
+                    cin >> new_startDay;
+                    while(new_startDay > 31 || new_startDay < 1)
+                    {
+                        cout << "Please enter a valid day: " << endl;
+                        cin >> new_startDay;
+                    }
+
+                    //year
+                    int new_startYear; 
+                    cout << "Please enter the year (format: YYYY): " << endl;
+                    cin >> new_startYear;
+                    while(new_startYear > 9999 || new_startYear < 1)
+                    {
+                        cout << "Please enter a valid year: " << endl;
+                        cin >> new_startYear;
+                    }
+
+                    string start_dateNew = to_string(new_startMonth) + "/" + to_string(new_startMonth) + "/" + to_string(new_startYear);
+
+                
+                    cin.ignore();
                     currTask->SetStartDate(new_start_date);
                     cout << "The start date of your task has been changed to " << new_start_date << endl; 
                 }
@@ -315,6 +343,13 @@ void Menu::printMenu(User user)
                     cout << "Please enter the new duration of the task in hours " << endl;
                     double new_duration;
                     cin >> new_duration;
+
+                     while(new_duration < 0)
+                    {
+                        cout << "Please enter a valid duration: " << endl;
+                        cin >> new_duration;
+                        cin.ignore();
+                    }
                     currTask->SetDurationHours(new_duration);
                     cout << "The duration of your task has been changed to " << new_duration << endl; 
                 }
