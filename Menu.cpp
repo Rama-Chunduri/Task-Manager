@@ -194,7 +194,6 @@ void Menu::printMenu(User user)
                 mytask->SetName(name_task);
                 ofstream myFile(fileName);
                 tasks.addTask(myFile, *mytask, nameOfUser);// need to properly get username
-            
             }
             else if (menuOption == "b")
             {
