@@ -39,9 +39,10 @@ void Menu::printMenu(User user)
             cout << "f - View by Completion" << endl;
             cout << "g - View by Priority" << endl;
 
-            cout << "x - Logout" << endl;
+            cout << "x - Logout" << endl << endl;
             cout << "Enter a valid input." << endl;
             cin >> menuOption;
+            cout << endl;
             cin.ignore();
            
 
@@ -49,7 +50,8 @@ void Menu::printMenu(User user)
             {
                 cout << "Invalid input. Please enter a valid option: " << endl;
                 cin >> menuOption;
-            
+                
+                cout << endl;
             }  
 
             if(menuOption == "a")
