@@ -23,21 +23,20 @@ void taskList::addTask(ostream & out,  Task& task, const string& name){// pass o
   //out.close();
 }
 void taskList::removeTask(int toRemove, string name){
+ ofstream temporaryFile("temp.txt");
  string fileName = name + ".txt";//name of the file
  ifstream inFile(fileName); // reading the file with the user name
- ofstream temporaryFile("temp.txt");
- // Create a text string, which is used to output the text file
- string myText;
  // Read from the text file
+ string checkline;
  string line;
  int currentLineNum = 1; // Counter for current line number, tracking the number
-
-
    while (getline(inFile, line)) { // looking through each line
        if (currentLineNum != toRemove) {// if the line doesnt equal the line we want to remove
            temporaryFile << line << endl; // Write all other lines to temporary file if it's not the line to be removed with the same name
        }
-       currentLineNum++; // keeps track of the numbers when moving the file over, numbers all change after removing that line
+       if(currentLineNum!=0){
+          currentLineNum++; // keeps track of the numbers when moving the file over, numbers all change after removing that line
+       }
    }
   //we also need to remove the element from the vector, edge case
      if(toRemove<tasks.size()){
