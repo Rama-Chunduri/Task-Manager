@@ -35,7 +35,7 @@ void taskList::removeTask(int toRemove, string name){
            temporaryFile << line << endl; // Write all other lines to temporary file if it's not the line to be removed with the same name
        }
        if(currentLineNum!=0){
-          currentLineNum++; // keeps track of the numbers when moving the file over, numbers all change after removing that line
+          currentLineNum++; // keeps track of t  he numbers when moving the file over, numbers all change after removing that line
        }
    }
   //we also need to remove the element from the vector, edge case
