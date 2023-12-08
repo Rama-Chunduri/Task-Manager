@@ -382,7 +382,7 @@ void Menu::printMenu(User& user)
             else if (menuOption == "d") // View by Tag
             {
                 ViewSchedule view;
-                view.viewByTag(&user);
+                view.viewByTag(user);
             }
             else if (menuOption == "e") // View by Duration
             
