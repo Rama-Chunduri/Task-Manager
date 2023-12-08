@@ -56,6 +56,7 @@ vector<Task> User::loadtasks(){
    // ofstream myFile(userName + ".txt");
    ifstream myFile;
    string comma;
+   string whitespace;
 
     string TaskName;
     string TaskDescription;
@@ -66,7 +67,9 @@ vector<Task> User::loadtasks(){
     bool TaskComplete;
     double TaskDuration;
 
-    myFile.open(userName + ".txt");
+
+    string nameOfFile = userName + ".txt";
+    myFile.open(nameOfFile, ios::in | ios::out | ios::app);
 
     //seeing if file opens properly
     if(!(myFile.is_open()))
@@ -75,7 +78,7 @@ vector<Task> User::loadtasks(){
         return tasks;
     }
 
-   while(myFile >> TaskName >> comma >> TaskStartDate >> comma >> TaskDueDate >> comma >> TaskDescription >> comma >> TaskTag >> comma >> TaskPriority >> comma >> TaskDuration){
+   while(myFile >> TaskName >> comma >> whitespace >> TaskStartDate >> comma >> whitespace >> TaskDueDate >> comma >> whitespace >> TaskDescription >> comma >> whitespace >> TaskTag >> comma >> whitespace >> TaskPriority >> comma >> whitespace >> TaskDuration){
         Task someTask(TaskName, TaskDescription, TaskStartDate, TaskDueDate, TaskTag, TaskPriority, TaskDuration, TaskComplete);
         tasks.push_back(someTask);
    }

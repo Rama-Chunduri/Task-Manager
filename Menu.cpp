@@ -11,6 +11,7 @@
 void Menu::printMenu(User user)
 {
    vector<Task> someTask = user.loadtasks();
+   cout << someTask.size() << endl;
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
 
