@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /class/classes/vkupp001/final-project-snand021
+CMAKE_SOURCE_DIR = /home/csmajs/spagi002/final-project-snand021
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /class/classes/vkupp001/final-project-snand021
+CMAKE_BINARY_DIR = /home/csmajs/spagi002/final-project-snand021
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -89,14 +89,17 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"gmock\" \"gtest\""
-.PHONY : list_install_components
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -118,23 +121,20 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"gmock\" \"gtest\""
+.PHONY : list_install_components
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /class/classes/vkupp001/final-project-snand021/CMakeFiles /class/classes/vkupp001/final-project-snand021//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/spagi002/final-project-snand021/CMakeFiles /home/csmajs/spagi002/final-project-snand021//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /class/classes/vkupp001/final-project-snand021/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/spagi002/final-project-snand021/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -162,30 +162,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named main.cpp
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
+main.cpp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main.cpp
+.PHONY : main.cpp
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+main.cpp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/build
+.PHONY : main.cpp/fast
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named runAllTests
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+runAllTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 runAllTests
+.PHONY : runAllTests
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+runAllTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/build
+.PHONY : runAllTests/fast
 
 #=============================================================================
 # Target rules for targets named gmock_main
@@ -239,53 +239,221 @@ gtest/fast:
 	$(MAKE) $(MAKESILENT) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+Menu.o: Menu.cpp.o
+.PHONY : Menu.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+Menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/Menu.cpp.o
+.PHONY : Menu.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+Menu.i: Menu.cpp.i
+.PHONY : Menu.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/Menu.cpp.i
+.PHONY : Menu.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+Menu.s: Menu.cpp.s
+.PHONY : Menu.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/Menu.cpp.s
+.PHONY : Menu.cpp.s
 
-test.o: test.cpp.o
-.PHONY : test.o
+Remind.o: Remind.cpp.o
+.PHONY : Remind.o
 
 # target to build an object file
-test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.o
-.PHONY : test.cpp.o
+Remind.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/Remind.cpp.o
+.PHONY : Remind.cpp.o
 
-test.i: test.cpp.i
-.PHONY : test.i
+Remind.i: Remind.cpp.i
+.PHONY : Remind.i
 
 # target to preprocess a source file
-test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.i
-.PHONY : test.cpp.i
+Remind.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/Remind.cpp.i
+.PHONY : Remind.cpp.i
 
-test.s: test.cpp.s
-.PHONY : test.s
+Remind.s: Remind.cpp.s
+.PHONY : Remind.s
 
 # target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.s
-.PHONY : test.cpp.s
+Remind.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/Remind.cpp.s
+.PHONY : Remind.cpp.s
+
+task.o: task.cpp.o
+.PHONY : task.o
+
+# target to build an object file
+task.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/task.cpp.o
+.PHONY : task.cpp.o
+
+task.i: task.cpp.i
+.PHONY : task.i
+
+# target to preprocess a source file
+task.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/task.cpp.i
+.PHONY : task.cpp.i
+
+task.s: task.cpp.s
+.PHONY : task.s
+
+# target to generate assembly for a file
+task.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/task.cpp.s
+.PHONY : task.cpp.s
+
+taskList.o: taskList.cpp.o
+.PHONY : taskList.o
+
+# target to build an object file
+taskList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/taskList.cpp.o
+.PHONY : taskList.cpp.o
+
+taskList.i: taskList.cpp.i
+.PHONY : taskList.i
+
+# target to preprocess a source file
+taskList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/taskList.cpp.i
+.PHONY : taskList.cpp.i
+
+taskList.s: taskList.cpp.s
+.PHONY : taskList.s
+
+# target to generate assembly for a file
+taskList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/taskList.cpp.s
+.PHONY : taskList.cpp.s
+
+test/taskListtest.o: test/taskListtest.cpp.o
+.PHONY : test/taskListtest.o
+
+# target to build an object file
+test/taskListtest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/taskListtest.cpp.o
+.PHONY : test/taskListtest.cpp.o
+
+test/taskListtest.i: test/taskListtest.cpp.i
+.PHONY : test/taskListtest.i
+
+# target to preprocess a source file
+test/taskListtest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/taskListtest.cpp.i
+.PHONY : test/taskListtest.cpp.i
+
+test/taskListtest.s: test/taskListtest.cpp.s
+.PHONY : test/taskListtest.s
+
+# target to generate assembly for a file
+test/taskListtest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/taskListtest.cpp.s
+.PHONY : test/taskListtest.cpp.s
+
+test/testViewSchedule.o: test/testViewSchedule.cpp.o
+.PHONY : test/testViewSchedule.o
+
+# target to build an object file
+test/testViewSchedule.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/testViewSchedule.cpp.o
+.PHONY : test/testViewSchedule.cpp.o
+
+test/testViewSchedule.i: test/testViewSchedule.cpp.i
+.PHONY : test/testViewSchedule.i
+
+# target to preprocess a source file
+test/testViewSchedule.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/testViewSchedule.cpp.i
+.PHONY : test/testViewSchedule.cpp.i
+
+test/testViewSchedule.s: test/testViewSchedule.cpp.s
+.PHONY : test/testViewSchedule.s
+
+# target to generate assembly for a file
+test/testViewSchedule.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/testViewSchedule.cpp.s
+.PHONY : test/testViewSchedule.cpp.s
+
+test/test_rem.o: test/test_rem.cpp.o
+.PHONY : test/test_rem.o
+
+# target to build an object file
+test/test_rem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/test_rem.cpp.o
+.PHONY : test/test_rem.cpp.o
+
+test/test_rem.i: test/test_rem.cpp.i
+.PHONY : test/test_rem.i
+
+# target to preprocess a source file
+test/test_rem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/test_rem.cpp.i
+.PHONY : test/test_rem.cpp.i
+
+test/test_rem.s: test/test_rem.cpp.s
+.PHONY : test/test_rem.s
+
+# target to generate assembly for a file
+test/test_rem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/test_rem.cpp.s
+.PHONY : test/test_rem.cpp.s
+
+test/userTests.o: test/userTests.cpp.o
+.PHONY : test/userTests.o
+
+# target to build an object file
+test/userTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/userTests.cpp.o
+.PHONY : test/userTests.cpp.o
+
+test/userTests.i: test/userTests.cpp.i
+.PHONY : test/userTests.i
+
+# target to preprocess a source file
+test/userTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/userTests.cpp.i
+.PHONY : test/userTests.cpp.i
+
+test/userTests.s: test/userTests.cpp.s
+.PHONY : test/userTests.s
+
+# target to generate assembly for a file
+test/userTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/test/userTests.cpp.s
+.PHONY : test/userTests.cpp.s
+
+viewSchedule.o: viewSchedule.cpp.o
+.PHONY : viewSchedule.o
+
+# target to build an object file
+viewSchedule.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/viewSchedule.cpp.o
+.PHONY : viewSchedule.cpp.o
+
+viewSchedule.i: viewSchedule.cpp.i
+.PHONY : viewSchedule.i
+
+# target to preprocess a source file
+viewSchedule.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/viewSchedule.cpp.i
+.PHONY : viewSchedule.cpp.i
+
+viewSchedule.s: viewSchedule.cpp.s
+.PHONY : viewSchedule.s
+
+# target to generate assembly for a file
+viewSchedule.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.cpp.dir/build.make CMakeFiles/main.cpp.dir/viewSchedule.cpp.s
+.PHONY : viewSchedule.cpp.s
 
 # Help Target
 help:
@@ -303,14 +471,35 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... main"
-	@echo "... test"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
+	@echo "... main.cpp"
+	@echo "... runAllTests"
+	@echo "... Menu.o"
+	@echo "... Menu.i"
+	@echo "... Menu.s"
+	@echo "... Remind.o"
+	@echo "... Remind.i"
+	@echo "... Remind.s"
+	@echo "... task.o"
+	@echo "... task.i"
+	@echo "... task.s"
+	@echo "... taskList.o"
+	@echo "... taskList.i"
+	@echo "... taskList.s"
+	@echo "... test/taskListtest.o"
+	@echo "... test/taskListtest.i"
+	@echo "... test/taskListtest.s"
+	@echo "... test/testViewSchedule.o"
+	@echo "... test/testViewSchedule.i"
+	@echo "... test/testViewSchedule.s"
+	@echo "... test/test_rem.o"
+	@echo "... test/test_rem.i"
+	@echo "... test/test_rem.s"
+	@echo "... test/userTests.o"
+	@echo "... test/userTests.i"
+	@echo "... test/userTests.s"
+	@echo "... viewSchedule.o"
+	@echo "... viewSchedule.i"
+	@echo "... viewSchedule.s"
 .PHONY : help
 
 
