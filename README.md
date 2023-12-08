@@ -151,7 +151,7 @@ Added a User class that is sort of the central class of the program. It enables 
 - Benefits: This change enhances modularity and maintainability. The User class serves as a central hub for user-specific actions, such as login and task retrieval, providing a clear and coherent interface for managing user-related concerns.
 <br></br>
 
- > ## Final deliverable
+ ## Final deliverable
  > All group members will give a demo to the reader during lab time. You should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
