@@ -11,15 +11,6 @@ using namespace std;
 void ViewSchedule :: viewDefault(User user) {
     vector<Task> tasks = user.GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
-    //vector<Task> tasks;
-    // // Make a copy of the vector 
-    // for (int i = 0; i < listOfTasks.size(); ++i) {
-    //     //if (listOfTasks[i] != nullptr) {
-    //         tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
-    //     //}
-    // }
-
-
     // sort tasks by due date and then by priorities
     sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
         
@@ -43,31 +34,36 @@ void ViewSchedule :: viewDefault(User user) {
         if (tasks.at(i).GetDueDate() != currDueDate) {
             // start a new due date section 
             currDueDate = tasks.at(i).GetDueDate();
-            cout << "+-------------------------------------------------------------------+" << endl;
-            cout << " \033[38;5;222mDue Date: \033[0m " << currDueDate << endl;
-            cout << "+-------------------------------------------------------------------+" << endl;
+            //cout << endl << endl;
+            cout << "+---------------------------------------------------------------+" << endl;
+            cout << " Date: " << currDueDate << endl;
+            cout << "+---------------------------------------------------------------+" << endl;
         }
 
+        cin.clear();
+
         // print priority 
-        cout << "    " << tasks.at(i).GetPriority() << "     | ";
-        
+        cout << "\033[38;2;241;176;241m" << "     " << left << setw(3) << tasks.at(i).GetPriority() << "\033[0m" << "  | ";
+
         // print name of task 
-        cout << left << setw(19) << tasks.at(i).GetName() << "| ";
+        cout << "\033[38;2;165;219;255m" << left << setw(19) << tasks.at(i).GetName() << "\033[0m" << "| ";
 
         // print duration
-        cout<< left << setw(9) << tasks.at(i).GetDurationHours() << "| ";
+        cout << "\033[38;2;170;155;253m" << left << setw(9) << tasks.at(i).GetDurationHours() << "\033[0m" << "| ";
 
         // print tag
-        cout << left << setw(12) << tasks.at(i).GetName() << "| ";
+        cout << "\033[38;2;255;229;153m" << left << setw(12) << tasks.at(i).GetTag() << "\033[0m" << "| ";
 
         // print status 
         if (tasks.at(i).GetComplete() == true) { // completed 
-            cout << "Complete" << endl;
+            cout << " \033[32m[√]\033[0m" << endl;
         } else // incomplete 
         {
-            cout << "Incomplete" << endl;
+            cout << " \033[31m[X]\033[0m" << endl;
         } 
     }
+
+    cout << endl << endl << endl;
 }
 
 
@@ -93,13 +89,13 @@ void ViewSchedule :: viewByDuration(User* user) {
        return a.GetDurationHours() < b.GetDurationHours();
     });
 
-   cout << " \e[0;36mDuration\e[0m    | ";
+   cout << " \e[38;2;175;97;255mDuration\e[0m  | ";
    cout << "\033[38;5;33mTask\033[0m" << endl;
    cout << "+----------------------------------------------------+" << endl;
 
     for (int i = 0; i < tasks.size(); ++i) {
-        cout << " " << left << setw(12) << tasks.at(i).GetDurationHours() << "| ";
-        cout << tasks.at(i).GetName() << endl;
+        cout << "\033[38;2;170;155;253m" << "   " << left << setw(8) << tasks.at(i).GetDurationHours() << "\033[0m" << "| ";
+        cout <<  "\033[38;2;165;219;255m" << left << setw(19) << tasks.at(i).GetName() << "\033[0m" << endl;
     }
 
    cout << endl << endl;
@@ -133,9 +129,9 @@ void ViewSchedule :: viewByCompletion(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " \033[38;5;222mDue Date\033[0m    | ";
+    cout << " Date        | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
-    cout << "+----------------------------------------------------+" << endl;
+    cout << "+--------------------------------------------------------+" << endl;
 
     bool currentCompletionStatus = true; // assuming true means completed
 
@@ -143,23 +139,10 @@ void ViewSchedule :: viewByCompletion(User* user) {
             Task& task = tasks[i];
 
             if (task.GetComplete() != currentCompletionStatus) {
-
-            // Start a new completion status group
-            if (i != 0) {
-                if (currentCompletionStatus == true) { // task complete 
-                    cout << "Complete" << endl;
-                } else { // tasl incomplete 
-                    cout << "Incomplete" << endl;
-
-                }
-
-                cout << "+--------------------------------------------------------+" << endl;
+                currentCompletionStatus = task.GetComplete();
             }
 
-            currentCompletionStatus = task.GetComplete();
-        }
-
-        cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+            cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
 
             // print task details 
             if (currentCompletionStatus == true) { // task complete 
@@ -170,7 +153,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
                     cout << "\033[31m[X]\033[0m" << " ";
                 }
 
-            cout << tasks.at(i).GetName() << endl;
+            cout <<  "\033[38;2;165;219;255m" << tasks.at(i).GetName() << "\033[0m" << endl;
         }
 
     cout << endl << endl;
@@ -181,8 +164,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
 
 
-// highest(1) to lowest priority(3)
-void ViewSchedule :: viewByPriority(User* user) {
+void ViewSchedule::viewByPriority(User* user) {
     vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
@@ -205,30 +187,56 @@ void ViewSchedule :: viewByPriority(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " \033[38;5;222mDue Date\033[0m    | ";
+    cout << " Date        | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
+
+    cout << "+----------------------------------------------------+" << endl;
+    cout << "\033[38;2;206;30;206mPriority \033[0m" << "\033[38;2;241;176;241m1\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
-    int currentPriority = -1;
+    Task taskIterator = tasks.at(0);
 
+    // priority 1 
     for (int i = 0; i < tasks.size(); ++i) {
-        Task& task = tasks[i];
-
-        if (task.GetPriority() != currentPriority) {
-            
-            // Start a new priority group
-            if (currentPriority != -1) {
-                cout << "Priority " << currentPriority << endl;
-                cout << "+----------------------------------------------------+" << endl;
-            }
-
-            currentPriority = task.GetPriority();
+        taskIterator = tasks.at(i);
+        // Print task details
+        if (taskIterator.GetPriority() == 1) {
+            cout  << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+            cout <<  "\033[38;2;165;219;255m" << tasks.at(i).GetName() << "\033[0m";
         }
+    }
 
-            // Print task details
-            cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
-            cout << tasks.at(i).GetName();
+    cout << endl;
 
+    cout << "+----------------------------------------------------+" << endl;
+    cout << "\033[38;2;206;30;206mPriority \033[0m" << "\033[38;2;241;176;241m2\033[0m" << endl;
+    cout << "+----------------------------------------------------+" << endl;
+
+    // priority 2
+    for (int i = 0; i < tasks.size(); ++i) {
+        taskIterator = tasks.at(i);
+        // Print task details
+        if (taskIterator.GetPriority() == 2) {
+            cout  << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+            cout <<  "\033[38;2;165;219;255m" << tasks.at(i).GetName() << "\033[0m";
+        }
+    }
+
+    cout << endl;
+
+    cout << "+----------------------------------------------------+" << endl;
+    cout << "\033[38;2;206;30;206mPriority \033[0m" << "\033[38;2;241;176;241m3\033[0m" << endl;
+    cout << "+----------------------------------------------------+" << endl;
+
+
+    // priority 3
+    for (int i = 0; i < tasks.size(); ++i) {
+        taskIterator = tasks.at(i);
+        // Print task details
+        if (taskIterator.GetPriority() == 3) {
+            cout  << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+            cout <<  "\033[38;2;165;219;255m" << tasks.at(i).GetName() << "\033[0m";
+        }
     }
 
     cout << endl << endl;
@@ -237,65 +245,39 @@ void ViewSchedule :: viewByPriority(User* user) {
 
 
 
+void ViewSchedule::viewByTag(User user) {
+    vector<Task> tasks = user.GetTaskList().GetTasks();
+    vector<string> uniqueTags;
 
+    // Populate uniqueTags
+    for (int i = 0; i < tasks.size(); ++i) {
+        const Task& task = tasks[i];
+        if (find(uniqueTags.begin(), uniqueTags.end(), task.GetTag()) == uniqueTags.end()) {
+            uniqueTags.push_back(task.GetTag());
+        }
+    }
 
-// groups tasks of the same tag together
-void ViewSchedule :: viewByTag(User user)  
-{
-    ViewSchedule view;
+    cout << " Date    | ";
+    cout << "\033[38;5;33mTask\033[0m" << endl;
 
-    view.viewDefault(user);
+    // Iterate over unique tags and print tasks for each tag
+    for (int i = 0; i < uniqueTags.size(); ++i) {
+        const string& currentTag = uniqueTags[i];
+        cout << "+----------------------------------------------------+" << endl;
+        cout << "\033[38;2;255;229;153m" << currentTag << "\033[0m" << endl;
+        cout << "+----------------------------------------------------+" << endl;
 
-    cout << endl << endl << endl;
+        // Iterate over tasks and print details for tasks with the current tag
+        for (int j = 0; j < tasks.size(); ++j) {
+            const Task& currentTask = tasks[j];
+            if (currentTask.GetTag() == currentTag) {
+                // Print task details as needed 
+                cout << " " << left << setw(11) << currentTask.GetDueDate() << " | ";
+                cout <<  "\033[38;2;165;219;255m" << currentTask.GetName() << "\033[0m" << endl;
+            }
+        }
+    }
 
-    // vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
-    
-    // vector<Task> tasks;
-
-    // //Make a copy of the vector 
-    // for (int i = 0; i < listOfTasks.size(); ++i) {
-    //     //if (listOfTasks[i] != nullptr) {    //changed by Rama L Chunduri
-    //         tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
-    //     //}
-    // }
-
-
-    // //get unique tags 
-    // vector<string>uniqueTags;
-    // Task taskIterator = tasks.at(0);
-
-    // for (int i = 0; i < tasks.size(); ++i) {
-    //     // if tag is not found in uniqueTags
-    //     if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.GetTag()) == uniqueTags.end()) {
-    //         uniqueTags.push_back(taskIterator.GetTag());
-    //     }
-    // }
-    // cout << "5APPLE" << endl;
-
-    // cout << " \033[38;5;222mDue Date\033[0m    | ";
-    // cout << "\033[38;5;33mTask\033[0m" << endl;
-    // cout << "+----------------------------------------------------+" << endl;
-
-    // //iterate over unique tags and print tasks for each tag 
-    // string tagIterator = uniqueTags.at(0);
-    // taskIterator = tasks.at(0);
-
-    // for (int i = 0; i < uniqueTags.size(); ++i) {
-    //     cout << tagIterator << endl;
-    //     cout << "+----------------------------------------------------+" << endl;
-
-    //     //iterate over tasks and print details for tasks with the current tag
-    //     for (int i = 0; i < uniqueTags.size(); ++i) {
-    //         if (taskIterator.GetTag() == tagIterator)
-    //             //print task details as needed 
-    //             cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
-    //             cout << tasks.at(i).GetName();        
-    //     }
-        
-    //     cout << endl << endl;
-    // }
+    cout << endl << endl;
 }
-
-
-
 

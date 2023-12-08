@@ -14,59 +14,54 @@ void Menu::printMenu(User& user)
    cout << someTask.size() << endl;
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
-
    Remind rem;
-    if(someTask.size() == 0){
-        cout << someTask.size() << endl;
-        cout << "You do not have anything due in the next 24 hours" << endl;
-    }
-    else{
-        rem.remind(cout, user);
-    }
+   if(someTask.size() == 0){
+    cout << "You do not have anything due in the next 24 hours" << endl;
+   }
+   else{
+    rem.remind(cout, user);
+   }
 
-   //Remind rem;
-   //cout << "apple" << endl;
-  // rem.remind(cout, user);
-   // cout << "MENU:" << endl;
-   // cout << "a - Create a Task" << endl;
-   // cout << "b - Edit a Task" << endl;
-   // cout << "c - Delete a Task" << endl;
-   // cout << "q - Exit to Homepage" << endl;
-   // cout << "Enter a valid input." << endl;
 
-    
-    //while(menuOption != "a" || menuOption != "b" || menuOption != "c" || menuOption != "q")
-    //{
-        //cout << "Enter a valid input." << endl;
-        //cin >> menuOption;
-    //}
+
+   for(unsigned int i = 0; i < someTask.size(); ++i)
+   {
+        cout << someTask.at(i).GetName() << endl;
+   }
+
+  
     string due_date;
     string menuOption = "";
-    //cin >> menuOption;
+    
     while(menuOption != "x"){
+
+
+        someTask = user.loadtasks();
+        user.SetTaskList(someTask);
+        tasks = user.GetTaskList();
+
             cout << "MENU:" << endl;
             cout << "a - Create a Task" << endl;
             cout << "b - Edit a Task" << endl;
             cout << "c - Delete a Task" << endl;
             
+            cout << "v - View Default" << endl;
             cout << "d - View by Tag" << endl;
             cout << "e - View by Duration" << endl;
             cout << "f - View by Completion" << endl;
             cout << "g - View by Priority" << endl;
 
-            cout << "x - Logout" << endl << endl;
+            cout << "x - Logout" << endl;
             cout << "Enter a valid input." << endl;
             cin >> menuOption;
-            cout << endl;
             cin.ignore();
            
 
-            while(menuOption != "a" && menuOption != "b" && menuOption != "c" && menuOption != "d" && menuOption != "e" && menuOption != "f" && menuOption != "g" && menuOption != "x")
+            while(menuOption != "a" && menuOption != "b" && menuOption != "c" && menuOption != "d" && menuOption != "e" && menuOption != "f" && menuOption != "g" && menuOption != "x" && menuOption != "v")
             {
                 cout << "Invalid input. Please enter a valid option: " << endl;
                 cin >> menuOption;
-                
-                cout << endl;
+            
             }  
 
             if(menuOption == "a")
@@ -124,15 +119,15 @@ void Menu::printMenu(User& user)
                cin.ignore();
                 //due_date
 
-                int startSum = 0;
-                int dueSum = 0;
-        
+                int dueMonth;
+                int dueDay;
+                int dueYear;
 
             do{
 
                 cout << "Due Date:"<< endl;
                     //month
-                    int dueMonth;
+                   
                     cout << "Enter the month (from 1 to 12): " << endl;
                     cin >> dueMonth;
                     while(dueMonth > 12 || dueMonth < 1)
@@ -142,7 +137,7 @@ void Menu::printMenu(User& user)
                     }
 
                     //day
-                    int dueDay;
+                   
                     cout << "Enter the day (from 1 to 31): " << endl;
                     cin >> dueDay;
                     while(dueDay > 31 || dueDay < 1)
@@ -152,7 +147,7 @@ void Menu::printMenu(User& user)
                     }
 
                     //year
-                    int dueYear; 
+                   
                     cout << "Please enter the year (format: YYYY): " << endl;
                     cin >> dueYear;
                     while(dueYear > 9999 || dueYear < 1)
@@ -165,15 +160,12 @@ void Menu::printMenu(User& user)
 
                     cout << "Entered due date: " << due_date << endl;
 
-                    startSum = startMonth + startDay + startYear;
-                    dueSum = dueMonth + dueDay + dueYear;
-
-                    if(startSum > dueSum)
+                    if(startYear == dueYear && ((startMonth > dueMonth) || (startMonth == dueMonth && startDay > dueDay)))
                     {
                         cout << "Error: start date is after the due date. Please re-enter the dates:" << endl;
                     }
             }
-            while(startSum > dueSum );
+            while((startYear == dueYear && ((startMonth > dueMonth) || (startMonth == dueMonth && startDay > dueDay))));
             
                 
                 //description
@@ -265,7 +257,7 @@ void Menu::printMenu(User& user)
                     cout << "Please enter the new name of the task" << endl;
                     string new_name;
                     getline(cin, new_name);
-                    while(new_name.size() > 18)
+                    while(new_name.size() > 46)
                     {
                         cout << "Please enter a task name that is less than 46 characters or less: " << endl;
                         getline(cin, new_name);
@@ -310,7 +302,7 @@ void Menu::printMenu(User& user)
                     cout << "Please enter the new priority of the task that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
                     int new_priority;
                     cin >> new_priority;
-                    while(new_priority != 1 || new_priority != 2 || new_priority != 3)
+                    while(new_priority != 1 && new_priority != 2 && new_priority != 3)
                     {
                         cout << "Please enter a valid priority that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
                         cin >> new_priority;
@@ -402,6 +394,11 @@ void Menu::printMenu(User& user)
                 cin >> taskNumber;
                 string name= user.GetUserName();
                 tasks.removeTask(taskNumber,name);
+            }
+            else if (menuOption == "v")  // View Default 
+            {
+                ViewSchedule view;
+                view.viewDefault(user);
             }
             else if (menuOption == "d") // View by Tag
             {

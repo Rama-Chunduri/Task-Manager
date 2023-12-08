@@ -7,7 +7,7 @@
 
 #include "task.h"
 #include "viewSchedule.h"
-#include "editTask.h"
+//#include "editTask.h"
 #include "taskList.h"
 
 using namespace std;
@@ -295,11 +295,3 @@ int main() {
    
    return 0;
 }
-
-
-
-
-
-
-
-
