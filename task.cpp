@@ -6,9 +6,9 @@
 Task::Task(){}
 
 
-Task::Task(string name, string description, string startDate, string dueDate, string tag, int priority, double durationHours, bool completeStatus){
+Task::Task(string name = "NoName", string description  = "NoDesc", string startDate = "NoDate", string dueDate = "NoDate", string tag = "NoTag", int priority = 0, double durationHours = 0, bool completeStatus = false){
   //vector<Task>tasks;
-  _name = name;
+   _name = name;
   _description = description;
   _startDate = startDate;
   _dueDate = dueDate;
@@ -20,7 +20,7 @@ Task::Task(string name, string description, string startDate, string dueDate, st
 
 
 void Task::SetName(string name){
-  this->_name = name;
+  _name = name;
 }
 string Task::GetName() const{
   return _name;

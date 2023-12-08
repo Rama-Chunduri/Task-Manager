@@ -7,16 +7,20 @@
 #include <fstream>
 using namespace std;
 
-void taskList::SetTasks(vector<Task*>Tasks){
+taskList::taskList(){}
+taskList::taskList(vector<Task> tasksN){
+  tasks = tasksN;
+}
+void taskList::SetTasks(vector<Task>Tasks){
   tasks=Tasks;
 }
 
-vector<Task*> taskList :: GetTasks(){
+vector<Task> taskList :: GetTasks(){
   return tasks;
 }
 
-void taskList::addTask(ostream & out,  Task& task, const string& name){// pass ofstream into function
-  Task* taskPtr = &task;
+void taskList::addTask(ostream & out,  Task task, const string& name){// pass ofstream into function  ////
+  Task taskPtr = task; //changed
   tasks.push_back(taskPtr);
   out<<tasks.size()<<", "<<task.GetName()<<", "<<task.GetStartDate()<<", "<<task.GetDueDate()<<", "<<task.GetDescription()
   <<", "<< task.GetTag()<<", "<<task.GetPriority()<<", "<<task.GetDurationHours()<<", "<<task.GetComplete()<<endl;
