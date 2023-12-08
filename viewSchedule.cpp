@@ -23,7 +23,7 @@ void ViewSchedule :: viewDefault(User user) {
         return a.GetPriority() < b.GetPriority();
     });
 
-    cout << " \033[38;2;206;30;206mPriority\033[0m | \033[38;2;0;153;255mTask\033[0m               | \033[38;2;175;97;255mDuration\033[0m| \033[38;2;241;194;50mTag\033[0m         | \033[38;2;40;179;176mStatus\033[0m     " << endl;
+    cout << " \033[38;2;206;30;206mPriority\033[0m | \033[38;2;0;153;255mTask\033[0m               | \033[38;2;175;97;255mDuration\033[0m | \033[38;2;241;194;50mTag\033[0m         | \033[38;2;40;179;176mStatus\033[0m     " << endl;
 
     string currDueDate = "";
 
@@ -35,9 +35,9 @@ void ViewSchedule :: viewDefault(User user) {
             // start a new due date section 
             currDueDate = tasks.at(i).GetDueDate();
             //cout << endl << endl;
-            cout << "+-------------------------------------------------------------------+" << endl;
+            cout << "+---------------------------------------------------------------+" << endl;
             cout << " Date: " << currDueDate << endl;
-            cout << "+-------------------------------------------------------------------+" << endl;
+            cout << "+---------------------------------------------------------------+" << endl;
         }
 
         cin.clear();
@@ -49,17 +49,17 @@ void ViewSchedule :: viewDefault(User user) {
         cout << "\033[38;2;165;219;255m" << left << setw(19) << tasks.at(i).GetName() << "\033[0m" << "| ";
 
         // print duration
-        cout << "\033[38;2;170;155;253m" << left << setw(10) << tasks.at(i).GetDurationHours() << "\033[0m" << "| ";
+        cout << "\033[38;2;170;155;253m" << left << setw(9) << tasks.at(i).GetDurationHours() << "\033[0m" << "| ";
 
         // print tag
         cout << "\033[38;2;255;229;153m" << left << setw(12) << tasks.at(i).GetTag() << "\033[0m" << "| ";
 
         // print status 
         if (tasks.at(i).GetComplete() == true) { // completed 
-            cout << "Complete" << endl;
+            cout << " \033[32m[√]\033[0m" << endl;
         } else // incomplete 
         {
-            cout << "Incomplete" << endl;
+            cout << " \033[31m[X]\033[0m" << endl;
         } 
     }
 
@@ -89,7 +89,7 @@ void ViewSchedule :: viewByDuration(User* user) {
        return a.GetDurationHours() < b.GetDurationHours();
     });
 
-   cout << " \e[38;2;175;97;255mDuration\e[0m    | ";
+   cout << " \e[38;2;175;97;255mDuration\e[0m  | ";
    cout << "\033[38;5;33mTask\033[0m" << endl;
    cout << "+----------------------------------------------------+" << endl;
 
@@ -129,7 +129,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " Date    | ";
+    cout << " Date        | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
     cout << "+--------------------------------------------------------+" << endl;
 
@@ -187,7 +187,7 @@ void ViewSchedule::viewByPriority(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " Date    | ";
+    cout << " Date        | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
 
     cout << "+----------------------------------------------------+" << endl;
