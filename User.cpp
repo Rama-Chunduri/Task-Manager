@@ -82,7 +82,7 @@ vector<Task> User::loadtasks(){
 
    
    
-       // cout << "Read Task: " << TaskName << " task name " << TaskStartDate << " sd " << TaskDueDate << "  dd " << TaskDescription << " td  " << TaskTag << " tt  " << TaskPriority << " tp " << TaskDuration << " dur "<< TaskComplete << " bool " << endl;
+       //cout << "Read Task: " << TaskName << " task name " << TaskStartDate << " sd " << TaskDueDate << "  dd " << TaskDescription << " td  " << TaskTag << " tt  " << TaskPriority << " tp " << TaskDuration << " dur "<< TaskComplete << " bool " << endl;
 
    
    while(getline(myFile, TaskName, ',') && getline(myFile, TaskStartDate, ',') && getline(myFile, TaskDueDate, ',') && getline(myFile, TaskDescription, ',') && getline(myFile, TaskTag, ',')){
@@ -99,6 +99,10 @@ vector<Task> User::loadtasks(){
         myFile >> TaskCompleteInt;
 
         TaskComplete = (TaskCompleteInt == 1);
+
+        
+        
+
         cout << "Read Task: " << TaskName << " " << TaskStartDate << " " << TaskDueDate << " " << TaskDescription << " " << TaskTag << " " << TaskPriority << " " << TaskDuration << endl;
         Task someTask(TaskName, TaskDescription, TaskStartDate, TaskDueDate, TaskTag, TaskPriority, TaskDuration, TaskComplete);
         tasks.push_back(someTask);
