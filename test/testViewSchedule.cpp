@@ -1,8 +1,9 @@
 #include "gtest/gtest.h"
-#include "ViewSchedule.h"  // Assuming the header file containing the ViewSchedule class is included
+#include "ViewSchedule.h"  
 
 sing namespace std; 
 
+// testing default function 
 TEST(ViewScheduleTest, TestViewDefault) {
     // Create a User object with sample tasks
     User user("TestUser");
@@ -98,3 +99,28 @@ TEST_F(ViewScheduleTest, ViewByPriorityTest) {
 
 
 
+// Test case for viewByTag
+TEST_F(ViewScheduleTest, ViewByTagTest) {
+    // Arrange
+    std::ostringstream oss;  // Capture cout output
+    ViewSchedule view;
+
+    // Create a mock user with tasks
+    MockUser user;
+    user.GetTaskList().addTask(Task("Task1", "Description1", "20230101", "20230102", "Tag1", 1, 2.5, false));
+    user.GetTaskList().addTask(Task("Task2", "Description2", "20230201", "20230203", "Tag2", 2, 1.5, false));
+    user.GetTaskList().addTask(Task("Task3", "Description3", "20230301", "20230304", "Tag1", 1, 3.0, false));
+
+    // Act
+    view.viewByTag(&user);
+    std::string actualOutput = oss.str();
+
+    // Assert - Assuming that tasks are grouped by tag and displayed in the order of unique tags
+    ASSERT_NE(actualOutput.find("Tag1"), std::string::npos);
+    ASSERT_NE(actualOutput.find("Tag2"), std::string::npos);
+    ASSERT_LT(actualOutput.find("Tag1"), actualOutput.find("Tag2"));
+
+    ASSERT_NE(actualOutput.find("20230102"), std::string::npos);
+    ASSERT_NE(actualOutput.find("20230304"), std::string::npos);
+    ASSERT_LT(actualOutput.find("20230102"), actualOutput.find("20230304"));
+}
