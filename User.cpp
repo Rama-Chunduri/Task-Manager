@@ -102,14 +102,10 @@ vector<Task> User::loadtasks(){
 
         TaskComplete = (TaskCompleteInt == 1);
 
-        
-        
 
-        cout << "Read Task: " << TaskName;
         
         TaskName.erase(remove(TaskName.begin(), TaskName.end(), '\n'), TaskName.cend());
 
-        cout << " " << TaskStartDate << " " << TaskDueDate << " " << TaskDescription << " " << TaskTag << " " << TaskPriority << " " << TaskDuration << endl;
         Task someTask(TaskName, TaskDescription, TaskStartDate, TaskDueDate, TaskTag, TaskPriority, TaskDuration, TaskComplete);
         tasks.push_back(someTask);
 

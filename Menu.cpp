@@ -11,7 +11,6 @@
 void Menu::printMenu(User& user)
 {
    vector<Task> someTask = user.loadtasks();
-   cout << someTask.size() << endl;
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
    Remind rem;
@@ -23,13 +22,6 @@ void Menu::printMenu(User& user)
    }
 
 
-
-   for(unsigned int i = 0; i < someTask.size(); ++i)
-   {
-        cout << someTask.at(i).GetName() << endl;
-   }
-
-  
     string due_date;
     string menuOption = "";
     
@@ -93,7 +85,7 @@ void Menu::printMenu(User& user)
 
                 //day
                 int startDay;
-                cout << "Enter the day (from 1 to 31): " << endl;
+                cout << "Enter the day in XX format from (01 - 31): " << endl;
                 cin >> startDay;
                 while(startDay > 31 || startDay < 1)
                 {
@@ -111,7 +103,7 @@ void Menu::printMenu(User& user)
                     cin >> startYear;
                 }
 
-                string start_date = to_string(startMonth) + "/" + to_string(startDay) + "/" + to_string(startYear);
+                string start_date = to_string(startMonth) + "/" + "0" + to_string(startDay) + "/" + to_string(startYear);
 
                 cout << "Entered start date: " << start_date << endl;
 
@@ -138,7 +130,7 @@ void Menu::printMenu(User& user)
 
                     //day
                    
-                    cout << "Enter the day (from 1 to 31): " << endl;
+                    cout << "Enter the day in XX format (from 01 - 31): " << endl;
                     cin >> dueDay;
                     while(dueDay > 31 || dueDay < 1)
                     {
@@ -156,7 +148,7 @@ void Menu::printMenu(User& user)
                         cin >> dueYear;
                     }
 
-                    due_date = to_string(dueMonth) + "/" + to_string(dueDay) + "/" + to_string(dueYear);
+                    due_date = to_string(dueMonth) + "/" + "0" + to_string(dueDay) + "/" + to_string(dueYear);
 
                     cout << "Entered due date: " << due_date << endl;
 
@@ -273,15 +265,42 @@ void Menu::printMenu(User& user)
                     cout << "The description of your task has been changed to " << new_desc << endl; 
                 }
                 else if(choice == 3){
-                    cout << "Please enter the new due date of the task in MMDDYYYY format." << endl;
-                    cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
+
                     string new_due_date;
-                    cin >> new_due_date;
-                    while(new_due_date.size() != 8)
+                    int new_dueMonth;
+                    cout << "Due Date:"<< endl;
+                    //month
+                   
+                    cout << "Enter the month (from 1 to 12): " << endl;
+                    cin >> new_dueMonth;
+                    while(new_dueMonth > 12 || new_dueMonth < 1)
                     {
-                        cout << "Please enter a valid due date in the form of MMDDYYYY: " << endl;
-                        cin >> new_due_date;
-                    }   
+                        cout << "Please enter a valid month: " << endl;
+                        cin >> new_dueMonth;
+                    }
+
+                    //day
+                    int new_dueDay;
+                    cout << "Enter the day in XX format (from 01 - 31): " << endl;
+                    cin >> new_dueDay;
+                    while(new_dueDay > 31 || new_dueDay < 1)
+                    {
+                        cout << "Please enter a valid day: " << endl;
+                        cin >> new_dueDay;
+                    }
+
+                    //year
+                   int new_dueYear;
+                    cout << "Please enter the year (format: YYYY): " << endl;
+                    cin >> new_dueYear;
+                    while(new_dueYear > 9999 || new_dueYear < 1)
+                    {
+                        cout << "Please enter a valid year: " << endl;
+                        cin >> new_dueYear;
+                    }
+
+                    new_due_date = to_string(new_dueMonth) + "/" + "0" + to_string(new_dueDay) + "/" + to_string(new_dueYear);
+  
                     currTask.SetDueDate(new_due_date);
                     cout << "The due date of your task has been changed to " << new_due_date << endl; 
                 }
@@ -344,7 +363,7 @@ void Menu::printMenu(User& user)
                         cin >> new_startYear;
                     }
 
-                    string start_dateNew = to_string(new_startMonth) + "/" + to_string(new_startMonth) + "/" + to_string(new_startYear);
+                    string start_dateNew = to_string(new_startMonth) + "/" + "0" + to_string(new_startMonth) + "/" + to_string(new_startYear);
 
                 
                     cin.ignore();
