@@ -5,7 +5,7 @@
 
 #include <string>
 #include <iomanip>
-
+#include <stdlib.h>
 using namespace std;
 
 void ViewSchedule :: viewDefault(User * user) {
@@ -32,7 +32,6 @@ void ViewSchedule :: viewDefault(User * user) {
     });
 
     cout << " \033[38;5;201mPriority\033[0m | \033[38;5;33mTask\033[0m                                          | \033[38;5;205mTag\033[0m         | \033[38;5;214mStatus\033[0m     " << endl;
-    cout << "+-------------------------------------------------------------------------------------+" << endl;
 
     string currDueDate = "";
 
@@ -42,7 +41,8 @@ void ViewSchedule :: viewDefault(User * user) {
         if (tasks.at(i).GetDueDate() != currDueDate) {
             // start a new due date section 
             currDueDate = tasks.at(i).GetDueDate();
-            cout << " Due Date " << currDueDate << endl;
+            cout << "+-------------------------------------------------------------------------------------+" << endl;
+            cout << " \033[38;5;222mDue Date: \033[0m " << currDueDate << endl;
             cout << "+-------------------------------------------------------------------------------------+" << endl;
         }
 
@@ -88,7 +88,7 @@ void ViewSchedule :: viewByDuration(User* user) {
        return a.GetDurationHours() < b.GetDurationHours();
     });
 
-   cout << " Duration    | ";
+   cout << " \e[0;36mDuration\e[0m    | ";
    cout << "\033[38;5;33mTask\033[0m" << endl;
    cout << "+----------------------------------------------------+" << endl;
 
@@ -128,7 +128,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " Due Date    | ";
+    cout << " \033[38;5;222mDue Date\033[0m    | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
@@ -200,7 +200,7 @@ void ViewSchedule :: viewByPriority(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " Due Date    | ";
+    cout << " \033[38;5;222mDue Date\033[0m    | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
@@ -237,58 +237,58 @@ void ViewSchedule :: viewByPriority(User* user) {
 // groups tasks of the same tag together
 void ViewSchedule :: viewByTag(User* user)  
 {
-    ViewSchedule view;
+    // ViewSchedule view;
 
-    view.viewDefault(user);
+    // view.viewDefault(user);
 
-    // cout << endl << endl << endl;
+    cout << endl << endl << endl;
 
-    // vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
     
-    // vector<Task> tasks;
+    vector<Task> tasks;
 
-    // //Make a copy of the vector 
-    // for (int i = 0; i < listOfTasks.size(); ++i) {
-    //     //if (listOfTasks[i] != nullptr) {    //changed by Rama L Chunduri
-    //         tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
-    //     //}
-    // }
+    //Make a copy of the vector 
+    for (int i = 0; i < listOfTasks.size(); ++i) {
+        //if (listOfTasks[i] != nullptr) {    //changed by Rama L Chunduri
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
+    }
 
 
-    // //get unique tags 
-    // vector<string>uniqueTags;
-    // Task taskIterator = tasks.at(0);
+    //get unique tags 
+    vector<string>uniqueTags;
+    Task taskIterator = tasks.at(0);
 
-    // for (int i = 0; i < tasks.size(); ++i) {
-    //     // if tag is not found in uniqueTags
-    //     if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.GetTag()) == uniqueTags.end()) {
-    //         uniqueTags.push_back(taskIterator.GetTag());
-    //     }
-    // }
-    // cout << "5APPLE" << endl;
+    for (int i = 0; i < tasks.size(); ++i) {
+        // if tag is not found in uniqueTags
+        if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.GetTag()) == uniqueTags.end()) {
+            uniqueTags.push_back(taskIterator.GetTag());
+        }
+    }
+    cout << "5APPLE" << endl;
 
-    // cout << " Due Date    | ";
-    // cout << "\033[38;5;33mTask\033[0m" << endl;
-    // cout << "+----------------------------------------------------+" << endl;
+    cout << " \033[38;5;222mDue Date\033[0m    | ";
+    cout << "\033[38;5;33mTask\033[0m" << endl;
+    cout << "+----------------------------------------------------+" << endl;
 
-    // //iterate over unique tags and print tasks for each tag 
-    // string tagIterator = uniqueTags.at(0);
-    // taskIterator = tasks.at(0);
+    //iterate over unique tags and print tasks for each tag 
+    string tagIterator = uniqueTags.at(0);
+    taskIterator = tasks.at(0);
 
-    // for (int i = 0; i < uniqueTags.size(); ++i) {
-    //     cout << tagIterator << endl;
-    //     cout << "+----------------------------------------------------+" << endl;
+    for (int i = 0; i < uniqueTags.size(); ++i) {
+        cout << tagIterator << endl;
+        cout << "+----------------------------------------------------+" << endl;
 
-    //     //iterate over tasks and print details for tasks with the current tag
-    //     for (int i = 0; i < uniqueTags.size(); ++i) {
-    //         if (taskIterator.GetTag() == tagIterator)
-    //             //print task details as needed 
-    //             cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
-    //             cout << tasks.at(i).GetName();        
-    //     }
+        //iterate over tasks and print details for tasks with the current tag
+        for (int i = 0; i < uniqueTags.size(); ++i) {
+            if (taskIterator.GetTag() == tagIterator)
+                //print task details as needed 
+                cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+                cout << tasks.at(i).GetName();        
+        }
         
-    //     cout << endl << endl;
-    // }
+        cout << endl << endl;
+    }
 }
 
 
