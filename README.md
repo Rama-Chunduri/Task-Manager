@@ -152,7 +152,7 @@ Added a User class that is sort of the central class of the program. It enables 
 <br></br>
 
  > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
+ > All group members will give a demo to the reader during lab time. You should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
@@ -162,6 +162,33 @@ Added a User class that is sort of the central class of the program. It enables 
  > Screenshots of the input/output after running your application
  ## Installation/Usage
  > Instructions on installing and running your application
+> To run our application, please open VSC. Installation for VS code can be found here [Here](https://code.visualstudio.com/docs/cpp/CMake-linux).
+> 
+> To clone the repository, go all the way to the top and click on code. After you have clicked on the code, there will be a link underneath HTTPS which you can copy and paste into the terminal. This should push all of the files into your vsc and you are now one step closer to running the program. 
+> 
+> After cloning, you want to go to the VSC code and enter ls to see which directory you are in.
+>
+> ls checks to see what directory we are in Visual Studio Code. Once you see a directory with Snand/final-project.
+>
+> To get into the directory we can do cd snand/final-project which will go into the final-project scope.
+>
+> If you want to create executables, you can run
+>
+> cmake .
+> 
+> make
+>
+> You can then get into running the program. To be able to run the program. You can simply follow the specific lines. The below will be the complier line.
+>
+> g++ -g -o a.out editTask.cpp main.cpp Menu.cpp Remind.cpp task.cpp taskList.cpp User.cpp viewSchedule.cpp
+>
+> To run the program after compilation, you can run
+>
+> ./a.out
+>
+> After running the program, you will be asked to Create a new account or if you are an existing user. Once you have chosen those options, you can successfully create a
+> task or you can edit, view, or delete your task. It's all up to the user and you can view your schedule and have a reminder set for you as well as your due dates are approaching.
+> 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
