@@ -90,7 +90,8 @@ void ViewSchedule :: viewByDuration(User* user) {
     });
 
 
-   cout << " Duration    | Task " << endl;
+   cout << " Duration    | ";
+   cout << "\033[38;5;205mTask\033[0m" << endl;
    cout << "+----------------------------------------------------+" << endl;
 
     for (int i = 0; i < tasks.size(); ++i) {
@@ -129,7 +130,8 @@ void ViewSchedule :: viewByCompletion(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " Due Date    | Task " << endl;
+    cout << " Due Date    | ";
+    cout << "\033[38;5;205mTask\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
     bool currentCompletionStatus = true; // assuming true means completed
@@ -201,7 +203,8 @@ void ViewSchedule :: viewByPriority(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " Due Date    | Task " << endl;
+    cout << " Due Date    | ";
+    cout << "\033[38;5;205mTask\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
     int currentPriority = -1;
@@ -259,7 +262,8 @@ void ViewSchedule :: viewByTag(User* user)
         }
     }
 
-    cout << " Due Date    | Task " << endl;
+    cout << " Due Date    | ";
+    cout << "\033[38;5;205mTask\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
     //iterate over unique tags and print tasks for each tag 

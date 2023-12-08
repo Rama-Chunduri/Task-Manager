@@ -10,10 +10,13 @@
 
 void Menu::printMenu(User user)
 {
-   taskList tasks;
-   Remind rem;
+   vector<Task> someTask = user.loadtasks();
+   user.SetTaskList(someTask);
+   taskList tasks = user.GetTaskList();
+
+   //Remind rem;
    //cout << "apple" << endl;
-   rem.remind(cout, user);
+  // rem.remind(cout, user);
    // cout << "MENU:" << endl;
    // cout << "a - Create a Task" << endl;
    // cout << "b - Edit a Task" << endl;
@@ -27,6 +30,7 @@ void Menu::printMenu(User user)
         //cout << "Enter a valid input." << endl;
         //cin >> menuOption;
     //}
+    string due_date;
     string menuOption = "";
     //cin >> menuOption;
     while(menuOption != "x"){
@@ -76,7 +80,7 @@ void Menu::printMenu(User user)
                 int startMonth;
                 cout << "Enter the month (from 1 to 12): " << endl;
                 cin >> startMonth;
-                while(startMonth > 12 || startMonth < 1)
+                while(startMonth > 12 || startMonth < 1 || isalpha(startMonth))
                 {
                     cout << "Please enter a valid month: " << endl;
                     cin >> startMonth;
@@ -102,17 +106,17 @@ void Menu::printMenu(User user)
                     cin >> startYear;
                 }
 
-                string start_date = to_string(startMonth) + "/" + to_string(startMonth) + "/" + to_string(startYear);
+                string start_date = to_string(startMonth) + "/" + to_string(startDay) + "/" + to_string(startYear);
 
                 cout << "Entered start date: " << start_date << endl;
 
             
-                cin.ignore();
+               cin.ignore();
                 //due_date
 
                 int startSum = 0;
                 int dueSum = 0;
-                string due_date = "";
+        
 
             do{
 
@@ -147,7 +151,7 @@ void Menu::printMenu(User user)
                         cin >> dueYear;
                     }
 
-                    string due_date = to_string(dueMonth) + "/" + to_string(dueMonth) + "/" + to_string(dueYear);
+                    due_date = to_string(dueMonth) + "/" + to_string(dueDay) + "/" + to_string(dueYear);
 
                     cout << "Entered due date: " << due_date << endl;
 
@@ -161,8 +165,9 @@ void Menu::printMenu(User user)
             }
             while(startSum > dueSum );
             
-                cin.ignore();
+                
                 //description
+                cin.ignore();
                 string description;
                 cout<< "Please enter a short description of the task: " <<endl;
                 getline(cin, description);

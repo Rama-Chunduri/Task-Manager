@@ -204,6 +204,10 @@ int main() {
          while(userInput != 'Q' && userInput != 'E');
          
          userFile.open("userLogin.txt", ios::in | ios::out | ios::app); //reopen file so file cursor is reset and file can be read properly for login process
+         string createFile = userName + ".txt";
+          //creates file for user's schedule
+         ifstream inFS;
+         ofstream outFS(createFile);
       }
 
    //logging in after creating account
@@ -262,12 +266,14 @@ int main() {
 
       cout << "Welcome " << yourName << "!" << endl;
       fileName = userName + ".txt";
+      
+      fstream loginFile;
+      loginFile.open("userLogin.txt", ios::in | ios::out | ios::app);
 
-      cout << endl;
-
-      //creates file for user's schedule
-      ifstream inFS;
-      ofstream outFS(fileName);
+      if(!(loginFile.is_open()))
+      {
+         cout << "Error accessing userLogin data base." << endl;
+      }
 
 
    
