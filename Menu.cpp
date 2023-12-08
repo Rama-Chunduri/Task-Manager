@@ -20,25 +20,10 @@ void Menu::printMenu(User& user)
         cout << someTask.at(i).GetName() << endl;
    }
 
-   //Remind rem;
-   //cout << "apple" << endl;
-  // rem.remind(cout, user);
-   // cout << "MENU:" << endl;
-   // cout << "a - Create a Task" << endl;
-   // cout << "b - Edit a Task" << endl;
-   // cout << "c - Delete a Task" << endl;
-   // cout << "q - Exit to Homepage" << endl;
-   // cout << "Enter a valid input." << endl;
-
-    
-    //while(menuOption != "a" || menuOption != "b" || menuOption != "c" || menuOption != "q")
-    //{
-        //cout << "Enter a valid input." << endl;
-        //cin >> menuOption;
-    //}
+  
     string due_date;
     string menuOption = "";
-    //cin >> menuOption;
+    
     while(menuOption != "x"){
             cout << "MENU:" << endl;
             cout << "a - Create a Task" << endl;
