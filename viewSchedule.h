@@ -14,10 +14,10 @@ using namespace std;
 
 class ViewSchedule {
         public: 
-                void viewDefault(User * user);
+                void viewDefault(User user);
 
                 // groups tasks of the same tag together
-                void viewByTag(User * user);
+                void viewByTag(User  user);
 
                 // longest to shortest duration
                 void viewByDuration(User* user);

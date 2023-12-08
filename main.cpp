@@ -1,52 +1,54 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
 #include "Menu.h"
 #include "User.h"
 
 #include "task.h"
 #include "viewSchedule.h"
-#include "editTask.h"
+//#include "editTask.h"
 #include "taskList.h"
+
 using namespace std;
 
 
-int main(){
-
-
+int main() {
    //opening userLogin.txt
-
    fstream userFile;
+
    //need to open input and output modes to write and read data
    //need to open append mode to avoid overwriting data since we want to store all usernames and passwords
    userFile.open("userLogin.txt", ios::in | ios::out | ios::app);
 
+   // check that file opened properly 
    if(!(userFile.is_open()))
    {
       cout << "Error accessing userLogin data base." << endl;
    }
 
+   string userName; // login userName 
+   string password; // login password 
+   string fileName; // name of file 
+   string yourName; // name of user 
+
    //asking user if they are new or old user
-   string userName;
-   string password;
-   string fileName;
-   string yourName;
    cout << "Are you an existing user (Press E) or new user (Press N)?" << endl;
 
+   // userInput 
    char userInput;
    cin >> userInput;
    cin.ignore();
+   cout << endl;
 
-
+   // make sure input is valid 
    while(userInput != 'E' && userInput != 'N')
    {
       cout << "Input is not valid. Please enter a valid input:" << endl;
       cin >> userInput;
-      cin.ignore();
+      cin.ignore(); // allows me to get username without reading in the endl from previous
+      cout << endl;
    }
-
-   
-  // cin.ignore() allows me to get username without reading in the endl from previous
 
    //if user is creating an account
    if(userInput == 'N')
@@ -55,30 +57,27 @@ int main(){
       cout << "Enter your first name: " << endl;
       getline(cin, yourName);
       
-
-   
       bool validUserName = false;
       
-      do{
+      do
+      {
             bool userNameExists = false;
 
             cout << "Enter your username: " << endl;
             getline(cin,userName);
 
-      
             string firstWord; //username
             string secondWord; //password
-            string thirdWord; //their anme
+            string thirdWord; //their name 
+
             //checks if userName exists
             while( userFile >> firstWord >> secondWord >> thirdWord)
             {
-
                if(firstWord == userName)
                {
                   userNameExists = true;
                   break;
                }
-               
             }
 
             if(userNameExists == false)
@@ -170,10 +169,9 @@ int main(){
                }
                
          }
+
          while(validPassword == false);
 
-         
-      
       userFile.clear(); //clear end of file flag
       userFile.seekg(0, ios::beg); // set position to beginning of the file
 
@@ -219,16 +217,20 @@ int main(){
 
        bool loginWorks = false;
 
-      do{
-
+      do
+      {
             bool loginUserNameExists = false;
             bool loginPasswordWorks = false;
 
             cout << "Please enter your Username:" << endl;
             getline(cin, userName);
+
+            cout << endl;
+
             cout << "Please enter your Password: " << endl;
             getline(cin, password);
             
+            cout << endl;
       
             string readUserName;
             string readPassword;
@@ -255,18 +257,13 @@ int main(){
                cout << "Username or Passoword is incorrect. Please try again." << endl;
                userFile.clear(); //clear end of file flag
                userFile.seekg(0, ios::beg); // set position to beginning of the file
-
+               cout << endl;
             }
-
-            
          }
-         while(loginWorks == false);
 
+      while(loginWorks == false);
 
-
-
-      //User user = User(name, password);
-      cout << "Welcome " << userName << "!" << endl;
+      cout << "Welcome " << yourName << "!" << endl;
       fileName = userName + ".txt";
       
       fstream loginFile;
