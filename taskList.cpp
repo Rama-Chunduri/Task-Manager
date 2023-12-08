@@ -16,22 +16,11 @@ void taskList::SetTasks(vector<Task>Tasks){
 }
 
 vector<Task> taskList :: GetTasks(){
-  //if(tasks.size() != 0){
-    //return tasks;
-  //}
-  //cout << "here" << endl;
-  //Task* taskTemp = new Task("NoName", "NoDesc", "NoDate", "NoDate", "NoTag", 0, 0, false);
-  //Task taskTemp = Task("NoName", "NoDesc", "NoDate", "NoDate", "NoTag", 0, 0, false);
-  //cout << "working" << endl;
-  //tasks.push_back(taskTemp);
-  //tasks.at(0) ;//= taskTemp;
-  //cout << (tasks.at(0)).GetName() << endl;
-  //cout << "no errors in this function" << endl;
-  return tasks; 
+  return tasks;
 }
 
-void taskList::addTask(ostream & out,  Task& task, const string& name){// pass ofstream into function
-  Task taskPtr = task; //
+void taskList::addTask(ostream & out,  Task task, const string& name){// pass ofstream into function  ////
+  Task taskPtr = task; //changed
   tasks.push_back(taskPtr);
   out<<tasks.size()<<", "<<task.GetName()<<", "<<task.GetStartDate()<<", "<<task.GetDueDate()<<", "<<task.GetDescription()
   <<", "<< task.GetTag()<<", "<<task.GetPriority()<<", "<<task.GetDurationHours()<<", "<<task.GetComplete()<<endl;

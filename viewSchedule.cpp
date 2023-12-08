@@ -6,14 +6,14 @@
 using namespace std;
 
 void ViewSchedule :: viewDefault(User * user) {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
     }
 
     // sort tasks by due date and then by priorities
@@ -64,14 +64,14 @@ void ViewSchedule :: viewDefault(User * user) {
 // shortest to longest duration
 // Might change the way this is viewed later - get the duration in intervals
 void ViewSchedule :: viewByDuration(User* user) {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks();  //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
     }
 
 
@@ -100,14 +100,14 @@ void ViewSchedule :: viewByDuration(User* user) {
 
 // complete vs incomplete
 void ViewSchedule :: viewByCompletion(User* user) {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks();  //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {
+            tasks.push_back(listOfTasks[i]);   // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+       // }
     }
 
     // Sort tasks by completion status and then by due date within each status
@@ -169,14 +169,14 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
 // highest(1) to lowest priority(3)
 void ViewSchedule :: viewByPriority(User* user) {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {   //changed by Rama L Chunduri
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
     }
 
     // Sort tasks by priority and then by due date within each priority
@@ -223,14 +223,14 @@ void ViewSchedule :: viewByPriority(User* user) {
 // groups tasks of the same tag together
 void ViewSchedule :: viewByTag(User* user)  
 {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {    //changed by Rama L Chunduri
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
     }
 
     //get unique tags 
