@@ -23,8 +23,7 @@ void ViewSchedule :: viewDefault(User user) {
         return a.GetPriority() < b.GetPriority();
     });
 
-    cout << " \033[38;2;206;30;206mPriority\033[0m | \033[38;2;0;153;255mTask\033[0m               | \033[38;2;175;97;255mDuration\033[0m | \033[38;2;241;194;50mTag\033[0m         | \033[38;2;40;179;176mStatus\033[0m     " << endl;
-    cout << "+-------------------------------------------------------------------+" << endl;
+    cout << " \033[38;2;206;30;206mPriority\033[0m | \033[38;2;0;153;255mTask\033[0m               | \033[38;2;175;97;255mDuration\033[0m| \033[38;2;241;194;50mTag\033[0m         | \033[38;2;40;179;176mStatus\033[0m     " << endl;
 
     string currDueDate = "";
 
@@ -35,24 +34,25 @@ void ViewSchedule :: viewDefault(User user) {
         if (tasks.at(i).GetDueDate() != currDueDate) {
             // start a new due date section 
             currDueDate = tasks.at(i).GetDueDate();
-            cout << endl << endl;
-            cout << " \033[38;5;222mDue Date: \033[0m " << currDueDate << endl;
+            //cout << endl << endl;
+            cout << "+-------------------------------------------------------------------+" << endl;
+            cout << " Date: " << currDueDate << endl;
             cout << "+-------------------------------------------------------------------+" << endl;
         }
 
         cin.clear();
 
         // print priority 
-        cout << "     " << left << setw(3) << tasks.at(i).GetPriority() << "  | ";
+        cout << "\033[38;2;241;176;241m" << "     " << left << setw(3) << tasks.at(i).GetPriority() << "\033[0m" << "  | ";
 
         // print name of task 
-        cout << left << setw(19) << tasks.at(i).GetName() << "| ";
+        cout << "\033[38;2;165;219;255m" << left << setw(19) << tasks.at(i).GetName() << "\033[0m" << "| ";
 
         // print duration
-        cout<< left << setw(9) << tasks.at(i).GetDurationHours() << "| ";
+        cout << "\033[38;2;170;155;253m" << left << setw(10) << tasks.at(i).GetDurationHours() << "\033[0m" << "| ";
 
         // print tag
-        cout << left << setw(12) << tasks.at(i).GetTag() << "| ";
+        cout << "\033[38;2;255;229;153m" << left << setw(12) << tasks.at(i).GetTag() << "\033[0m" << "| ";
 
         // print status 
         if (tasks.at(i).GetComplete() == true) { // completed 
@@ -62,6 +62,7 @@ void ViewSchedule :: viewDefault(User user) {
             cout << "Incomplete" << endl;
         } 
     }
+
     cout << endl << endl << endl;
 }
 
@@ -88,13 +89,13 @@ void ViewSchedule :: viewByDuration(User* user) {
        return a.GetDurationHours() < b.GetDurationHours();
     });
 
-   cout << " \e[0;36mDuration\e[0m    | ";
+   cout << " \e[38;2;175;97;255mDuration\e[0m    | ";
    cout << "\033[38;5;33mTask\033[0m" << endl;
    cout << "+----------------------------------------------------+" << endl;
 
     for (int i = 0; i < tasks.size(); ++i) {
-        cout << "   " << left << setw(8) << tasks.at(i).GetDurationHours() << "| ";
-        cout << left << setw(19) << tasks.at(i).GetName() << endl;
+        cout << "\033[38;2;170;155;253m" << "   " << left << setw(8) << tasks.at(i).GetDurationHours() << "\033[0m" << "| ";
+        cout <<  "\033[38;2;165;219;255m" << left << setw(19) << tasks.at(i).GetName() << "\033[0m" << endl;
     }
 
    cout << endl << endl;
@@ -128,7 +129,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " \033[38;5;222mDue Date\033[0m    | ";
+    cout << " Date    | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
     cout << "+--------------------------------------------------------+" << endl;
 
@@ -152,7 +153,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
                     cout << "\033[31m[X]\033[0m" << " ";
                 }
 
-            cout << tasks.at(i).GetName() << endl;
+            cout <<  "\033[38;2;165;219;255m" << tasks.at(i).GetName() << "\033[0m" << endl;
         }
 
     cout << endl << endl;
@@ -163,8 +164,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
 
 
-// highest(1) to lowest priority(3)
-void ViewSchedule :: viewByPriority(User* user) {
+void ViewSchedule::viewByPriority(User* user) {
     vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
@@ -187,36 +187,60 @@ void ViewSchedule :: viewByPriority(User* user) {
         return a.GetDueDate() < b.GetDueDate();
     });
 
-    cout << " \033[38;5;222mDue Date\033[0m    | ";
+    cout << " Date    | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
+
+    cout << "+----------------------------------------------------+" << endl;
+    cout << "\033[38;2;206;30;206mPriority \033[0m" << "\033[38;2;241;176;241m1\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
-    int currentPriority = -1;
+    Task taskIterator = tasks.at(0);
 
+    // priority 1 
     for (int i = 0; i < tasks.size(); ++i) {
-        Task& task = tasks[i];
-
-        if (task.GetPriority() != currentPriority) {
-            
-            // Start a new priority group
-            if (currentPriority != -1) {
-                cout << endl << endl;
-                cout << "Priority " << currentPriority << endl;
-                cout << "+----------------------------------------------------+" << endl;
-            }
-
-            currentPriority = task.GetPriority();
+        taskIterator = tasks.at(i);
+        // Print task details
+        if (taskIterator.GetPriority() == 1) {
+            cout  << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+            cout <<  "\033[38;2;165;219;255m" << tasks.at(i).GetName() << "\033[0m";
         }
+    }
 
-            // Print task details
-            cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
-            cout << tasks.at(i).GetName();
+    cout << endl;
 
+    cout << "+----------------------------------------------------+" << endl;
+    cout << "\033[38;2;206;30;206mPriority \033[0m" << "\033[38;2;241;176;241m2\033[0m" << endl;
+    cout << "+----------------------------------------------------+" << endl;
+
+    // priority 2
+    for (int i = 0; i < tasks.size(); ++i) {
+        taskIterator = tasks.at(i);
+        // Print task details
+        if (taskIterator.GetPriority() == 2) {
+            cout  << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+            cout <<  "\033[38;2;165;219;255m" << tasks.at(i).GetName() << "\033[0m";
+        }
+    }
+
+    cout << endl;
+
+    cout << "+----------------------------------------------------+" << endl;
+    cout << "\033[38;2;206;30;206mPriority \033[0m" << "\033[38;2;241;176;241m3\033[0m" << endl;
+    cout << "+----------------------------------------------------+" << endl;
+
+
+    // priority 3
+    for (int i = 0; i < tasks.size(); ++i) {
+        taskIterator = tasks.at(i);
+        // Print task details
+        if (taskIterator.GetPriority() == 3) {
+            cout  << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+            cout <<  "\033[38;2;165;219;255m" << tasks.at(i).GetName() << "\033[0m";
+        }
     }
 
     cout << endl << endl;
 }
-
 
 
 
@@ -233,14 +257,14 @@ void ViewSchedule::viewByTag(User user) {
         }
     }
 
-    cout << " \033[38;5;222mDue Date\033[0m    | ";
+    cout << " Date    | ";
     cout << "\033[38;5;33mTask\033[0m" << endl;
-    cout << "+----------------------------------------------------+" << endl;
 
     // Iterate over unique tags and print tasks for each tag
     for (int i = 0; i < uniqueTags.size(); ++i) {
         const string& currentTag = uniqueTags[i];
-        cout << currentTag << endl;
+        cout << "+----------------------------------------------------+" << endl;
+        cout << "\033[38;2;255;229;153m" << currentTag << "\033[0m" << endl;
         cout << "+----------------------------------------------------+" << endl;
 
         // Iterate over tasks and print details for tasks with the current tag
@@ -249,11 +273,11 @@ void ViewSchedule::viewByTag(User user) {
             if (currentTask.GetTag() == currentTag) {
                 // Print task details as needed 
                 cout << " " << left << setw(11) << currentTask.GetDueDate() << " | ";
-                cout << currentTask.GetName() << endl;
+                cout <<  "\033[38;2;165;219;255m" << currentTask.GetName() << "\033[0m" << endl;
             }
         }
-
-        cout << endl << endl;
     }
+
+    cout << endl << endl;
 }
 

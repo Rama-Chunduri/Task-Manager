@@ -30,6 +30,7 @@ void Menu::printMenu(User& user)
             cout << "b - Edit a Task" << endl;
             cout << "c - Delete a Task" << endl;
             
+            cout << "v - View Default" << endl;
             cout << "d - View by Tag" << endl;
             cout << "e - View by Duration" << endl;
             cout << "f - View by Completion" << endl;
@@ -41,7 +42,7 @@ void Menu::printMenu(User& user)
             cin.ignore();
            
 
-            while(menuOption != "a" && menuOption != "b" && menuOption != "c" && menuOption != "d" && menuOption != "e" && menuOption != "f" && menuOption != "g" && menuOption != "x")
+            while(menuOption != "a" && menuOption != "b" && menuOption != "c" && menuOption != "d" && menuOption != "e" && menuOption != "f" && menuOption != "g" && menuOption != "x" && menuOption != "v")
             {
                 cout << "Invalid input. Please enter a valid option: " << endl;
                 cin >> menuOption;
@@ -378,6 +379,11 @@ void Menu::printMenu(User& user)
                 cin >> taskNumber;
                 string name= user.GetUserName();
                 tasks.removeTask(taskNumber,name);
+            }
+            else if (menuOption == "v")  // View Default 
+            {
+                ViewSchedule view;
+                view.viewDefault(user);
             }
             else if (menuOption == "d") // View by Tag
             {
