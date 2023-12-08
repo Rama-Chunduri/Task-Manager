@@ -97,12 +97,12 @@ vector<Task> User::loadtasks(){
    return tasks;
 }
 
- void User::SetTaskList(vector<Task*> tasks)
+ void User::SetTaskList(vector<Task> tasks)
  {
-    list->SetTasks(tasks);
+    list.SetTasks(tasks);
  }
  
- taskList* User::GetTaskList()
+ taskList User::GetTaskList()
  {
     return this->list;
  }
