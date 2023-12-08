@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -67,10 +68,10 @@ vector<Task> User::loadtasks(){
     bool TaskComplete;
     double TaskDuration;
 
+   
 
     string nameOfFile = userName + ".txt";
-    myFile.open(nameOfFile, ios::in | ios::out | ios::app);
-
+    myFile.open(nameOfFile, ios::in);
     //seeing if file opens properly
     if(!(myFile.is_open()))
     {
@@ -78,9 +79,30 @@ vector<Task> User::loadtasks(){
         return tasks;
     }
 
-   while(myFile >> TaskName >> comma >> whitespace >> TaskStartDate >> comma >> whitespace >> TaskDueDate >> comma >> whitespace >> TaskDescription >> comma >> whitespace >> TaskTag >> comma >> whitespace >> TaskPriority >> comma >> whitespace >> TaskDuration){
+
+   
+   
+       // cout << "Read Task: " << TaskName << " task name " << TaskStartDate << " sd " << TaskDueDate << "  dd " << TaskDescription << " td  " << TaskTag << " tt  " << TaskPriority << " tp " << TaskDuration << " dur "<< TaskComplete << " bool " << endl;
+
+   
+   while(getline(myFile, TaskName, ',') && getline(myFile, TaskStartDate, ',') && getline(myFile, TaskDueDate, ',') && getline(myFile, TaskDescription, ',') && getline(myFile, TaskTag, ',')){
+   
+        string TaskPriorityStr;
+        getline(myFile, TaskPriorityStr, ',');
+        TaskPriority = stoi(TaskPriorityStr);
+
+        string TaskDurationStr;
+        getline(myFile, TaskDurationStr, ',');
+        TaskDuration = stod(TaskDurationStr);
+
+        int TaskCompleteInt;
+        myFile >> TaskCompleteInt;
+
+        TaskComplete = (TaskCompleteInt == 1);
+        cout << "Read Task: " << TaskName << " " << TaskStartDate << " " << TaskDueDate << " " << TaskDescription << " " << TaskTag << " " << TaskPriority << " " << TaskDuration << endl;
         Task someTask(TaskName, TaskDescription, TaskStartDate, TaskDueDate, TaskTag, TaskPriority, TaskDuration, TaskComplete);
         tasks.push_back(someTask);
+
    }
     
    

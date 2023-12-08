@@ -8,7 +8,7 @@
 #include <string>
 
 
-void Menu::printMenu(User user)
+void Menu::printMenu(User& user)
 {
    vector<Task> someTask = user.loadtasks();
    cout << someTask.size() << endl;
