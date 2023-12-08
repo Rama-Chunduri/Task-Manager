@@ -178,7 +178,7 @@ Added a User class that is sort of the central class of the program. It enables 
 > 
 > make
 >
-> You can then get into running the program. To be able to run the program. You can simple follow the specific lines. The below will be the complier line.
+> You can then get into running the program. To be able to run the program. You can simply follow the specific lines. The below will be the complier line.
 >
 > g++ -g -o a.out editTask.cpp main.cpp Menu.cpp Remind.cpp task.cpp taskList.cpp User.cpp viewSchedule.cpp
 >
