@@ -208,8 +208,7 @@ int main(){
          userFile.open("userLogin.txt", ios::in | ios::out | ios::app); //reopen file so file cursor is reset and file can be read properly for login process
          string createFile = userName + ".txt";
           //creates file for user's schedule
-         ifstream inFS;
-         ofstream outFS(createFile);
+         ofstream outFS(createFile, ios::in | ios::out | ios::app);
       }
 
    //logging in after creating account
@@ -290,7 +289,7 @@ int main(){
       menuPerson.printMenu(person);
 
 
-      
+      loginFile.close();
       userFile.close();
    }
 
