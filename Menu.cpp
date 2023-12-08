@@ -14,6 +14,15 @@ void Menu::printMenu(User& user)
    cout << someTask.size() << endl;
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
+   Remind rem;
+   if(someTask.size() == 0){
+    cout << "You do not have anything due in the next 24 hours" << endl;
+   }
+   else{
+    rem.remind(cout, user);
+   }
+
+
 
    for(unsigned int i = 0; i < someTask.size(); ++i)
    {
@@ -25,6 +34,12 @@ void Menu::printMenu(User& user)
     string menuOption = "";
     
     while(menuOption != "x"){
+
+
+        someTask = user.loadtasks();
+        user.SetTaskList(someTask);
+        tasks = user.GetTaskList();
+
             cout << "MENU:" << endl;
             cout << "a - Create a Task" << endl;
             cout << "b - Edit a Task" << endl;
