@@ -67,7 +67,6 @@ void Menu::printMenu(User user)
                 }
             
                 
-
                 //start_date
                 cout << "Start Date:"<< endl;
                 //month
@@ -106,44 +105,58 @@ void Menu::printMenu(User user)
 
             
                 cin.ignore();
-
-
                 //due_date
-               cout << "Due Date:"<< endl;
-                //month
-                int dueMonth;
-                cout << "Enter the month (from 1 to 12): " << endl;
-                cin >> dueMonth;
-                while(dueMonth > 12 || dueMonth < 1)
-                {
-                    cout << "Please enter a valid month: " << endl;
+
+                int startSum = 0;
+                int dueSum = 0;
+                string due_date = "";
+
+            do{
+
+                cout << "Due Date:"<< endl;
+                    //month
+                    int dueMonth;
+                    cout << "Enter the month (from 1 to 12): " << endl;
                     cin >> dueMonth;
-                }
+                    while(dueMonth > 12 || dueMonth < 1)
+                    {
+                        cout << "Please enter a valid month: " << endl;
+                        cin >> dueMonth;
+                    }
 
-                //day
-                int dueDay;
-                cout << "Enter the day (from 1 to 31): " << endl;
-                cin >> dueDay;
-                while(dueDay > 31 || dueDay < 1)
-                {
-                    cout << "Please enter a valid day: " << endl;
+                    //day
+                    int dueDay;
+                    cout << "Enter the day (from 1 to 31): " << endl;
                     cin >> dueDay;
-                }
+                    while(dueDay > 31 || dueDay < 1)
+                    {
+                        cout << "Please enter a valid day: " << endl;
+                        cin >> dueDay;
+                    }
 
-                //year
-                int dueYear; 
-                cout << "Please enter the year (format: YYYY): " << endl;
-                cin >> dueYear;
-                while(dueYear > 9999 || dueYear < 1)
-                {
-                    cout << "Please enter a valid year: " << endl;
+                    //year
+                    int dueYear; 
+                    cout << "Please enter the year (format: YYYY): " << endl;
                     cin >> dueYear;
-                }
+                    while(dueYear > 9999 || dueYear < 1)
+                    {
+                        cout << "Please enter a valid year: " << endl;
+                        cin >> dueYear;
+                    }
 
-                string due_date = to_string(dueMonth) + "/" + to_string(dueMonth) + "/" + to_string(dueYear);
+                    string due_date = to_string(dueMonth) + "/" + to_string(dueMonth) + "/" + to_string(dueYear);
 
-                cout << "Entered due date: " << due_date << endl;
+                    cout << "Entered due date: " << due_date << endl;
 
+                    startSum = startMonth + startDay + startYear;
+                    dueSum = dueMonth + dueDay + dueYear;
+
+                    if(startSum > dueSum)
+                    {
+                        cout << "Error: start date is after the due date. Please re-enter the dates:" << endl;
+                    }
+            }
+            while(startSum > dueSum );
             
                 cin.ignore();
                 //description
@@ -184,6 +197,13 @@ void Menu::printMenu(User user)
                 cin >> durationHours;
                 cin.ignore();
 
+                while(durationHours < 0)
+                {
+                    cout << "Please enter a valid duration: " << endl;
+                    cin >> durationHours;
+                    cin.ignore();
+                }
+
                 //status for complete/incomplete
                 cout << "Status for this task is set to incomplete by default." << endl;
 
@@ -192,7 +212,7 @@ void Menu::printMenu(User user)
                 string fileName = user.GetUserName() + ".txt";//name of the file
                 string nameOfUser= user.GetUserName();
                 mytask->SetName(name_task);
-                ofstream myFile(fileName);
+                ofstream myFile(fileName, ios::app);
                 tasks.addTask(myFile, *mytask, nameOfUser);// need to properly get username
             
             }
@@ -280,15 +300,42 @@ void Menu::printMenu(User user)
                     cout << "The priority of your task has been changed to " << new_priority << endl; 
                 }
                 else if(choice == 6){
-                    cout << "Please enter the new start date of the task in MMDDYYYY format. " << endl;
-                    cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
                     string new_start_date;
-                    cin >> new_start_date ;
-                    while(new_start_date.size() != 8)
+                    cout << "Start Date:"<< endl;
+                    //month
+                    int new_startMonth;
+                    cout << "Enter the month (from 1 to 12): " << endl;
+                    cin >> new_startMonth;
+                    while(new_startMonth > 12 || new_startMonth < 1)
                     {
-                        cout << "Please enter a valid start date in the form of MMDDYYYY: " << endl;
-                        cin >> new_start_date;
-                    } 
+                        cout << "Please enter a valid month: " << endl;
+                        cin >> new_startMonth;
+                    }
+
+                    //day
+                    int new_startDay;
+                    cout << "Enter the day (from 1 to 31): " << endl;
+                    cin >> new_startDay;
+                    while(new_startDay > 31 || new_startDay < 1)
+                    {
+                        cout << "Please enter a valid day: " << endl;
+                        cin >> new_startDay;
+                    }
+
+                    //year
+                    int new_startYear; 
+                    cout << "Please enter the year (format: YYYY): " << endl;
+                    cin >> new_startYear;
+                    while(new_startYear > 9999 || new_startYear < 1)
+                    {
+                        cout << "Please enter a valid year: " << endl;
+                        cin >> new_startYear;
+                    }
+
+                    string start_dateNew = to_string(new_startMonth) + "/" + to_string(new_startMonth) + "/" + to_string(new_startYear);
+
+                
+                    cin.ignore();
                     currTask->SetStartDate(new_start_date);
                     cout << "The start date of your task has been changed to " << new_start_date << endl; 
                 }
@@ -296,6 +343,13 @@ void Menu::printMenu(User user)
                     cout << "Please enter the new duration of the task in hours " << endl;
                     double new_duration;
                     cin >> new_duration;
+
+                     while(new_duration < 0)
+                    {
+                        cout << "Please enter a valid duration: " << endl;
+                        cin >> new_duration;
+                        cin.ignore();
+                    }
                     currTask->SetDurationHours(new_duration);
                     cout << "The duration of your task has been changed to " << new_duration << endl; 
                 }
