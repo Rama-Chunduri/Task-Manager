@@ -14,7 +14,14 @@ void Menu::printMenu(User& user)
    cout << someTask.size() << endl;
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
-
+   Remind rem;
+    if(someTask.size() == 0){
+        cout << someTask.size() << endl;
+        cout << "You do not have anything due in the next 24 hours" << endl;
+    }
+    else{
+        rem.remind(cout, user);
+    }
    //Remind rem;
    //cout << "apple" << endl;
   // rem.remind(cout, user);
