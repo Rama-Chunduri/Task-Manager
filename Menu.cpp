@@ -118,15 +118,15 @@ void Menu::printMenu(User& user)
                cin.ignore();
                 //due_date
 
-                int startSum = 0;
-                int dueSum = 0;
-        
+                int dueMonth;
+                int dueDay;
+                int dueYear;
 
             do{
 
                 cout << "Due Date:"<< endl;
                     //month
-                    int dueMonth;
+                   
                     cout << "Enter the month (from 1 to 12): " << endl;
                     cin >> dueMonth;
                     while(dueMonth > 12 || dueMonth < 1)
@@ -136,7 +136,7 @@ void Menu::printMenu(User& user)
                     }
 
                     //day
-                    int dueDay;
+                   
                     cout << "Enter the day (from 1 to 31): " << endl;
                     cin >> dueDay;
                     while(dueDay > 31 || dueDay < 1)
@@ -146,7 +146,7 @@ void Menu::printMenu(User& user)
                     }
 
                     //year
-                    int dueYear; 
+                   
                     cout << "Please enter the year (format: YYYY): " << endl;
                     cin >> dueYear;
                     while(dueYear > 9999 || dueYear < 1)
@@ -159,15 +159,12 @@ void Menu::printMenu(User& user)
 
                     cout << "Entered due date: " << due_date << endl;
 
-                    startSum = startMonth + startDay + startYear;
-                    dueSum = dueMonth + dueDay + dueYear;
-
-                    if(startSum > dueSum)
+                    if(startYear == dueYear && ((startMonth > dueMonth) || (startMonth == dueMonth && startDay > dueDay)))
                     {
                         cout << "Error: start date is after the due date. Please re-enter the dates:" << endl;
                     }
             }
-            while(startSum > dueSum );
+            while((startYear == dueYear && ((startMonth > dueMonth) || (startMonth == dueMonth && startDay > dueDay))));
             
                 
                 //description
