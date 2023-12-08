@@ -177,4 +177,12 @@ Added a User class that is sort of the central class of the program. It enables 
  ## Testing
 Our project utilized the Google Test framework. We tested each of our .cpp files from src folder for functionality and non-functionality.
 
+**How the project was tested/validated:**
+In addition to writing unit tests, here are some other ways the code was tested:
+- To check if some logic components were working the way it was intended to, the trial and error method was used. This definitely helped test the small parts of the code.
+- Outputting the values of certain parts of the code when we weren’t sure if the values were what we wanted it to be. (SOMEONE REWORD THIS)
+- Commenting out code to test a specific part of the program. 
+Testing edge cases for inputs 
+
+
  
