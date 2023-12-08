@@ -10,9 +10,8 @@ ADD_EXECUTABLE(
     main.cpp
     task.cpp
     taskList.cpp
-    remind.cpp
-    editTask.cpp
-    viewSchedul.cpp
+    Remind.cpp
+    viewSchedule.cpp
     Menu.cpp
 )
 
@@ -23,38 +22,5 @@ ADD_EXECUTABLE(runAllTests
     ./test/userTests.cpp
 )
 
-TARGET_LINK_LIBRARIES(test gtest)
-TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ADD_EXECUTABLE(main
-    main.cpp
-)
-
-ADD_EXECUTABLE(runAllTests
-    ./test/taskListtest.cpp
-    ./test/test_rem.cpp
-    ./test/testViewSchedule.cpp
-    ./test/userTests.cpp
-)
-
-TARGET_LINK_LIBRARIES(test gtest)
-TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
+TARGET_LINK_LIBRARIES(runAllTests gtest)
+TARGET_COMPILE_DEFINITIONS(runAllTests PRIVATE gtest_disable_pthreads=ON)

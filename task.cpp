@@ -1,7 +1,9 @@
 #include "task.h"
 #include <string>
 #include <vector>
+#include <iostream>
 
+using namespace std;
 
 Task::Task(){}
 
