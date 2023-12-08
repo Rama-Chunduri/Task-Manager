@@ -175,6 +175,7 @@ Added a User class that is sort of the central class of the program. It enables 
 > If you want to create executables, you can run
 >
 > cmake .
+> 
 > make
 >
 > You can then get into running the program. To be able to run the program. You can simple follow the specific lines. The below will be the complier line.
@@ -185,6 +186,8 @@ Added a User class that is sort of the central class of the program. It enables 
 >
 > ./a.out
 >
+> After running the program, you will be asked to Create a new account or if you are an existing user. Once you have chosen those options, you can successfully create a
+> task or you can edit, view, or delete your task. It's all up to the user and you can view your schedule and have a reminder set for you as well as your due dates are approaching.
 > 
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
