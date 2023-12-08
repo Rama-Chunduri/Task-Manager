@@ -156,41 +156,25 @@ Added a User class that is sort of the central class of the program. It enables 
  > Before the demo, you should do the following:
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
+ > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history.
 
  ## Screenshots
  > Screenshots of the input/output after running your application
 
  ## Installation/Usage
- > Instructions on installing and running your application
- > To run our application, please open VSC or Linux/macOS. Installation for VS code can be found here [Here](https://code.visualstudio.com/docs/cpp/CMake-linux).
- > 
- > To clone the repository, go all the way to the top and click on code. After you have clicked on the code, there will be a link underneath HTTPS which you can copy and paste into the terminal. This should push all of the files into your vsc and you are now one step closer to running the program. 
- > 
- > After cloning, you want to go to the VSC code and enter ls to see which directory you are in.
- >
-> ls checks to see what directory we are in Visual Studio Code. Once you see a directory with Snand/final-project.
+  Here are the instructions for installing or running your application
+ > 1. Open a terminal on your local machine 
+>  2. cd into the directory of your choice 
+>  3. To clone the repo, use the command: https://github.com/cs100/final-project-snand021.git
+>  4. Run cmake . once the repo has been cloned onto your local machine
+>  5. Then run make
+>  6. Run the bin file to: ./bin/ScheduleOrganizer
+>  7. The program should now be running!
 >
-> To get into the directory we can do cd snand/final-project which will go into the final-project scope.
+> After running the program, you will be asked to Create a new account or if you are an existing user. Once you have chosen those options, you can successfully create a task or you can edit, view, or delete your task. 
 >
-> If you want to create executables, you can run the tests you can use
->
-> cmake .
-> 
-> make
->
-> You can then get into running the program. To be able to run the program. You can simply follow the specific lines. The below will be the complier line.
-> If you want to run the program, then please copy paste the below line into the terminal
-> 
-> g++ -g -o a.out main.cpp Menu.cpp Remind.cpp task.cpp taskList.cpp User.cpp viewSchedule.cpp
->
-> To run the program after compilation, you can run
->
-> ./a.out
->
-> After running the program, you will be asked to Create a new account or if you are an existing user. Once you have chosen those options, you can successfully create a
-> task or you can edit, view, or delete your task. It's all up to the user and you can view your schedule and have a reminder set for you as well as your due dates are approaching.
 > 
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+Our project utilized the Google Test framework. We tested each of our .cpp files from src folder for functionality and non-functionality.
+
  
