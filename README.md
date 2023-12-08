@@ -77,7 +77,7 @@ The main features of this project are: It allows the user to organize their sche
 <br></br>
 
 ### Class Diagram
-<img width="664" alt="Screenshot 2023-11-22 at 12 08 21 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/07090208-be0a-4675-a8c1-231b1f18ada2">
+<img width="664" alt="Screenshot 2023-11-22 at 12 08 21 PM" src="https://github.com/cs100/final-project-snand021/assets/117553441/985a98a0-f2ba-4872-8c0b-eafbdba20cd5">
 
 
 
@@ -94,7 +94,7 @@ This class also has a loadTask function that reads input from the user’s file 
 
 **Menu Class** - The Menu class contains a single function that prints the menu containing multiple options such as adding a task, deleting a task, and editing a task. This class improves the user interface and accessibility while also making the creation of the schedule more flexible.
 
-**ViewSchedule Class** - The ViewSchedule class consists of 6 functions. These functions allow the user to view their schedule sorted by due date, start date, duration, completion, tag, and priority. This implementation allows the user to view their schedule according to their personal preference. 
+**ViewSchedule Class** - The ViewSchedule class consists of 5 functions. These functions allow the user to view their schedule scheduled by default, tag, duration, completion, and priority. This implementation allows the user to view their schedule according to their personal preference. 
 
 **Remind Class** - The Remind class has a function called remind that outputs a message to the user on terminal, reminding the user of the tasks that are due in 24 hours. The Remind class also notifies the user when it is approaching the end of the week to complete the tasks.
 <br></br>
@@ -162,7 +162,7 @@ Added a User class that is sort of the central class of the program. It enables 
  > Screenshots of the input/output after running your application
  ## Installation/Usage
  > Instructions on installing and running your application
-> To run our application, please open VSC. Installation for VS code can be found here [Here](https://code.visualstudio.com/docs/cpp/CMake-linux).
+> To run our application, please open VSC or Linux/macOS. Installation for VS code can be found here [Here](https://code.visualstudio.com/docs/cpp/CMake-linux).
 > 
 > To clone the repository, go all the way to the top and click on code. After you have clicked on the code, there will be a link underneath HTTPS which you can copy and paste into the terminal. This should push all of the files into your vsc and you are now one step closer to running the program. 
 > 

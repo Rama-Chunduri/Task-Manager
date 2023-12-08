@@ -15,6 +15,15 @@ void Menu::printMenu(User& user)
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
 
+   Remind rem;
+    if(someTask.size() == 0){
+        cout << someTask.size() << endl;
+        cout << "You do not have anything due in the next 24 hours" << endl;
+    }
+    else{
+        rem.remind(cout, user);
+    }
+
    //Remind rem;
    //cout << "apple" << endl;
   // rem.remind(cout, user);
@@ -45,9 +54,10 @@ void Menu::printMenu(User& user)
             cout << "f - View by Completion" << endl;
             cout << "g - View by Priority" << endl;
 
-            cout << "x - Logout" << endl;
+            cout << "x - Logout" << endl << endl;
             cout << "Enter a valid input." << endl;
             cin >> menuOption;
+            cout << endl;
             cin.ignore();
            
 
@@ -55,7 +65,8 @@ void Menu::printMenu(User& user)
             {
                 cout << "Invalid input. Please enter a valid option: " << endl;
                 cin >> menuOption;
-            
+                
+                cout << endl;
             }  
 
             if(menuOption == "a")
@@ -254,7 +265,7 @@ void Menu::printMenu(User& user)
                     cout << "Please enter the new name of the task" << endl;
                     string new_name;
                     getline(cin, new_name);
-                    while(new_name.size() > 46)
+                    while(new_name.size() > 18)
                     {
                         cout << "Please enter a task name that is less than 46 characters or less: " << endl;
                         getline(cin, new_name);
@@ -299,7 +310,7 @@ void Menu::printMenu(User& user)
                     cout << "Please enter the new priority of the task that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
                     int new_priority;
                     cin >> new_priority;
-                    while(new_priority != 1 && new_priority != 2 && new_priority != 3)
+                    while(new_priority != 1 || new_priority != 2 || new_priority != 3)
                     {
                         cout << "Please enter a valid priority that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
                         cin >> new_priority;
@@ -395,7 +406,7 @@ void Menu::printMenu(User& user)
             else if (menuOption == "d") // View by Tag
             {
                 ViewSchedule view;
-                view.viewByTag(&user);
+                view.viewByTag(user);
             }
             else if (menuOption == "e") // View by Duration
             
