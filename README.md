@@ -172,15 +172,16 @@ Added a User class that is sort of the central class of the program. It enables 
 >
 > To get into the directory we can do cd snand/final-project which will go into the final-project scope.
 >
-> If you want to create executables, you can run
+> If you want to create executables, you can run the tests you can use
 >
 > cmake .
 > 
 > make
 >
 > You can then get into running the program. To be able to run the program. You can simply follow the specific lines. The below will be the complier line.
->
-> g++ -g -o a.out editTask.cpp main.cpp Menu.cpp Remind.cpp task.cpp taskList.cpp User.cpp viewSchedule.cpp
+> If you want to run the program, then please copy paste the below line into the terminal
+> 
+> g++ -g -o a.out main.cpp Menu.cpp Remind.cpp task.cpp taskList.cpp User.cpp viewSchedule.cpp
 >
 > To run the program after compilation, you can run
 >
