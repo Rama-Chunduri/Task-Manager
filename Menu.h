@@ -10,7 +10,7 @@
 class Menu
 {
     public:
-    void printMenu(User user);
+    void printMenu(User& user);
 
 
 };
