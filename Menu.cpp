@@ -217,9 +217,11 @@ void Menu::printMenu(User user)
                 Task mytask= Task(name_task, description, start_date, due_date, tag, priority,  durationHours, false);
                 string fileName = user.GetUserName() + ".txt";//name of the file
                 string nameOfUser= user.GetUserName();
+                vector<Task>taskss;
+                taskss=user.loadtasks();
                 mytask.SetName(name_task);
                 ofstream myFile(fileName, ios::app);
-                tasks.addTask(myFile, mytask, nameOfUser);// need to properly get username
+                tasks.addTask(myFile, mytask, nameOfUser,taskss);// need to properly get username
             
             }
             else if (menuOption == "b")

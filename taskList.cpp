@@ -19,10 +19,10 @@ vector<Task> taskList :: GetTasks(){
   return tasks;
 }
 
-void taskList::addTask(ostream & out,  Task task, const string& name){// pass ofstream into function  ////
+void taskList::addTask(ostream & out,  Task task, const string& name, vector<Task>taskss){// pass ofstream into function  ////
   Task taskPtr = task; //changed
-  tasks.push_back(taskPtr);
-  out<<tasks.size()<<", "<<task.GetName()<<", "<<task.GetStartDate()<<", "<<task.GetDueDate()<<", "<<task.GetDescription()
+  taskss.push_back(taskPtr);
+  out<<", "<<task.GetName()<<", "<<task.GetStartDate()<<", "<<task.GetDueDate()<<", "<<task.GetDescription()
   <<", "<< task.GetTag()<<", "<<task.GetPriority()<<", "<<task.GetDurationHours()<<", "<<task.GetComplete()<<endl;
   //out.close();
 }
