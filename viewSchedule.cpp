@@ -41,29 +41,29 @@ void ViewSchedule :: viewDefault(User * user) {
         if (tasks.at(i).GetDueDate() != currDueDate) {
             // start a new due date section 
             currDueDate = tasks.at(i).GetDueDate();
-            cout << "+-------------------------------------------------------------------------------------+" << endl;
+            cout << "+---------------------------------------------------------------------------------------------+" << endl;
             cout << " \033[38;5;222mDue Date: \033[0m " << currDueDate << endl;
-            cout << "+-------------------------------------------------------------------------------------+" << endl;
+            cout << "+---------------------------------------------------------------------------------------------+" << endl;
         }
 
         // print priority 
         cout << "    " << task.GetPriority() << "     | ";
         
         // print name of task 
-        cout<< left << setw(45) << tasks.at(i).GetName() << "| ";
+        cout << left << setw(47) << tasks.at(i).GetName() << "| ";
 
         // print duration
         cout<< left << setw(9) << tasks.at(i).GetDurationHours() << "| ";
 
         // print tag
-        cout<< left << setw(12) << tasks.at(i).GetName() << "| ";
+        cout << left << setw(12) << tasks.at(i).GetName() << "| ";
 
         // print status 
         if (tasks.at(i).GetComplete() == true) { // completed 
             cout << "Complete" << endl;
         } else // incomplete 
         {
-            cout << "Inomplete" << endl;
+            cout << "Incomplete" << endl;
         } 
     }
 }

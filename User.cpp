@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -56,9 +57,8 @@ vector<Task> User::loadtasks(){
    // ofstream myFile(userName + ".txt");
    ifstream myFile;
    string comma;
+   string whitespace;
 
-    int TaskNumber; //purpose: to read in the number of a task
-    int TaskSize = 0; //number reassigned (same thing as TaskNumber)
     string TaskName;
     string TaskDescription;
     string TaskTag;
@@ -68,8 +68,10 @@ vector<Task> User::loadtasks(){
     bool TaskComplete;
     double TaskDuration;
 
-    myFile.open(userName + ".txt");
+   
 
+    string nameOfFile = userName + ".txt";
+    myFile.open(nameOfFile, ios::in | ios::app);
     //seeing if file opens properly
     if(!(myFile.is_open()))
     {
@@ -77,10 +79,30 @@ vector<Task> User::loadtasks(){
         return tasks;
     }
 
-   while(myFile >> TaskNumber >> comma >> TaskName >> comma >> TaskStartDate >> comma >> TaskDueDate >> comma >> TaskDescription >> comma >> TaskTag >> comma >> TaskPriority >> comma >> TaskDuration){
+
+   
+   
+       // cout << "Read Task: " << TaskName << " task name " << TaskStartDate << " sd " << TaskDueDate << "  dd " << TaskDescription << " td  " << TaskTag << " tt  " << TaskPriority << " tp " << TaskDuration << " dur "<< TaskComplete << " bool " << endl;
+
+   
+   while(getline(myFile, TaskName, ',') && getline(myFile, TaskStartDate, ',') && getline(myFile, TaskDueDate, ',') && getline(myFile, TaskDescription, ',') && getline(myFile, TaskTag, ',')){
+   
+        string TaskPriorityStr;
+        getline(myFile, TaskPriorityStr, ',');
+        TaskPriority = stoi(TaskPriorityStr);
+
+        string TaskDurationStr;
+        getline(myFile, TaskDurationStr, ',');
+        TaskDuration = stod(TaskDurationStr);
+
+        int TaskCompleteInt;
+        myFile >> TaskCompleteInt;
+
+        TaskComplete = (TaskCompleteInt == 1);
+        cout << "Read Task: " << TaskName << " " << TaskStartDate << " " << TaskDueDate << " " << TaskDescription << " " << TaskTag << " " << TaskPriority << " " << TaskDuration << endl;
         Task someTask(TaskName, TaskDescription, TaskStartDate, TaskDueDate, TaskTag, TaskPriority, TaskDuration, TaskComplete);
-        TaskSize = TaskNumber;
         tasks.push_back(someTask);
+
    }
     
    
@@ -91,6 +113,7 @@ vector<Task> User::loadtasks(){
         tasks.push_back(myText);
    }
    */
+
 
    myFile.close();
 
