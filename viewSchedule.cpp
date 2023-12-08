@@ -31,7 +31,7 @@ void ViewSchedule :: viewDefault(User * user) {
         return a.GetPriority() < b.GetPriority();
     });
 
-    cout << " Priority | Task                                           | Tag         | Status     " << endl;
+    cout << " \033[38;5;201mPriority\033[0m | \033[38;5;33mTask\033[0m                                          | \033[38;5;205mTag\033[0m         | \033[38;5;214mStatus\033[0m     " << endl;
     cout << "+-------------------------------------------------------------------------------------+" << endl;
 
     string currDueDate = "";
@@ -83,15 +83,13 @@ void ViewSchedule :: viewByDuration(User* user) {
         //}
     }
 
-
     // sort tasks by duration from shortest to longest
     sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
        return a.GetDurationHours() < b.GetDurationHours();
     });
 
-
    cout << " Duration    | ";
-   cout << "\033[38;5;205mTask\033[0m" << endl;
+   cout << "\033[38;5;33mTask\033[0m" << endl;
    cout << "+----------------------------------------------------+" << endl;
 
     for (int i = 0; i < tasks.size(); ++i) {
@@ -131,7 +129,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
     });
 
     cout << " Due Date    | ";
-    cout << "\033[38;5;205mTask\033[0m" << endl;
+    cout << "\033[38;5;33mTask\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
     bool currentCompletionStatus = true; // assuming true means completed
@@ -145,7 +143,6 @@ void ViewSchedule :: viewByCompletion(User* user) {
             if (i != 0) {
                 if (currentCompletionStatus == true) { // task complete 
                     cout << "Complete" << endl;
-
                 } else { // tasl incomplete 
                     cout << "Incomplete" << endl;
 
@@ -161,11 +158,11 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
             // print task details 
             if (currentCompletionStatus == true) { // task complete 
-                    cout << "[√]" << " ";
+                    cout << "\033[32m[√]\033[0m" << " ";
 
                 } else { // task incomplete 
 
-                    cout << "[X]" << " ";
+                    cout << "\033[31m[X]\033[0m" << " ";
                 }
 
             cout << tasks.at(i).GetName() << endl;
@@ -204,7 +201,7 @@ void ViewSchedule :: viewByPriority(User* user) {
     });
 
     cout << " Due Date    | ";
-    cout << "\033[38;5;205mTask\033[0m" << endl;
+    cout << "\033[38;5;33mTask\033[0m" << endl;
     cout << "+----------------------------------------------------+" << endl;
 
     int currentPriority = -1;
@@ -240,50 +237,58 @@ void ViewSchedule :: viewByPriority(User* user) {
 // groups tasks of the same tag together
 void ViewSchedule :: viewByTag(User* user)  
 {
-    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
+    ViewSchedule view;
 
-    vector<Task> tasks;
-    // Make a copy of the vector 
-    for (int i = 0; i < listOfTasks.size(); ++i) {
-        //if (listOfTasks[i] != nullptr) {    //changed by Rama L Chunduri
-            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
-        //}
-    }
+    view.viewDefault(user);
 
-    //get unique tags 
-    vector<string>uniqueTags;
-    Task taskIterator = tasks.at(0);
+    // cout << endl << endl << endl;
 
-    for (int i = 0; i < tasks.size(); ++i) {
+    // vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
     
-        // if tag is not found in uniqueTags
-        if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.GetTag()) == uniqueTags.end()) {
-            uniqueTags.push_back(taskIterator.GetTag());
-        }
-    }
+    // vector<Task> tasks;
 
-    cout << " Due Date    | ";
-    cout << "\033[38;5;205mTask\033[0m" << endl;
-    cout << "+----------------------------------------------------+" << endl;
+    // //Make a copy of the vector 
+    // for (int i = 0; i < listOfTasks.size(); ++i) {
+    //     //if (listOfTasks[i] != nullptr) {    //changed by Rama L Chunduri
+    //         tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+    //     //}
+    // }
 
-    //iterate over unique tags and print tasks for each tag 
-    string tagIterator = uniqueTags.at(0);
-    taskIterator = tasks.at(0);
 
-    for (int i = 0; i < uniqueTags.size(); ++i) {
-        cout << tagIterator << endl;
-        cout << "+----------------------------------------------------+" << endl;
+    // //get unique tags 
+    // vector<string>uniqueTags;
+    // Task taskIterator = tasks.at(0);
 
-        //iterate over tasks and print details for tasks with the current tag
-        for (int i = 0; i < uniqueTags.size(); ++i) {
-            if (taskIterator.GetTag() == tagIterator)
-                //print task details as needed 
-                cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
-                cout << tasks.at(i).GetName();        
-        }
+    // for (int i = 0; i < tasks.size(); ++i) {
+    //     // if tag is not found in uniqueTags
+    //     if (find(uniqueTags.begin(), uniqueTags.end(), taskIterator.GetTag()) == uniqueTags.end()) {
+    //         uniqueTags.push_back(taskIterator.GetTag());
+    //     }
+    // }
+    // cout << "5APPLE" << endl;
+
+    // cout << " Due Date    | ";
+    // cout << "\033[38;5;33mTask\033[0m" << endl;
+    // cout << "+----------------------------------------------------+" << endl;
+
+    // //iterate over unique tags and print tasks for each tag 
+    // string tagIterator = uniqueTags.at(0);
+    // taskIterator = tasks.at(0);
+
+    // for (int i = 0; i < uniqueTags.size(); ++i) {
+    //     cout << tagIterator << endl;
+    //     cout << "+----------------------------------------------------+" << endl;
+
+    //     //iterate over tasks and print details for tasks with the current tag
+    //     for (int i = 0; i < uniqueTags.size(); ++i) {
+    //         if (taskIterator.GetTag() == tagIterator)
+    //             //print task details as needed 
+    //             cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+    //             cout << tasks.at(i).GetName();        
+    //     }
         
-        cout << endl << endl;
-    }
+    //     cout << endl << endl;
+    // }
 }
 
 
