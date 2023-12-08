@@ -163,17 +163,17 @@ Added a User class that is sort of the central class of the program. It enables 
 
  ## Installation/Usage
   Here are the instructions for installing or running your application
- > 1. Open a terminal on your local machine 
->  2. cd into the directory of your choice 
->  3. To clone the repo, use the command: https://github.com/cs100/final-project-snand021.git
->  4. Run cmake . once the repo has been cloned onto your local machine
->  5. Then run make
->  6. Run the bin file to: ./bin/ScheduleOrganizer
->  7. The program should now be running!
->
-> After running the program, you will be asked to Create a new account or if you are an existing user. Once you have chosen those options, you can successfully create a task or you can edit, view, or delete your task. 
->
-> 
+  1. Open a terminal on your local machine 
+  2. cd into the directory of your choice 
+  3. To clone the repo, use the command: https://github.com/cs100/final-project-snand021.git
+  4. Run cmake . once the repo has been cloned onto your local machine
+  5. Then run make
+  6. Run the bin file to: ./bin/ScheduleOrganizer
+  7. The program should now be running!
+
+ After running the program, you will be asked to Create a new account or if you are an existing user. Once you have chosen those options, you can successfully create a task or you can edit, view, or delete your task. 
+
+ 
  ## Testing
 Our project utilized the Google Test framework. We tested each of our .cpp files from src folder for functionality and non-functionality.
 
