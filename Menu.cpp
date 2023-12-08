@@ -11,38 +11,19 @@
 void Menu::printMenu(User& user)
 {
    vector<Task> someTask = user.loadtasks();
-   //cout << someTask.size() << endl;
+   cout << someTask.size() << endl;
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
 
-    Remind rem;
-    if(someTask.size() == 0){
-        //cout << someTask.size() << endl;
-        cout << "You do not have anything due in the next 24 hours" << endl;
-    }
-    else{
-        rem.remind(cout, user);
-    }
+   for(unsigned int i = 0; i < someTask.size(); ++i)
+   {
+        cout << someTask.at(i).GetName() << endl;
+   }
 
-   //Remind rem;
-   //cout << "apple" << endl;
-  // rem.remind(cout, user);
-   // cout << "MENU:" << endl;
-   // cout << "a - Create a Task" << endl;
-   // cout << "b - Edit a Task" << endl;
-   // cout << "c - Delete a Task" << endl;
-   // cout << "q - Exit to Homepage" << endl;
-   // cout << "Enter a valid input." << endl;
-
-    
-    //while(menuOption != "a" || menuOption != "b" || menuOption != "c" || menuOption != "q")
-    //{
-        //cout << "Enter a valid input." << endl;
-        //cin >> menuOption;
-    //}
+  
     string due_date;
     string menuOption = "";
-    //cin >> menuOption;
+    
     while(menuOption != "x"){
             cout << "MENU:" << endl;
             cout << "a - Create a Task" << endl;
@@ -54,10 +35,9 @@ void Menu::printMenu(User& user)
             cout << "f - View by Completion" << endl;
             cout << "g - View by Priority" << endl;
 
-            cout << "x - Logout" << endl << endl;
+            cout << "x - Logout" << endl;
             cout << "Enter a valid input." << endl;
             cin >> menuOption;
-            cout << endl;
             cin.ignore();
            
 
@@ -65,8 +45,7 @@ void Menu::printMenu(User& user)
             {
                 cout << "Invalid input. Please enter a valid option: " << endl;
                 cin >> menuOption;
-                
-                cout << endl;
+            
             }  
 
             if(menuOption == "a")
@@ -124,15 +103,15 @@ void Menu::printMenu(User& user)
                cin.ignore();
                 //due_date
 
-                int startSum = 0;
-                int dueSum = 0;
-        
+                int dueMonth;
+                int dueDay;
+                int dueYear;
 
             do{
 
                 cout << "Due Date:"<< endl;
                     //month
-                    int dueMonth;
+                   
                     cout << "Enter the month (from 1 to 12): " << endl;
                     cin >> dueMonth;
                     while(dueMonth > 12 || dueMonth < 1)
@@ -142,7 +121,7 @@ void Menu::printMenu(User& user)
                     }
 
                     //day
-                    int dueDay;
+                   
                     cout << "Enter the day (from 1 to 31): " << endl;
                     cin >> dueDay;
                     while(dueDay > 31 || dueDay < 1)
@@ -152,7 +131,7 @@ void Menu::printMenu(User& user)
                     }
 
                     //year
-                    int dueYear; 
+                   
                     cout << "Please enter the year (format: YYYY): " << endl;
                     cin >> dueYear;
                     while(dueYear > 9999 || dueYear < 1)
@@ -165,15 +144,12 @@ void Menu::printMenu(User& user)
 
                     cout << "Entered due date: " << due_date << endl;
 
-                    startSum = startMonth + startDay + startYear;
-                    dueSum = dueMonth + dueDay + dueYear;
-
-                    if(startSum > dueSum)
+                    if(startYear == dueYear && ((startMonth > dueMonth) || (startMonth == dueMonth && startDay > dueDay)))
                     {
                         cout << "Error: start date is after the due date. Please re-enter the dates:" << endl;
                     }
             }
-            while(startSum > dueSum );
+            while((startYear == dueYear && ((startMonth > dueMonth) || (startMonth == dueMonth && startDay > dueDay))));
             
                 
                 //description
@@ -237,288 +213,164 @@ void Menu::printMenu(User& user)
             
             }
             else if (menuOption == "b")
-           {
-               Task currTask;
-               int taskNum;
-               //cout << "Please enter the name of the task you want to edit" << endl;
-               cout << "Please enter the number of the task you want to edit" << endl;
-               cin >> taskNum;
-               string name= user.GetUserName();
-                tasks.removeTask(taskNum,name);
-               cout << "Enter the new name of the task" << endl;
-               string new_name;
-               cin.ignore();
-               getline(cin, new_name);
-               cout << "Enter the new description of the task" << endl;
-               string new_desc;
-               getline(cin, new_desc);
-               cout << "Please enter the new due date of the task in MMDDYYYY format." << endl;
-                   cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
-                   string new_due_date;
-                   cin >> new_due_date;
-                   while(new_due_date.size() != 8)
-                   {
-                       cout << "Please enter a valid due date in the form of MMDDYYYY: " << endl;
-                       cin >> new_due_date;
-                   }
-               cout << "Please enter the new tag of the task " << endl;
-               string new_tag;
-               cin >> new_tag;
-               while(new_tag.size() > 11)
-               {
-                   cout << "Please enter a tag for the task that is 11 characters or less: " << endl;
-                   cin >> new_tag;
-               }
-               cout << "Please enter the new priority of the task that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
-                   int new_priority;
-                   cin >> new_priority;
-                   while(new_priority != 1 && new_priority != 2 && new_priority != 3)
-                   {
-                       cout << "Please enter a valid priority that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
-                       cin >> new_priority;
-                   }
-               string new_start_date;
-                   cout << "Start Date:"<< endl;
-                   //month
-                   int new_startMonth;
-                   cout << "Enter the month (from 1 to 12): " << endl;
-                   cin >> new_startMonth;
-                   while(new_startMonth > 12 || new_startMonth < 1)
-                   {
-                       cout << "Please enter a valid month: " << endl;
-                       cin >> new_startMonth;
-                   }
+            {
+                Task currTask;
+                cout << "Please enter the name of the task you want to edit" << endl;
+                string taskName;
+                getline(cin, taskName);
+                int i;
+                for(i=0; i<user.GetTaskList().GetTasks().size(); ++i){
+                    if(user.GetTaskList().GetTasks().at(i).GetName() == taskName){
+                        currTask = user.GetTaskList().GetTasks().at(i);
+                    }
+                }
+                cout << "Choose an option: " << endl;
+                cout << "1 - Edit the name of the task " << endl;
+                cout << "2 - Edit the description of the task" << endl;
+                cout << "3 - Edit the due date of the task" << endl;
+                cout << "4 - Edit the tag of the task" << endl;
+                cout << "5 - Edit the priority of the task" << endl;
+                cout << "6 - Edit the start date of the task" << endl;
+                cout << "7 - Edit the duration of the task" << endl;
+                cout << "8 - Edit the completion status of the task" << endl;
+                int choice;
+                cin >> choice;
+                cin.ignore();
 
+                if(choice == 1){
+                    cout << "Please enter the new name of the task" << endl;
+                    string new_name;
+                    getline(cin, new_name);
+                    while(new_name.size() > 46)
+                    {
+                        cout << "Please enter a task name that is less than 46 characters or less: " << endl;
+                        getline(cin, new_name);
+                    }
+                    currTask.SetName(new_name);
+                    cout << "The name of your task has been changed to " << new_name << endl; 
+                }
+                else if(choice == 2){
+                    cout << "Please enter the new description of the task: " << endl;
+                    string new_desc;
+                    getline(cin, new_desc);
+                    currTask.SetDescription(new_desc);
+                    cout << "The description of your task has been changed to " << new_desc << endl; 
+                }
+                else if(choice == 3){
+                    cout << "Please enter the new due date of the task in MMDDYYYY format." << endl;
+                    cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
+                    string new_due_date;
+                    cin >> new_due_date;
+                    while(new_due_date.size() != 8)
+                    {
+                        cout << "Please enter a valid due date in the form of MMDDYYYY: " << endl;
+                        cin >> new_due_date;
+                    }   
+                    currTask.SetDueDate(new_due_date);
+                    cout << "The due date of your task has been changed to " << new_due_date << endl; 
+                }
+                else if(choice == 4){
+                    cout << "Please enter the new tag of the task " << endl;
+                    string new_tag;
+                    cin >> new_tag;
+                    while(new_tag.size() > 11)
+                    {
+                        cout << "Please enter a tag for the task that is 11 characters or less: " << endl;
+                        cin >> new_tag;
+                    }
 
-                   //day
-                   int new_startDay;
-                   cout << "Enter the day (from 1 to 31): " << endl;
-                   cin >> new_startDay;
-                   while(new_startDay > 31 || new_startDay < 1)
-                   {
-                       cout << "Please enter a valid day: " << endl;
-                       cin >> new_startDay;
-                   }
+                    currTask.SetTag(new_tag);
+                    cout << "The tag of your task has been changed to " << new_tag << endl; 
+                }
+                else if(choice == 5){
+                    cout << "Please enter the new priority of the task that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
+                    int new_priority;
+                    cin >> new_priority;
+                    while(new_priority != 1 && new_priority != 2 && new_priority != 3)
+                    {
+                        cout << "Please enter a valid priority that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
+                        cin >> new_priority;
+                    }
 
+                    currTask.SetPriority(new_priority);
+                    cout << "The priority of your task has been changed to " << new_priority << endl; 
+                }
+                else if(choice == 6){
+                    string new_start_date;
+                    cout << "Start Date:"<< endl;
+                    //month
+                    int new_startMonth;
+                    cout << "Enter the month (from 1 to 12): " << endl;
+                    cin >> new_startMonth;
+                    while(new_startMonth > 12 || new_startMonth < 1)
+                    {
+                        cout << "Please enter a valid month: " << endl;
+                        cin >> new_startMonth;
+                    }
 
-                   //year
-                   int new_startYear;
-                   cout << "Please enter the year (format: YYYY): " << endl;
-                   cin >> new_startYear;
-                   while(new_startYear > 9999 || new_startYear < 1)
-                   {
-                       cout << "Please enter a valid year: " << endl;
-                       cin >> new_startYear;
-                   }
+                    //day
+                    int new_startDay;
+                    cout << "Enter the day (from 1 to 31): " << endl;
+                    cin >> new_startDay;
+                    while(new_startDay > 31 || new_startDay < 1)
+                    {
+                        cout << "Please enter a valid day: " << endl;
+                        cin >> new_startDay;
+                    }
 
+                    //year
+                    int new_startYear; 
+                    cout << "Please enter the year (format: YYYY): " << endl;
+                    cin >> new_startYear;
+                    while(new_startYear > 9999 || new_startYear < 1)
+                    {
+                        cout << "Please enter a valid year: " << endl;
+                        cin >> new_startYear;
+                    }
 
-                   string start_dateNew = to_string(new_startMonth) + "/" + to_string(new_startMonth) + "/" + to_string(new_startYear);
-                   cout << "Please enter the new duration of the task in hours " << endl;
-                   double new_duration;
-                   cin >> new_duration;
-
-
-                    while(new_duration < 0)
-                   {
-                       cout << "Please enter a valid duration: " << endl;
-                       cin >> new_duration;
-                       cin.ignore();
-                   }
-                   cout << "Please enter '1' to mark your task as complete" << endl;
-                   cout << "If the task is not yet complete, please enter 0" << endl;
-                   int comp;
-                   cin >> comp;
-                   while(comp!= 1 && comp != 0)
-                   {
-                       cout << "Please enter a valid input. Enter '1' to mark your task complete and '0' to mark your task incomplete." << endl;
-                       cin >> comp;
-                   }
-                   currTask = Task(new_name, new_desc, start_dateNew, new_due_date, new_tag, new_priority, new_duration, comp);
-                   //tasks.addTask(cout, currTask, user.GetUserName(), someTask);
-                   string fileName = user.GetUserName() + ".txt";//name of the file
-                    string nameOfUser= user.GetUserName();
-                    vector<Task>taskss;
-                    taskss=user.loadtasks();
-                    //mytask.SetName(name_task);
-                    ofstream myFile(fileName, ios::app);
-                    tasks.addTask(myFile, currTask, nameOfUser,taskss);
-                   cout << "Your task has been edited" << endl;
-
-
-
+                    string start_dateNew = to_string(new_startMonth) + "/" + to_string(new_startMonth) + "/" + to_string(new_startYear);
 
                 
+                    cin.ignore();
+                    currTask.SetStartDate(new_start_date);
+                    cout << "The start date of your task has been changed to " << new_start_date << endl; 
+                }
+                else if(choice == 7){
+                    cout << "Please enter the new duration of the task in hours " << endl;
+                    double new_duration;
+                    cin >> new_duration;
 
-
-
-
-
-
-               //string taskName;
-               //getline(cin, taskName);
-               //int i;
-               //for(i=0; i<user.GetTaskList().GetTasks().size(); ++i){
-                   //if(user.GetTaskList().GetTasks().at(i).GetName() == taskName){
-                       //currTask = user.GetTaskList().GetTasks().at(i);
-                   //}
-               //}
-               // cout << "Choose an option: " << endl;
-               // cout << "1 - Edit the name of the task " << endl;
-               // cout << "2 - Edit the description of the task" << endl;
-               // cout << "3 - Edit the due date of the task" << endl;
-               // cout << "4 - Edit the tag of the task" << endl;
-               // cout << "5 - Edit the priority of the task" << endl;
-               // cout << "6 - Edit the start date of the task" << endl;
-               // cout << "7 - Edit the duration of the task" << endl;
-               // cout << "8 - Edit the completion status of the task" << endl;
-               // int choice;
-               // cin >> choice;
-               // cin.ignore();
-
-
-               // if(choice == 1){
-               //     cout << "Please enter the new name of the task" << endl;
-               //     string new_name;
-               //     getline(cin, new_name);
-               //     while(new_name.size() > 46)
-               //     {
-               //         cout << "Please enter a task name that is less than 46 characters or less: " << endl;
-               //         getline(cin, new_name);
-               //     }
-               //     // currTask.SetName(new_name);
-                  
-               //     cout << "The name of your task has been changed to " << new_name << endl;
-               // }
-               // else if(choice == 2){
-               //     cout << "Please enter the new description of the task: " << endl;
-               //     string new_desc;
-               //     getline(cin, new_desc);
-               //     currTask.SetDescription(new_desc);
-               //     cout << "The description of your task has been changed to " << new_desc << endl;
-               // }
-               // else if(choice == 3){
-               //     cout << "Please enter the new due date of the task in MMDDYYYY format." << endl;
-               //     cout << "Example: June 15, 2023 should be entered as 06152023." << endl;
-               //     string new_due_date;
-               //     cin >> new_due_date;
-               //     while(new_due_date.size() != 8)
-               //     {
-               //         cout << "Please enter a valid due date in the form of MMDDYYYY: " << endl;
-               //         cin >> new_due_date;
-               //     }  
-               //     currTask.SetDueDate(new_due_date);
-               //     cout << "The due date of your task has been changed to " << new_due_date << endl;
-               // }
-               // else if(choice == 4){
-               //     cout << "Please enter the new tag of the task " << endl;
-               //     string new_tag;
-               //     cin >> new_tag;
-               //     while(new_tag.size() > 11)
-               //     {
-               //         cout << "Please enter a tag for the task that is 11 characters or less: " << endl;
-               //         cin >> new_tag;
-               //     }
-
-
-               //     currTask.SetTag(new_tag);
-               //     cout << "The tag of your task has been changed to " << new_tag << endl;
-               // }
-               // else if(choice == 5){
-               //     cout << "Please enter the new priority of the task that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
-               //     int new_priority;
-               //     cin >> new_priority;
-               //     while(new_priority != 1 && new_priority != 2 && new_priority != 3)
-               //     {
-               //         cout << "Please enter a valid priority that ranges from (1 - Very Important, 2 - Neutral, 3 - Low Priority): " << endl;
-               //         cin >> new_priority;
-               //     }
-
-
-               //     currTask.SetPriority(new_priority);
-               //     cout << "The priority of your task has been changed to " << new_priority << endl;
-               // }
-               // else if(choice == 6){
-               //     string new_start_date;
-               //     cout << "Start Date:"<< endl;
-               //     //month
-               //     int new_startMonth;
-               //     cout << "Enter the month (from 1 to 12): " << endl;
-               //     cin >> new_startMonth;
-               //     while(new_startMonth > 12 || new_startMonth < 1)
-               //     {
-               //         cout << "Please enter a valid month: " << endl;
-               //         cin >> new_startMonth;
-               //     }
-
-
-               //     //day
-               //     int new_startDay;
-               //     cout << "Enter the day (from 1 to 31): " << endl;
-               //     cin >> new_startDay;
-               //     while(new_startDay > 31 || new_startDay < 1)
-               //     {
-               //         cout << "Please enter a valid day: " << endl;
-               //         cin >> new_startDay;
-               //     }
-
-
-               //     //year
-               //     int new_startYear;
-               //     cout << "Please enter the year (format: YYYY): " << endl;
-               //     cin >> new_startYear;
-               //     while(new_startYear > 9999 || new_startYear < 1)
-               //     {
-               //         cout << "Please enter a valid year: " << endl;
-               //         cin >> new_startYear;
-               //     }
-
-
-               //     string start_dateNew = to_string(new_startMonth) + "/" + to_string(new_startMonth) + "/" + to_string(new_startYear);
-
-
-              
-               //     cin.ignore();
-               //     currTask.SetStartDate(new_start_date);
-               //     cout << "The start date of your task has been changed to " << new_start_date << endl;
-               // }
-               // else if(choice == 7){
-               //     cout << "Please enter the new duration of the task in hours " << endl;
-               //     double new_duration;
-               //     cin >> new_duration;
-
-
-               //      while(new_duration < 0)
-               //     {
-               //         cout << "Please enter a valid duration: " << endl;
-               //         cin >> new_duration;
-               //         cin.ignore();
-               //     }
-               //     currTask.SetDurationHours(new_duration);
-               //     cout << "The duration of your task has been changed to " << new_duration << endl;
-               // }
-               // else if(choice == 8){
-               //     cout << "Please enter '1' to mark your task as complete" << endl;
-               //     cout << "If the task is not yet complete, please enter 0" << endl;
-               //     int comp;
-               //     cin >> comp;
-               //     while(comp!= 1 && comp != 0)
-               //     {
-               //         cout << "Please enter a valid input. Enter '1' to mark your task complete and '0' to mark your task incomplete." << endl;
-               //         cin >> comp;
-               //     }
-               //     currTask.SetComplete(comp);
-               //     cout << "The completion status of your task has been changed to " << currTask.GetComplete() << endl;
-               // }
-               // else{
-               //     cout << "Invalid input" << endl;
-               // }
-          
-               //cout << "Enter the number of the task you want to edit: " << endl;
-               //int taskNum;
-               //cin>>taskNum;
-               //tasks.editTask(taskName, user_name);
-           }
-
+                     while(new_duration < 0)
+                    {
+                        cout << "Please enter a valid duration: " << endl;
+                        cin >> new_duration;
+                        cin.ignore();
+                    }
+                    currTask.SetDurationHours(new_duration);
+                    cout << "The duration of your task has been changed to " << new_duration << endl; 
+                }
+                else if(choice == 8){
+                    cout << "Please enter '1' to mark your task as complete" << endl;
+                    cout << "If the task is not yet complete, please enter 0" << endl;
+                    int comp;
+                    cin >> comp;
+                    while(comp!= 1 && comp != 0)
+                    {
+                        cout << "Please enter a valid input. Enter '1' to mark your task complete and '0' to mark your task incomplete." << endl;
+                        cin >> comp;
+                    }
+                    currTask.SetComplete(comp);
+                    cout << "The completion status of your task has been changed to " << currTask.GetComplete() << endl; 
+                }
+                else{
+                    cout << "Invalid input" << endl;
+                }
+            
+                //cout << "Enter the number of the task you want to edit: " << endl;
+                //int taskNum;
+                //cin>>taskNum;
+                //tasks.editTask(taskName, user_name);
+            }
             else if (menuOption == "c")
             {
                 cout << "Enter the number of the task you want to delete:" << endl;
@@ -530,7 +382,7 @@ void Menu::printMenu(User& user)
             else if (menuOption == "d") // View by Tag
             {
                 ViewSchedule view;
-                view.viewByTag(user);
+                view.viewByTag(&user);
             }
             else if (menuOption == "e") // View by Duration
             
