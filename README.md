@@ -160,14 +160,15 @@ Added a User class that is sort of the central class of the program. It enables 
 
  ## Screenshots
  > Screenshots of the input/output after running your application
+
  ## Installation/Usage
  > Instructions on installing and running your application
-> To run our application, please open VSC or Linux/macOS. Installation for VS code can be found here [Here](https://code.visualstudio.com/docs/cpp/CMake-linux).
-> 
-> To clone the repository, go all the way to the top and click on code. After you have clicked on the code, there will be a link underneath HTTPS which you can copy and paste into the terminal. This should push all of the files into your vsc and you are now one step closer to running the program. 
-> 
-> After cloning, you want to go to the VSC code and enter ls to see which directory you are in.
->
+ > To run our application, please open VSC or Linux/macOS. Installation for VS code can be found here [Here](https://code.visualstudio.com/docs/cpp/CMake-linux).
+ > 
+ > To clone the repository, go all the way to the top and click on code. After you have clicked on the code, there will be a link underneath HTTPS which you can copy and paste into the terminal. This should push all of the files into your vsc and you are now one step closer to running the program. 
+ > 
+ > After cloning, you want to go to the VSC code and enter ls to see which directory you are in.
+ >
 > ls checks to see what directory we are in Visual Studio Code. Once you see a directory with Snand/final-project.
 >
 > To get into the directory we can do cd snand/final-project which will go into the final-project scope.
