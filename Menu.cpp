@@ -15,6 +15,11 @@ void Menu::printMenu(User& user)
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
 
+   for(unsigned int i = 0; i < someTask.size(); ++i)
+   {
+        cout << someTask.at(i).GetName() << endl;
+   }
+
    //Remind rem;
    //cout << "apple" << endl;
   // rem.remind(cout, user);
