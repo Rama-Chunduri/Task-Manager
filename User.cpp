@@ -55,7 +55,7 @@ vector<Task> User::loadtasks(){
 
    // ofstream myFile(userName + ".txt");
    ifstream myFile;
-    string comma;
+   string comma;
 
     int TaskNumber; //purpose: to read in the number of a task
     int TaskSize = 0; //number reassigned (same thing as TaskNumber)
@@ -79,7 +79,7 @@ vector<Task> User::loadtasks(){
 
    while(myFile >> TaskNumber >> comma >> TaskName >> comma >> TaskStartDate >> comma >> TaskDueDate >> comma >> TaskDescription >> comma >> TaskTag >> comma >> TaskPriority >> comma >> TaskDuration){
         Task someTask(TaskName, TaskDescription, TaskStartDate, TaskDueDate, TaskTag, TaskPriority, TaskDuration, TaskComplete);
-        ++TaskSize;
+        TaskSize = TaskNumber;
         tasks.push_back(someTask);
    }
     
