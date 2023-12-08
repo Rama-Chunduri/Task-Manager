@@ -15,6 +15,11 @@ void Menu::printMenu(User& user)
    user.SetTaskList(someTask);
    taskList tasks = user.GetTaskList();
 
+   for(unsigned int i = 0; i < someTask.size(); ++i)
+   {
+        cout << someTask.at(i).GetName() << endl;
+   }
+
    //Remind rem;
    //cout << "apple" << endl;
   // rem.remind(cout, user);
@@ -256,7 +261,7 @@ void Menu::printMenu(User& user)
                     cout << "Please enter the new name of the task" << endl;
                     string new_name;
                     getline(cin, new_name);
-                    while(new_name.size() > 46)
+                    while(new_name.size() > 18)
                     {
                         cout << "Please enter a task name that is less than 46 characters or less: " << endl;
                         getline(cin, new_name);
@@ -397,7 +402,7 @@ void Menu::printMenu(User& user)
             else if (menuOption == "d") // View by Tag
             {
                 ViewSchedule view;
-                view.viewByTag(&user);
+                view.viewByTag(user);
             }
             else if (menuOption == "e") // View by Duration
             
