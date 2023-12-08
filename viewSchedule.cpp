@@ -3,17 +3,20 @@
 #include "task.h"
 #include "taskList.h"
 
+#include <string>
+#include <iomanip>
+
 using namespace std;
 
 void ViewSchedule :: viewDefault(User * user) {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
     }
 
     // sort tasks by due date and then by priorities
@@ -43,10 +46,16 @@ void ViewSchedule :: viewDefault(User * user) {
             cout << "+-------------------------------------------------------------------------------------+" << endl;
         }
 
+        // print priority 
         cout << "    " << task.GetPriority() << "     | ";
-        cout << tasks.at(i).GetName() << "     | ";
-        cout << tasks.at(i).GetTag() << "     | ";
-        cout << tasks.at(i).GetComplete();
+        
+        // print name of task 
+        cout<< left << setw(45) << tasks.at(i).GetName() << "| ";
+
+        // print tag
+        cout<< left << setw(12) << tasks.at(i).GetName() << "| ";
+
+        // print status 
         if (tasks.at(i).GetComplete() == true) { // completed 
             cout << "Complete" << endl;
         } else // incomplete 
@@ -64,31 +73,30 @@ void ViewSchedule :: viewDefault(User * user) {
 // shortest to longest duration
 // Might change the way this is viewed later - get the duration in intervals
 void ViewSchedule :: viewByDuration(User* user) {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks();  //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
     }
 
 
-   // sort tasks by duration from shortest to longest
-   sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
+    // sort tasks by duration from shortest to longest
+    sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
        return a.GetDurationHours() < b.GetDurationHours();
-   });
+    });
 
 
    cout << " Duration    | Task " << endl;
    cout << "+----------------------------------------------------+" << endl;
 
-
-   for (int i = 0; i < tasks.size(); ++i) {
-       // Print task details
-       cout << " " << tasks.at(i).GetDurationHours() << " | " << tasks.at(i).GetName() << endl;
-   }
+    for (int i = 0; i < tasks.size(); ++i) {
+        cout << " " << left << setw(12) << tasks.at(i).GetDurationHours() << "| ";
+        cout << tasks.at(i).GetName() << endl;
+    }
 
    cout << endl << endl;
 }
@@ -100,14 +108,14 @@ void ViewSchedule :: viewByDuration(User* user) {
 
 // complete vs incomplete
 void ViewSchedule :: viewByCompletion(User* user) {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks();  //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {
+            tasks.push_back(listOfTasks[i]);   // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+       // }
     }
 
     // Sort tasks by completion status and then by due date within each status
@@ -141,11 +149,13 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
                 }
 
-                cout << "+----------------------------------------------------+" << endl;
+                cout << "+--------------------------------------------------------+" << endl;
             }
 
             currentCompletionStatus = task.GetComplete();
         }
+
+        cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
 
             // print task details 
             if (currentCompletionStatus == true) { // task complete 
@@ -156,7 +166,7 @@ void ViewSchedule :: viewByCompletion(User* user) {
                     cout << "[X]" << " ";
                 }
 
-            cout << " "<< task.GetDueDate() << " | " << task.GetName() << endl;
+            cout << tasks.at(i).GetName() << endl;
         }
 
     cout << endl << endl;
@@ -169,14 +179,14 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
 // highest(1) to lowest priority(3)
 void ViewSchedule :: viewByPriority(User* user) {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {   //changed by Rama L Chunduri
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
     }
 
     // Sort tasks by priority and then by due date within each priority
@@ -211,8 +221,12 @@ void ViewSchedule :: viewByPriority(User* user) {
         }
 
             // Print task details
-            cout << " " << task.GetDueDate() << " | " << task.GetName() << endl;
+            cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+            cout << tasks.at(i).GetName();
+
     }
+
+    cout << endl << endl;
 }
 
 
@@ -223,14 +237,14 @@ void ViewSchedule :: viewByPriority(User* user) {
 // groups tasks of the same tag together
 void ViewSchedule :: viewByTag(User* user)  
 {
-    vector<Task*> listOfTasks = user->GetTaskList()->GetTasks();
+    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
     for (int i = 0; i < listOfTasks.size(); ++i) {
-        if (listOfTasks[i] != nullptr) {
-            tasks.push_back(*listOfTasks[i]);
-        }
+        //if (listOfTasks[i] != nullptr) {    //changed by Rama L Chunduri
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
     }
 
     //get unique tags 
@@ -260,8 +274,10 @@ void ViewSchedule :: viewByTag(User* user)
         for (int i = 0; i < uniqueTags.size(); ++i) {
             if (taskIterator.GetTag() == tagIterator)
                 //print task details as needed 
-                cout << " " << taskIterator.GetDueDate() << " | " << taskIterator.GetName() << endl;
+                cout << " " << left << setw(11) << tasks.at(i).GetDueDate() << " | ";
+                cout << tasks.at(i).GetName();        
         }
+        
         cout << endl << endl;
     }
 }

@@ -94,20 +94,80 @@ int main() {
 
       
       //valid password
-      cout << "Please enter a password: " << endl;
-      getline (cin, password);
-      bool validPassword = true;
-      cout << endl;
+
+        
+
+         cout << "Please enter a password that meets these requirements: " << endl;
+         cout << " - Needs to be at least 6 characters long" << endl;
+         cout << " - Needs to have at least 1 capital letter" << endl;
+         cout << " - Needs to have at least 1 number" << endl;
+         cout << " - Needs to have at least 1 of the following characters: $ @ ! & #" << endl;
+         cout << "Enter your password: " << endl;
+         getline (cin, password);
+         cout << endl;
+         bool validPassword = false;
+         bool capitalLetter = false;
+         bool numberExists = false;
+         bool passwordSize = false;
+         bool specialChar = false;
 
       //do checks for password
-         do 
-         {
-            if(validPassword == false)
-            {
-               cout << "Please enter a valid password: " << endl;
-               getline(cin, password);
-            }
-            validPassword = true;    
+         do{
+         
+               if(password.size() >= 6)
+               {
+                  passwordSize = true;
+               }
+               else
+               {
+                  cout << "Password needs to be at least 6 characters long." << endl;
+               }
+               
+               for(unsigned int i = 0; i < password.size(); ++i)
+               {
+                  if(isupper(password.at(i)))
+                  {
+                     capitalLetter = true;
+                  }
+                  if(isdigit(password.at(i)))
+                  {
+                     numberExists = true;
+                  }
+                  if(password.at(i) == '$' || password.at(i) == '@' || password.at(i) == '!' || password.at(i) == '&' || password.at(i) == '#')
+                  {
+                     specialChar = true;
+                  }
+               }
+
+            
+
+               if(!numberExists)
+               {
+                  cout << "Password needs at least one number." << endl;
+               }
+
+               if(!capitalLetter)
+               {
+                  cout << "Password needs at least one capital letter." << endl;
+               }
+
+               if(!specialChar)
+               {
+                  cout << "Passwords needs to have at least 1 of the following characters: $ @ ! & # ." << endl;
+               }
+                 
+               if(capitalLetter && numberExists && passwordSize && specialChar)
+               {
+                  validPassword = true;
+               } 
+               if(validPassword == false)
+               {
+                  cout << endl;
+                  cout << "Make sure password meets all requirements. Please enter a valid password: " << endl;
+                  getline(cin, password);
+                  cout << endl;
+               }
+               
          }
 
          while(validPassword == false);
@@ -125,11 +185,23 @@ int main() {
          cout << "Would you like to go to the Login page? Press E. If not, press Q to quit." << endl;
          cin >> userInput;
          cin.ignore();
-
-         if(userInput == 'Q')
-         {
-            return 0;
+         do{
+            if(userInput == 'Q')
+            {
+               return 0;
+            }
+            else if(userInput == 'E')
+            {
+               break;
+            }
+            else
+            {
+               cout << "Please enter a valid input. Press E to go to login and Q to quit: " << endl;
+               cin >> userInput;
+            }
+      
          }
+         while(userInput != 'Q' && userInput != 'E');
          
          userFile.open("userLogin.txt", ios::in | ios::out | ios::app); //reopen file so file cursor is reset and file can be read properly for login process
       }
@@ -180,7 +252,7 @@ int main() {
             }
             else{
                cout << "Username or Passoword is incorrect. Please try again." << endl;
-                userFile.clear(); //clear end of file flag
+               userFile.clear(); //clear end of file flag
                userFile.seekg(0, ios::beg); // set position to beginning of the file
                cout << endl;
             }
@@ -196,18 +268,25 @@ int main() {
       //creates file for user's schedule
       ifstream inFS;
       ofstream outFS(fileName);
+
+
+   
+      //setting the user name and password
+      User person;
+      person.SetUserName(userName);
+      person.SetPassword(password);
+      person.SetName(yourName);
+      
+      Menu menuPerson;
+      menuPerson.printMenu(person);
+
+
+      
+      userFile.close();
    }
 
-   //setting the user name and password
-   User person;
-   person.SetUserName(userName);
-   person.SetPassword(password);
-   person.SetName(yourName);
-   
-   Menu menuPerson;
-   menuPerson.printMenu(person);
-   
-   userFile.close();
+
+
    
    return 0;
 }
