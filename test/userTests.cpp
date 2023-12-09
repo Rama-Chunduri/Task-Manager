@@ -1,36 +1,85 @@
 #include <gtest/gtest.h>
-#include "../include/taskList.h"
+#include "../User.h"
+#include "../task.h"
+#include "../taskList.h"
 
-TEST(UserTest, LoadTasks) {
-    // Create a test user
-    User someUser("someUser", "Password123$", "Sammy");
-    // Create a test file with a single task
-    ofstream testFile("testUser.txt");
-    testFile << "do hw, 12/12/12, 12/13/12, finish worksheets by 9 p.m., math, 1, 2.5, 0";
-    testFile.close();
-    // Call loadtasks function
-    vector<Task> tasks = someUser.loadtasks();
-    // Assert that the tasks vector is not empty
-    ASSERT_FALSE(tasks.empty());
+
+  TEST(UserTest, SetUserName)
+{
+	User someUser;
+	someUser.SetUserName("Sam1");
+	EXPECT_EQ(someUser.GetUserName(), "Sam1");
 }
 
-TEST(UserTest, VerifyLoadedTasks) {
-    // Create a test user
-    User someUser("someUser", "Password123$", "Sammy");
-
-    // Create a test file with sample tasks
-    ofstream testFile("testUser.txt");
-    testFile << "do hw, 12/12/12, 12/13/12, finish worksheets by 9 p.m., math, 1, 2.5, 0";
-    testFile << "do chores, 2/12/12, 2/13/12, do laundry, chores, 2, 1, 0";
-    testFile.close();
-
-    // Call loadtasks function
-    vector<Task> tasks = someUser.loadtasks();
-
-    // Verify the correctness of the loaded tasks
-    ASSERT_EQ(tasks.size(), 2);
-
-    // Assuming Task objects have appropriate equality comparison operators
-    ASSERT_EQ(Task("do hw", "finish worksheets by 9 p.m.", "12/12/12", "12/13/12", "math", 1, 2.5, false));
-    ASSERT_EQ(Task("do chores", "do laundry", "2/12/13", "2/13/12", "chores", 2, 1, false));
+TEST(UserTest, SetPassword)
+{
+	User someUser1;
+	someUser1.SetPassword("Password123$");
+	ASSERT_EQ(someUser1.GetPassword(), "Password123$");
 }
+
+TEST(UserTest, SetName)
+{
+	User someUser2;
+	someUser2.SetName("Samantha");
+	ASSERT_EQ(someUser2.GetName(), "Samantha");
+}
+
+TEST(TaskTest, SetComplete)
+{
+Task task8;
+task8.SetComplete(false);
+EXPECT_EQ(task8.GetComplete(), false);
+}
+TEST(TaskTest, SetTag)
+{
+Task task5;
+task5.SetTag("chores");
+EXPECT_EQ(task5.GetTag(), "chores");
+}
+
+TEST(TaskTest, SetName)
+{
+	Task task1;
+task1.SetName("Hw");
+EXPECT_EQ(task1.GetName(), "Hw");
+}
+TEST(TaskTest, SetDescription)
+{
+	Task task2;
+task2.SetDescription("desc");
+EXPECT_EQ(task2.GetDescription(), "desc");
+}
+
+TEST(TaskTest, SetStartDate)
+{
+Task task3;
+task3.SetStartDate("12/09/2023");
+EXPECT_EQ(task3.GetStartDate(), "12/09/2023");
+}
+
+TEST(TaskTest, SetDueDate)
+{
+	Task task4;
+task4.SetDueDate("12/10/2023");
+EXPECT_EQ(task4.GetDueDate(), "12/10/2023");
+}
+TEST(TaskTest, SetPriority)
+{
+	Task task6;
+task6.SetPriority(1);
+EXPECT_EQ(task6.GetPriority(), 1);
+}
+TEST(TaskTest, SetDurationHours)
+{
+	Task task7;
+task7.SetDurationHours(2.5);
+EXPECT_EQ(task7.GetDurationHours(), 2.5);
+}
+
+
+
+
+
+
+

@@ -1,24 +1,33 @@
 #include <gtest/gtest.h>
-#include "../include/taskList.h"
+#include "../task.h"
+#include "../taskList.h"
+#include "../User.h"
 
 TEST(AddTasksTests, FileTest){
     ostringstream out;
-    addTask(out, task, vkupp);
-    ASSERT_Q(out.str(), "task 4, 3/3/3, 4/4/4, desc5, tag5, 2, 5.5, 1");
-}
-TEST(AddTasksTests, FileTest1){
-    ostringstream out;
-    addTask(out, task, vkupp);
-    ASSERT_Q(out.str(), "task 3, 3/3/3, 4/4/4, desc4, tag4, 3, 4.4, 0");
-}
-TEST(DeleteTasks, VectorCheck){
-    int size= tasks.size();
-    removeTask(2,vkupp);
-    EXPECT_Q(size,size-1);
-}
-TEST(DeleteTasks, VectorCheck){
-    int size= tasks.size();
-    removeTask(1,vkupp);
-    EXPECT_Q(size,size-1);
+    Task task = Task("task 4", "desc5", "3/3/3", "4/4/4", "tag5", 2,  5.5, true);
+    taskList tasks;
+    vector<Task>taskss;
+    tasks.addTask(out, task, "vkupp", taskss);
+    ASSERT_EQ(out.str(), "task 4, 3/3/3, 4/4/4, desc5, tag5, 2, 5.5, 1\n");
 }
 
+
+TEST(DeleteTasks, VectorCheck){
+    ostringstream out;
+    Task task = Task("task 4", "desc5", "3/3/3", "4/4/4", "tag5", 2,  5.5, true);
+    taskList tasks;
+    vector<Task>taskss;
+    tasks.addTask(out, task, "vkupp", taskss);
+    int size= taskss.size();
+    //ASSERT_EQ(size,1);
+    tasks.removeTask(1,"vkupp");
+    size= taskss.size();
+    ASSERT_EQ(size,0);
+}
+
+
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}

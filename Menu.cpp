@@ -580,17 +580,17 @@ void Menu::printMenu(User& user)
             
             {
                 ViewSchedule view;
-            view.viewByDuration(&user);
+            view.viewByDuration(user);
             }
             else if (menuOption == "f") // View by Completion
             {
                 ViewSchedule view;
-                view.viewByCompletion(&user);
+                view.viewByCompletion(user);
             }
             else if (menuOption == "g") // View by Priority
             {
                 ViewSchedule view;
-                view.viewByPriority(&user);
+                view.viewByPriority(user);
             }
             else if (menuOption == "x"){
                 cout << "Logging out!" << endl;
