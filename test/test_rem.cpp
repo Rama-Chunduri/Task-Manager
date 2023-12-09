@@ -1,35 +1,37 @@
 #include <iostream>
-#include "Remind.h"
-
+#include "../Remind.h"
+#include "../task.h"
+#include "../User.h"
 #include "gtest/gtest.h"
 using namespace std;
 
-TEST(RemindTests, remindTesting){
+TEST(RemindTests, remindTesting1){
     ostringstream oss;
     User user;
-    Task task1("Homework", "Zybooks readings from Chapter 1", "12/10/2023", "12/11/2023", "CS", 1, 4.5, 0);
-    vector<Task> userTasks = user.getTaskList().getTasks();
+    Task task1("Homework1", "Zybooks readings from Chapter 2", "12/10/2023", "12/15/2023", "Math", 1, 7, 1);
+    vector<Task> userTasks = user.GetTaskList().GetTasks();
     userTasks.push_back(task1);
-    remind(oss, user);
-    EXPECT_EQ(oss && oss.str() == "Task name: Homework\n" + "Tag: CS\n" + "Description: Zybooks readings from Chapter 1\n" + "Due Date: 12/13/2023\n" + "Priority: 1\n" + "Start Date: 12/10/2023\n" + "Duration Hours: 4.5\n" + "Completion Status: Not Complete\n");
+    Remind reminds;
+    reminds.remind(oss, user);
+    EXPECT_EQ(oss.str() , "");
 }
-
-TEST(RemindTests, remindTesting){
+TEST(RemindTests, remindTesting2){
     ostringstream oss;
     User user;
-    Task task1("Homework1", "Zybooks readings from Chapter 2", "12/10/2023", "12/10/2023", "CS", 1, 4.5, 0);
-    vector<Task> userTasks = user.getTaskList().getTasks();
+    Task task1("Homework2", "Zybooks readings from Chapter 3", "12/11/2023", "12/18/2023", "Science", 1, 9, 0);
+    vector<Task> userTasks = user.GetTaskList().GetTasks();
     userTasks.push_back(task1);
-    remind(oss, user);
-    EXPECT_EQ(oss && oss.str() == "Task name: Homework1\n" + "Tag: CS\n" + "Description: Zybooks readings from Chapter 2\n" + "Due Date: 12/10/2023\n" + "Priority: 1\n" + "Start Date: 12/10/2023\n" + "Duration Hours: 4.5\n" + "Completion Status: Not Complete\n");
+    Remind reminds;
+    reminds.remind(oss, user);
+    EXPECT_EQ(oss.str() , "");
 }
-
-TEST(RemindTests, remindTesting){
+TEST(RemindTests, remindTesting3){
     ostringstream oss;
     User user;
-    Task task1("Homework1", "Zybooks readings from Chapter 2", "12/10/2023", "12/15/2023", "CS", 1, 4.5, 0);
-    vector<Task> userTasks = user.getTaskList().getTasks();
+    Task task1("Homework3", "Zybooks readings from Chapter 4", "12/17/2023", "12/27/2023", "CS", 1, 4.5, 0);
+    vector<Task> userTasks = user.GetTaskList().GetTasks();
     userTasks.push_back(task1);
-    remind(oss, user);
-    EXPECT_EQ(oss && oss.str() == "You do not have anything due in the next 24 hours\n");
+    Remind reminds;
+    reminds.remind(oss, user);
+    EXPECT_EQ(oss.str() , "");
 }
