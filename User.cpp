@@ -6,6 +6,8 @@
 #include <fstream>
 #include <sstream>
 
+#include <algorithm>
+
 using namespace std;
 
 User::User(){
@@ -99,10 +101,10 @@ vector<Task> User::loadtasks(){
 
         TaskComplete = (TaskCompleteInt == 1);
 
-        
-        
 
-        cout << "Read Task: " << TaskName << " " << TaskStartDate << " " << TaskDueDate << " " << TaskDescription << " " << TaskTag << " " << TaskPriority << " " << TaskDuration << endl;
+        
+        TaskName.erase(remove(TaskName.begin(), TaskName.end(), '\n'), TaskName.cend());
+
         Task someTask(TaskName, TaskDescription, TaskStartDate, TaskDueDate, TaskTag, TaskPriority, TaskDuration, TaskComplete);
         tasks.push_back(someTask);
 

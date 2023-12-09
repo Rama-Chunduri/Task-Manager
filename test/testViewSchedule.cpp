@@ -28,6 +28,7 @@ TEST(ViewScheduleTest, TestViewDefault) {
     // Assert - Assuming that the tasks are sorted in ascending order of due date
     EXPECT_EQ("20220102", "20220102");
     ASSERT_NE("20220103", "20220102");
+
 }
 
 
