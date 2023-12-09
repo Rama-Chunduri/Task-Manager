@@ -9,7 +9,15 @@
 using namespace std;
 
 void ViewSchedule :: viewDefault(User user) {
-    vector<Task> tasks = user.GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
+    vector<Task> listOfTasks = user.GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
+
+    vector<Task> tasks;
+    // Make a copy of the vector 
+    for (int i = 0; i < listOfTasks.size(); ++i) {
+        //if (listOfTasks[i] != nullptr) {
+            tasks.push_back(listOfTasks[i]); // changed by Rama L Chunduri from tasks.push_back(*listOfTasks[i]) to tasks.push_back(listOfTasks[i])
+        //}
+    }
 
     // sort tasks by due date and then by priorities
     sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
@@ -73,8 +81,8 @@ void ViewSchedule :: viewDefault(User user) {
 
 // shortest to longest duration
 // Might change the way this is viewed later - get the duration in intervals
-void ViewSchedule :: viewByDuration(User* user) {
-    vector<Task> listOfTasks = user->GetTaskList().GetTasks();  //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
+void ViewSchedule :: viewByDuration(User user) {
+    vector<Task> listOfTasks = user.GetTaskList().GetTasks();  //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
@@ -107,8 +115,8 @@ void ViewSchedule :: viewByDuration(User* user) {
 
 
 // complete vs incomplete
-void ViewSchedule :: viewByCompletion(User* user) {
-    vector<Task> listOfTasks = user->GetTaskList().GetTasks();  //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
+void ViewSchedule :: viewByCompletion(User user) {
+    vector<Task> listOfTasks = user.GetTaskList().GetTasks();  //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 
@@ -164,8 +172,8 @@ void ViewSchedule :: viewByCompletion(User* user) {
 
 
 
-void ViewSchedule::viewByPriority(User* user) {
-    vector<Task> listOfTasks = user->GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
+void ViewSchedule::viewByPriority(User user) {
+    vector<Task> listOfTasks = user.GetTaskList().GetTasks(); //changed by Rama L Chunduri from '->' to '.' and from <Task*> to <Task>
 
     vector<Task> tasks;
     // Make a copy of the vector 

@@ -44,7 +44,6 @@ void Remind::remind(ostream& os, User user){
        //cout << localTime->tm_mday << endl;
        //cout << localTime->tm_mon + 1 << endl;
        //cout << localTime->tm_year + 1900 << endl;
-
        //cout << *localTime << endl;
        if(localTime->tm_mday == currDt - 1 && localTime->tm_mon + 1 == currMn && localTime->tm_year+1900 == currYr){//localTime->tm_year+1900 == currYr && localTime->tm_mon+1 == currMn && localTime->tm_mday == currDt){
            os << "Task Name: " << tasks.at(i).GetName() << endl;
