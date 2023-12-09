@@ -176,7 +176,8 @@ Our project utilized the Google Test framework. We tested each of our .cpp files
 **How the project was tested/validated:**
 In addition to writing unit tests, here are some other ways the code was tested:
 - To check if some logic components were working the way it was intended to, the trial and error method was used. This definitely helped test the small parts of the code.
-- Outputting the values of certain parts of the code when we weren’t sure if the values were what we wanted it to be. (SOMEONE REWORD THIS)
+- When we were not sure why our code is not working the way we wanted it to work, we tried outputting some cout statements in functions.
+- We initially outputted the members variables to the screen before using them (in development mode) to verify that we are using the right values and that the member variables 
 - Commenting out code to test a specific part of the program. 
 Testing edge cases for inputs 
 
