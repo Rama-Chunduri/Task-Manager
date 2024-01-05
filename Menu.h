@@ -2,13 +2,16 @@
 #include <iostream>
 #include <string>
 
+#include "User.h"
+#include "taskList.h"
+#include "viewSchedule.h"
 
-#include "taskListEdit.h"
 
-
-class Menu()
+class Menu
 {
-    void printMenu();
+    public:
+    void printMenu(User& user);
 
 
 };
+

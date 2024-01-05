@@ -1,69 +1,117 @@
-#pragma once
 #include "task.h"
 #include <string>
 #include <vector>
+#include <iostream>
+
+using namespace std;
 
 Task::Task(){}
-Task::Task(string name, string description, string dueDate, string tag, int priority, string startDate, string endDate, double durationHours){
-   vector<Task>tasks;
+
+
+Task::Task(string name = "NoName", string description  = "NoDesc", string startDate = "NoDate", string dueDate = "NoDate", string tag = "NoTag", int priority = 0, double durationHours = 0, bool completeStatus = false){
+  //vector<Task>tasks;
    _name = name;
-   _description = description;
-   _dueDate = dueDate;
-   _tag = tag;
-   _priority = priority;
-   _startDate = startDate;
-   _endDate = endDate;
-   _durationHours = durationHours;
-}
-void Task::SetName(string name){
-this->_name = name;
-}
-void Task::SetDueDate(string dueDate){
-   this->_dueDate = dueDate;
-}
-void Task::SetTag(string tag){
-   this->_tag = tag;
-}
-void Task::SetDescription(string description){
-   this->_description = description;
-}
-void Task::SetPriority(int priority){
-   this->_priority = priority;
-}
-bool Task::Complete(bool check){
-   this->_complete=check;
-}
-string Task::GetName(){
-   return _name;
-}
-string Task::GetDueDate(){
-   return _dueDate;
-}
-string Task::GetTag(){
-   return _tag;
-}
-string Task::GetDescription(){
-   return _description;
-}
-int Task::GetPriority(){
-   return _priority;
-}
-string Task::GetStartDate(){
-   return _startDate;
-}
-string Task::GetEndDate(){
-   return _endDate;
-}
-double Task::GetDurationHours(){
-   return _durationHours;
-}
-void Task::SetStartDate(string startDate){
-   _startDate = startDate;
-}
-void Task::SetEndDate(string endDate){
-   _endDate = endDate;
-}
-void Task::SetDurationHours(double durationHours){
-   _durationHours = durationHours;
+  _description = description;
+  _startDate = startDate;
+  _dueDate = dueDate;
+  _tag = tag;
+  _priority = priority;
+  _durationHours = durationHours;
+  _complete = completeStatus;
 }
 
+
+void Task::SetName(string name){
+  _name = name;
+}
+string Task::GetName() const{
+  return _name;
+}
+
+
+
+
+
+
+void Task::SetDescription(string description){
+  this->_description = description;
+}
+string Task::GetDescription() const{
+  return _description;
+}
+
+
+
+
+
+
+void Task::SetStartDate(string startDate){
+  this->_startDate = startDate;
+}
+string Task::GetStartDate() const{
+  return _startDate;
+}
+
+
+
+
+
+
+
+
+
+
+void Task::SetDueDate(string dueDate){
+  this->_dueDate = dueDate;
+}
+string Task::GetDueDate() const{
+  return _dueDate;
+}
+
+
+
+
+
+
+void Task::SetTag(string tag){
+  this->_tag = tag;
+}
+string Task::GetTag() const{
+  return _tag;
+}
+
+
+
+
+
+
+void Task::SetPriority(int priority){
+  this->_priority = priority;
+}
+int Task::GetPriority() const{
+  return _priority;
+}
+
+
+
+
+
+
+double Task::GetDurationHours() const{
+  return _durationHours;
+}
+void Task::SetDurationHours(double durationHours){
+  _durationHours = durationHours;
+}
+
+
+
+
+
+
+void Task::SetComplete(bool check){
+  this->_complete = check;
+}
+bool Task::GetComplete() const{
+  return _complete;
+}

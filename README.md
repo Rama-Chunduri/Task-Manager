@@ -77,7 +77,7 @@ The main features of this project are: It allows the user to organize their sche
 <br></br>
 
 ### Class Diagram
-<img width="664" alt="Screenshot 2023-11-22 at 12 08 21 PM" src="https://github.com/cs100/final-project-snand021/assets/146979206/07090208-be0a-4675-a8c1-231b1f18ada2">
+<img width="664" alt="Screenshot 2023-11-22 at 12 08 21 PM" src="https://github.com/cs100/final-project-snand021/assets/117553441/985a98a0-f2ba-4872-8c0b-eafbdba20cd5">
 
 
 
@@ -94,7 +94,7 @@ This class also has a loadTask function that reads input from the user’s file 
 
 **Menu Class** - The Menu class contains a single function that prints the menu containing multiple options such as adding a task, deleting a task, and editing a task. This class improves the user interface and accessibility while also making the creation of the schedule more flexible.
 
-**ViewSchedule Class** - The ViewSchedule class consists of 6 functions. These functions allow the user to view their schedule sorted by due date, start date, duration, completion, tag, and priority. This implementation allows the user to view their schedule according to their personal preference. 
+**ViewSchedule Class** - The ViewSchedule class consists of 5 functions. These functions allow the user to view their schedule scheduled by default, tag, duration, completion, and priority. This implementation allows the user to view their schedule according to their personal preference. 
 
 **Remind Class** - The Remind class has a function called remind that outputs a message to the user on terminal, reminding the user of the tasks that are due in 24 hours. The Remind class also notifies the user when it is approaching the end of the week to complete the tasks.
 <br></br>
@@ -151,17 +151,35 @@ Added a User class that is sort of the central class of the program. It enables 
 - Benefits: This change enhances modularity and maintainability. The User class serves as a central hub for user-specific actions, such as login and task retrieval, providing a clear and coherent interface for managing user-related concerns.
 <br></br>
 
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
+ ## Final deliverable
+
 
  ## Screenshots
- > Screenshots of the input/output after running your application
+Screenshots of the input/output after running your application
+
  ## Installation/Usage
- > Instructions on installing and running your application
+  Here are the instructions for installing or running your application
+  1. Open a terminal on your local machine 
+  2. cd into the directory of your choice 
+  3. To clone the repo, use the command: https://github.com/cs100/final-project-snand021.git
+  4. Run cmake . once the repo has been cloned onto your local machine
+  5. Then run make
+  6. Run the following command to run the program: ./bin/ScheduleOrganizer
+  7. The program should now be running!
+
+ After running the program, you will be asked to Create a new account or if you are an existing user. Once you have chosen those options, you can successfully create a task or you can edit, view, or delete your task. 
+
+ 
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+Our project utilized the Google Test framework. We tested each of our .cpp files from src folder for functionality and non-functionality.
+
+**How the project was tested/validated:**
+In addition to writing unit tests, here are some other ways the code was tested:
+- To check if some logic components were working the way it was intended to, the trial and error method was used. This definitely helped test the small parts of the code.
+- When we were not sure why our code is not working the way we wanted it to work, we tried outputting some cout statements in functions.
+- We initially outputted the members variables to the screen before using them (in development mode) to verify that we are using the right values and that the member variables 
+- Commenting out code to test a specific part of the program. 
+Testing edge cases for inputs 
+
+
  
